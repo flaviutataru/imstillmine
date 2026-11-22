@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 124" role="img" aria-label="I’m Still Mine">
+  <text x="8" y="54" font-family="Literata, Georgia, serif" font-size="46" font-weight="500" fill="#2b0a0d">I’m Still</text>
+  <path d="M178.5 55 C 179.5 70, 181.5 80, 176.5 88" fill="none" stroke="#d7262e" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M176.5 88 q -7 -2 -8 4 q 1 6 8 3 q 4 -3 0 -7" fill="none" stroke="#d7262e" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="62" y="118" font-family="Literata, Georgia, serif" font-size="46" font-weight="700" fill="#d7262e" transform="rotate(-4 62 118)">Mine</text>
+</svg>

@@ -1,0 +1,15 @@
+I'm Still Mine
+Copyright 2026 Flaviu Tataru and contributors
+Licensed under the Apache License, Version 2.0.
+
+Third-party components included in this repository:
+
+- site/lib/face-api.js and site/models/*: @vladmandic/face-api 1.7.15 (MIT License), bundling TensorFlow.js (Apache-2.0)
+- site/lib/exifr.js: exifr 7.1.3 (MIT License)
+- site/lib/ort/*: onnxruntime-web 1.23.2 (MIT License)
+
+Not included and not licensed for redistribution:
+- InsightFace / ArcFace models (non-commercial research use only). The optional engine in site/moteurs.js is disabled by default.
+
+Loaded remotely by the website:
+- Google Fonts (Literata, DM Sans), SIL Open Font License 1.1

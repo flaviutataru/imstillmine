@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title data-i="s.title">I’m Still Mine — démo</title>
+<link rel="icon" href="brand/logo-mark.svg" type="image/svg+xml"/>
+<meta content="#d7262e" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+/* VOICE: tender, calm, never judging; a quiet notebook, not a campaign
+   IDEA: a pocket notebook she opens alone, page by page
+   PICTURE: the open page itself (the working app) under a modest title
+   COLOUR and TYPE: white / deep teal ink, one coral accent; Literata + DM Sans
+   LAYOUT: one calm column, progress dots, doctor side as a tidy workspace */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0d1f23);--paper:light-dark(#f2f7f6,#13292e);--ink:light-dark(#12343b,#e6efee);
+--soft:light-dark(#4d6a70,#a9bfc2);--line:light-dark(#d5e3e1,#24434a);--acc:light-dark(#d9503c,#ff8a73);
+--accbg:light-dark(#fdeeea,#3a201b);--teal:light-dark(#12343b,#cfe6e2);--ok:light-dark(#1d6b58,#7fd3b9)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "DM Sans",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Literata,Georgia,serif;font-weight:600;line-height:1.1;text-wrap:balance;margin:0 0 .5em}
+h1{font-size:clamp(28px,4.4vw,42px)}h2{font-size:clamp(24px,3vw,32px)}h3{font-size:19px}
+p{margin:0 0 1em}a{color:var(--acc)}
+.top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px max(5vw,16px);border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+.brand{font-family:Literata,serif;font-weight:600;font-size:19px}
+.seg{display:flex;background:var(--paper);border-radius:999px;padding:4px}
+.seg a{padding:10px 16px;border-radius:999px;text-decoration:none;color:var(--soft);font-weight:500;min-height:44px;display:flex;align-items:center}
+.seg a.on{background:var(--teal);color:var(--bg)}
+.demo{background:var(--accbg);color:var(--ink);font-size:14px;padding:8px max(5vw,16px)}
+main{max-width:760px;margin:0 auto;padding:clamp(24px,4vw,48px) 16px 64px}
+.wide{max-width:1040px}
+.dots{display:flex;gap:6px;margin:0 0 20px;flex-wrap:wrap}
+.dots button{width:34px;height:8px;min-height:0;border-radius:4px;border:0;background:var(--line);padding:0;cursor:pointer}
+.dots button.on{background:var(--acc)}.dots button.done{background:var(--soft)}
+.page{background:var(--paper);border-radius:18px;padding:clamp(22px,4vw,40px);box-shadow:0 1px 0 var(--line)}
+.kicker{color:var(--soft);font-size:14px;margin-bottom:6px}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:28px;flex-wrap:wrap}
+button,.btn{font:inherit;font-weight:500;min-height:44px;padding:10px 20px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+button.main{background:var(--teal);color:var(--bg);border-color:var(--teal)}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.exit{background:var(--acc);color:#fff;border:0}
+ul.facts{padding-left:1.1em;margin:0 0 1em}ul.facts li{margin-bottom:.5em}
+.note{border-inline-start:3px solid var(--acc);padding-block:4px;padding-inline:14px 0;color:var(--soft);font-size:15px;margin:16px 0}
+.q{border-top:1px solid var(--line);padding:14px 0}
+.q p{margin:0 0 8px;font-weight:500}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:8px 14px;min-height:44px;cursor:pointer;background:var(--bg)}
+.opts input{accent-color:var(--acc);width:18px;height:18px}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.big{font-family:Literata,serif;font-size:clamp(34px,6vw,52px);line-height:1;white-space:nowrap}
+.rows div{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.rows span:last-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+input,textarea,select{font:inherit;font-size:16px;width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+input[type=range]{padding:0;accent-color:var(--acc)}
+label.f{display:block;margin:14px 0 6px;font-weight:500}
+.alert{background:var(--accbg);border-radius:12px;padding:16px;margin:16px 0}
+.res{display:grid;gap:10px;margin:12px 0}
+.res div{background:var(--bg);border-radius:12px;padding:12px 14px;border:1px solid var(--line)}
+.res b{display:block}.res span{color:var(--soft);font-size:15px}
+.ok{color:var(--ok);font-weight:600}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;overflow-x:auto}
+.tabs button.on{background:var(--teal);color:var(--bg);border-color:var(--teal)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
+.req{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer;text-align:left;width:100%;display:block}
+.req.on{border-color:var(--acc)}
+.tag{display:inline-block;font-size:13px;padding:2px 8px;border-radius:6px;background:var(--paper);color:var(--soft);margin-right:6px}
+.tag.new{background:var(--accbg);color:var(--acc)}
+.slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.slots button{padding:8px 4px;font-size:14px;min-height:44px}
+.slots button.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.slots .h{font-size:13px;color:var(--soft);text-align:center;padding:4px}
+.priv{background:var(--bg);border-radius:12px;padding:14px 16px;border:1px dashed var(--line);font-size:15px}
+.hide{display:none!important}
+.brand{text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.brand .logo{height:52px;width:auto;display:block}
+.brand .word{font-family:Literata,Georgia,serif;font-size:22px;font-weight:500;letter-spacing:-.01em}.brand .word b{font-weight:700;color:var(--acc)}
+.tagline{font-family:Literata,Georgia,serif;font-size:18px;color:var(--acc);margin:0 0 10px}
+nav.site{display:flex;gap:2px;flex-wrap:wrap}
+nav.site a{text-decoration:none;color:var(--soft);padding:10px 12px;border-radius:10px;min-height:44px;display:flex;align-items:center;font-weight:500}
+nav.site a.on{color:var(--ink);background:var(--paper)}
+nav.site a.pro{border:1px solid var(--line)}
+.view{display:none}.view.on{display:block}
+.hero{background:var(--paper);padding:clamp(32px,6vw,80px) max(5vw,16px)}
+.heroin{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:center}
+h1.xl{font-size:clamp(32px,5vw,50px)}
+.lede{font-size:18px;color:var(--soft);max-width:62ch}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+a.btn{text-decoration:none;display:inline-flex;align-items:center}
+a.btn.main{background:var(--teal);color:var(--bg);border-color:var(--teal)}
+.glass{width:100%;height:auto}
+.glass .mend{stroke-dasharray:200;stroke-dashoffset:200;animation:mend 2.4s .6s ease-out forwards}.glass .stitches{opacity:0;animation:stitch .6s 2.8s forwards}
+@keyframes mend{to{stroke-dashoffset:0}}@keyframes stitch{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.glass .mend{stroke-dashoffset:0;animation:none}.glass .stitches{opacity:1;animation:none}}
+.wrapw{max-width:1040px;margin:0 auto}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}.band.alt{background:var(--paper)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.steps li{background:var(--bg);border-radius:14px;padding:16px;border:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:counter(s);font-family:Literata,serif;font-size:28px;color:var(--acc);display:block;line-height:1}
+.steps b{display:block;margin:6px 0 2px}.steps span{color:var(--soft);font-size:15px}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:8px}
+.people div{background:var(--paper);border-radius:12px;padding:14px 16px}
+.people .ghost{background:none;border:1px dashed var(--line)}
+.people b{display:block}.people span{color:var(--soft);font-size:15px}
+.small{font-size:14px;color:var(--soft)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.langsel select{width:auto;min-height:44px;padding:8px 10px;font-size:15px}
+.top{flex-wrap:wrap}
+.dim{opacity:.55}
+.cam{position:relative;border-radius:14px;overflow:hidden;background:#000;max-width:420px;aspect-ratio:4/3}
+.cam video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+.chal{font-family:Literata,serif;font-size:22px;margin:4px 0}
+.meter{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin:8px 0}.meter i{display:block;height:100%;background:var(--acc);transition:width .3s}
+#matchCv,.ela{display:block;max-width:100%;height:auto;border-radius:12px;margin:14px 0}
+.vcard{border-radius:14px;padding:16px;margin:14px 0;background:var(--bg);border:2px solid var(--line)}
+.vcard b{display:block;font-size:18px}.vcard span{display:block;color:var(--soft)}
+.vcard.hi,.vcard.lo2{border-color:var(--acc)}.vcard.mid{border-color:#c98a1b}.vcard .big{color:var(--ink)}
+.sigs{list-style:none;padding:0;margin:0}.sigs li{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.lv{font-size:13px;font-weight:600;border-radius:6px;padding:2px 6px;height:fit-content;text-align:center;background:var(--paper);color:var(--soft)}
+.lv.fort{background:var(--accbg);color:var(--acc)}.lv.moyen{background:light-dark(#fbf0d9,#3a2e14);color:light-dark(#8a5a00,#f0c060)}
+.conf{margin:10px 0 6px;font-size:15px}.conf.high b{color:var(--ok)}.conf.low b{color:var(--acc)}
+table.eng{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0}table.eng td{padding:6px 4px;border-top:1px solid var(--line);vertical-align:top}table.eng td:first-child{color:var(--soft);width:42%}
+textarea.mono{font:13px/1.45 ui-monospace,Menlo,monospace}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.tools a{display:block;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-height:44px}
+.tools a span{display:block;color:var(--soft);font-size:15px}
+ol.facts{padding-left:1.3em}
+main h2{margin-top:1.4em}
+pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overflow-x:auto;margin:0}
+.en{margin-top:28px;border-top:1px solid var(--line);padding-top:12px}
+.foot{border-top:1px solid var(--line);padding:28px max(5vw,16px);font-size:15px}
+.fgrid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px}
+.flinks{display:flex;flex-direction:column;gap:6px}
+@media(max-width:800px){.heroin,.fgrid{grid-template-columns:minmax(0,1fr)}.glass{max-width:340px}.three,.steps{grid-template-columns:minmax(0,1fr)}nav.site{overflow-x:auto;flex-wrap:nowrap;width:100%}nav.site a{flex:none}}
+@media(max-width:700px){.calc,.grid2{grid-template-columns:minmax(0,1fr)}.seg a{padding:10px 12px}}
+@media(prefers-reduced-motion:no-preference){.page{animation:in .35s ease}@keyframes in{from{opacity:0;transform:translateY(6px)}}}
+
+/* PALETTE I'M STILL MINE : blanc et rouge uniquement, toujours en clair, sobre */
+:root,:root[data-theme=dark],:root[data-theme=light]{color-scheme:light;--bg:#ffffff;--paper:#fff6f6;--ink:#2b0a0d;--soft:#7d3a40;--line:#f2d3d6;--acc:#d7262e;--accbg:#ffecec;--teal:#b3121c;--ok:#8a1a20}
+.vcard.mid{border-color:#ee9ba0}.lv.moyen{background:#fff1e6;color:#9a2a12}
+.hero{background:#fff6f6}
+</style>
+</head>
+<body>
+<header class="top">
+<a aria-label="I’m Still Mine" class="brand" href="#accueil"><svg class="logo" aria-hidden="true" viewBox="0 0 200 124" role="img" aria-label="I’m Still Mine">
+  <text x="8" y="54" font-family="Literata, Georgia, serif" font-size="46" font-weight="500" fill="#2b0a0d">I’m Still</text>
+  <path d="M178.5 55 C 179.5 70, 181.5 80, 176.5 88" fill="none" stroke="#d7262e" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M176.5 88 q -7 -2 -8 4 q 1 6 8 3 q 4 -3 0 -7" fill="none" stroke="#d7262e" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="62" y="118" font-family="Literata, Georgia, serif" font-size="46" font-weight="700" fill="#d7262e" transform="rotate(-4 62 118)">Mine</text>
+</svg></a>
+<label class="langsel"><span class="sr" data-i="s.langLabel">Langue</span><select id="langSel" aria-label="Langue / Language"></select></label>
+<nav aria-label="Navigation principale" class="site">
+<a data-i="s.nav.2" data-n="accueil" href="#accueil">Accueil</a>
+<a data-i="s.nav.3" data-n="parcours" href="#parcours">Le parcours</a>
+<a data-i="s.nav.4" data-n="apropos" href="#apropos">Qui sommes-nous</a>
+<a data-i="s.nav.5" data-n="photos" href="#photos">Vérifier mes photos</a>
+<a data-i="s.nav.6" data-n="outils" href="#outils">Outils</a>
+<a data-i="s.nav.7" data-n="plateformes" href="#plateformes">Plateformes</a>
+<a data-i="s.nav.8" data-n="soignants" href="#soignants">Soignants</a>
+<a class="pro" data-i="s.nav.9" data-n="medecin" href="#medecin">Espace pro</a>
+</nav>
+</header>
+<div class="demo" data-i="s.demo.1">Démo de présentation : données fictives, rien n'est envoyé ni enregistré. Tout reste dans cet onglet.</div>
+<!-- ============ ACCUEIL ============ -->
+<div class="view" id="v-accueil">
+<section class="hero">
+<div class="heroin">
+<div>
+<p class="tagline" data-i="s.tagline">Ton corps. Tes images. Ton choix.</p>
+<h1 class="xl" data-i="s.accueil.1">Tu penses vendre du contenu adulte en ligne ? Prends dix minutes avant.</h1>
+<p class="lede" data-i="s.accueil.2">Un parcours gratuit, anonyme et sans jugement pour regarder en face ce que beaucoup découvrent trop tard : ce qui reste en ligne, l'argent réel, la vie d'après, et si c'est vraiment ton choix.</p>
+<div class="ctas" data-i="s.accueil.3"><a class="btn main" href="#parcours">Commencer le parcours</a><a class="btn" href="#photos">Vérifier mes photos</a></div>
+</div>
+<svg aria-hidden="true" class="glass" viewBox="0 0 400 300">
+<rect x="10" y="10" width="380" height="280" rx="18" fill="#fff" stroke="#f2d3d6" stroke-width="2"/>
+<g fill="none" stroke="#2b0a0d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".35">
+<path d="M250 120 L290 10"/><path d="M250 120 L390 80"/><path d="M250 120 L390 210"/><path d="M250 120 L300 290"/>
+<path d="M250 120 L10 150"/><path d="M250 120 L130 10"/>
+<path d="M232 92 L262 86 L284 110 L276 142 L246 156 L220 140 Z" stroke-dasharray="12 8"/>
+</g>
+<path class="mend" d="M250 120 L230 200 L212 290" fill="none" stroke="#d7262e" stroke-width="3" stroke-linecap="round"/>
+<g class="stitches" stroke="#d7262e" stroke-width="2" stroke-linecap="round"><path d="M235 150 L249 154"/><path d="M227 190 L241 194"/><path d="M219 238 L233 242"/></g>
+<circle cx="250" cy="120" r="4.5" fill="#d7262e"/>
+</svg>
+</div>
+</section>
+<section class="band">
+<div class="wrapw three">
+<div><h3 data-i="s.accueil.4">Anonyme</h3><p data-i="s.accueil.5">Pas de compte, pas d'e-mail, pas de nom. Fermer l'onglet efface tout.</p></div>
+<div><h3 data-i="s.accueil.6">Sans jugement</h3><p data-i="s.accueil.7">Personne ne cherche à te faire changer d'avis. Tu décides, mais en connaissance de cause.</p></div>
+<div><h3 data-i="s.accueil.8">Avec des soignants</h3><p data-i="s.accueil.9">Si tu veux en parler, un psychiatre te reçoit gratuitement et en toute confidentialité.</p></div>
+</div>
+</section>
+<section class="band alt">
+<div class="wrapw">
+<h2 data-i="s.accueil.10">Ce que tu trouveras dans le parcours</h2>
+<ol class="steps">
+<li data-i="s.accueil.11"><b>Ce qui reste en ligne</b><span>Fuites, captures d'écran, reconnaissance faciale, deepfakes.</span></li>
+<li data-i="s.accueil.12"><b>L'argent réel</b><span>Ce qu'il te resterait vraiment après commissions et cotisations.</span></li>
+<li data-i="s.accueil.13"><b>Ta vie après</b><span>Travail, famille, sécurité, moral.</span></li>
+<li data-i="s.accueil.14"><b>Ton choix ?</b><span>Quelques questions pour repérer une pression ou une emprise.</span></li>
+<li data-i="s.accueil.15"><b>Faire le point</b><span>Une auto-évaluation privée, jamais enregistrée.</span></li>
+<li data-i="s.accueil.16"><b>Parler à quelqu'un</b><span>Une demande de rendez-vous anonyme, si tu le souhaites.</span></li>
+</ol>
+<a class="btn main" data-i="s.accueil.17" href="#parcours">Commencer</a>
+</div>
+</section>
+</div>
+<!-- ============ QUI SOMMES-NOUS ============ -->
+<div class="view" id="v-apropos">
+<main>
+<h1 data-i="s.apropos.1">Qui sommes-nous</h1>
+<p class="lede" data-i="s.apropos.2">« I’m Still Mine » est une initiative bénévole née à Lorient. Elle sera portée par une association loi 1901, en cours de création, réunissant des soignants et des bénévoles.</p>
+<h2 data-i="s.apropos.3">Nos engagements</h2>
+<ul class="facts">
+<li data-i="s.apropos.4"><b>Aucune activité commerciale.</b> Pas de publicité, pas d'affiliation, pas de partenariat payant avec une plateforme.</li>
+<li data-i="s.apropos.5"><b>Aucune collecte de données.</b> Pas de compte, pas de cookies de suivi, pas d'outil de mesure d'audience. Le parcours fonctionne entièrement dans ton navigateur.</li>
+<li data-i="s.apropos.6"><b>Aucun jugement.</b> Nous ne disons à personne ce qu'elle doit faire. Nous donnons des informations exactes et une porte ouverte.</li>
+<li data-i="s.apropos.7"><b>Un contenu relu par des soignants.</b> Chaque écran est validé par le comité médical avant publication.</li>
+</ul>
+<h2 data-i="s.apropos.8">Comité de soignants</h2>
+<div class="people">
+<div data-i="s.apropos.9"><b>Dr [NAME]</b><span>Psychiatre, Lorient</span></div>
+<div class="ghost" data-i="s.apropos.10"><b>Votre nom ici</b><span><a href="#soignants">Rejoindre le comité</a></span></div>
+</div>
+<p class="small" data-i="s.apropos.11">Démo : la composition du comité est à confirmer avec les intéressés avant toute mise en ligne.</p>
+<h2 data-i="s.apropos.12">Transparence</h2>
+<p data-i="s.apropos.13">Les membres fondateurs publieront ici une déclaration de leurs liens d'intérêts, y compris toute activité professionnelle en lien avec les plateformes de contenu en ligne.</p>
+<h2 data-i="s.apropos.14">Contact</h2>
+<p data-i="s.apropos.15">contact@NOM-DE-DOMAINE.org <span class="small">(adresse provisoire)</span></p>
+</main>
+</div>
+<!-- ============ PLATEFORMES ============ -->
+<div class="view" id="v-plateformes">
+<main>
+<h1 data-i="s.plateformes.1">Pour les plateformes et les sites adultes</h1>
+<p class="lede" data-i="s.plateformes.2">Vous pouvez proposer ce parcours à vos futures créatrices et futurs créateurs, au moment de leur inscription. C'est gratuit, et aucune donnée n'est échangée.</p>
+<h2 data-i="s.plateformes.3">Ce que nous vous demandons</h2>
+<p data-i="s.plateformes.4">Un simple lien sur votre page d'inscription créateur, votre centre d'aide ou votre page sécurité. Par exemple :</p>
+<pre id="snip"><code>&lt;a href="https://NOM-DE-DOMAINE.org" rel="noopener"&gt;
+  Avant de vous lancer : 10 minutes pour y réfléchir
+&lt;/a&gt;</code></pre>
+<div class="nav" style="margin-top:8px"><span class="small" id="snipMsg"></span><button data-i="s.plateformes.5" id="copySnip">Copier le code</button></div>
+<h2 data-i="s.plateformes.6">Ce que nous ne faisons pas</h2>
+<ul class="facts">
+<li data-i="s.plateformes.7">Aucun pixel, script ou paramètre de suivi dans le lien.</li>
+<li data-i="s.plateformes.8">Aucune donnée sur vos utilisateurs ne nous parvient, et nous n'en transmettons aucune.</li>
+<li data-i="s.plateformes.9">Aucune campagne contre les plateformes : nous informons, nous n'accusons pas.</li>
+</ul>
+<div class="en">
+<h3 data-i="s.plateformes.10">In English</h3>
+<p data-i="s.plateformes.11">“I’m Still Mine” is a free, anonymous, non-judgemental 10-minute walkthrough for people considering adult content creation: leaks and permanence, real earnings, life afterwards, and a check for coercion. It is run by a non-profit with volunteer clinicians. We ask only for a plain link on your creator sign-up or safety page. No data is exchanged and no tracking is involved. English and other languages are planned.</p>
+</div>
+</main>
+</div>
+<!-- ============ SOIGNANTS ============ -->
+<div class="view" id="v-soignants">
+<main>
+<h1 data-i="s.soignants.1">Soignants : rejoindre le réseau</h1>
+<p class="lede" data-i="s.soignants.2">Psychiatres, psychologues, médecins généralistes, sages-femmes : offrez quelques heures par mois pour recevoir, gratuitement et sans jugement, des femmes qui se posent la question.</p>
+<ul class="facts">
+<li data-i="s.soignants.3">Vous choisissez vos créneaux et votre format (cabinet ou téléconsultation).</li>
+<li data-i="s.soignants.4">Vous ne recevez que ce que la personne choisit d'écrire dans sa demande.</li>
+<li data-i="s.soignants.5">Votre numéro RPPS est vérifié avant l'ouverture de votre espace.</li>
+</ul>
+<div class="page" style="animation:none">
+<form id="joinF">
+<label class="f" data-i="s.soignants.6" for="jn">Nom et prénom</label><input autocomplete="name" id="jn" required=""/>
+<label class="f" data-i="s.soignants.7" for="jp">Profession</label>
+<select id="jp"><option data-i="s.soignants.8">Psychiatre</option><option data-i="s.soignants.9">Psychologue</option><option data-i="s.soignants.10">Médecin généraliste</option><option data-i="s.soignants.11">Sage-femme</option><option data-i="s.soignants.12">Autre</option></select>
+<label class="f" data-i="s.soignants.13" for="jr">Numéro RPPS</label><input data-ip="s.ph.1" id="jr" inputmode="numeric" placeholder="11 chiffres"/>
+<label class="f" data-i="s.soignants.14" for="jv">Ville d'exercice</label><input data-ip="s.ph.2" id="jv" placeholder="Lorient"/>
+<label class="f" data-i="s.soignants.15" for="jh">Heures par mois que vous pouvez offrir</label><input id="jh" max="40" min="1" type="number" value="4"/>
+<label class="f" data-i="s.soignants.16" for="jm">Un mot sur votre pratique (facultatif)</label><textarea id="jm" rows="3"></textarea>
+<div class="nav"><span></span><button class="main" data-i="s.soignants.17" type="submit">Envoyer ma candidature</button></div>
+</form>
+<div class="alert hide" id="joinOk"></div>
+</div>
+</main>
+</div>
+<!-- ============ VÉRIFIER MES PHOTOS ============ -->
+<div class="view" id="v-photos">
+<main>
+<h1 data-i="s.photos.1">Vérifier si tes photos circulent</h1>
+<p class="lede" data-i="s.photos.2">Des outils gratuits existent déjà pour empêcher la diffusion de tes images intimes et pour chercher où une photo de toi apparaît. Voici lesquels, et dans quel ordre.</p>
+<div class="alert" data-i="s.photos.3"><b>Pour tes propres photos uniquement.</b> Chercher les images de quelqu'un d'autre sans son accord, même d'une ex ou d'une conjointe, est une atteinte à sa vie privée.</div>
+<h2 data-i="s.photos.4">1. Bloquer la diffusion avec StopNCII.org</h2>
+<p data-i="s.photos.5">Tu choisis tes photos ou vidéos intimes sur ton téléphone. Le site en calcule une empreinte numérique sur ton appareil : <b>l'image elle-même ne quitte jamais ton téléphone.</b> Seule l'empreinte est envoyée aux plateformes partenaires, qui bloquent ou retirent les copies.</p>
+<p data-i="s.photos.6">Plateformes partenaires, entre autres : Facebook, Instagram, Threads, TikTok, Snapchat, Reddit, OnlyFans, Bumble, Bluesky et Aylo (Pornhub).</p>
+<div class="ctas" data-i="s.photos.7"><a class="btn main" href="https://stopncii.org/?lang=fr-fr" rel="noopener">Ouvrir StopNCII.org</a></div>
+<p class="small" data-i="s.photos.8">Réservé aux personnes majeures. Pour une image prise avant tes 18 ans : <a href="https://takeitdown.ncmec.org/fr/" rel="noopener">Take It Down</a>.</p>
+<h2 data-i="s.photos.9">2. Chercher où une photo apparaît</h2>
+<p data-i="s.photos.10">La recherche d'image inversée retrouve les pages qui contiennent la même photo, ou une photo très proche. Essaie plusieurs outils : ils ne trouvent pas les mêmes résultats.</p>
+<div class="tools" data-i="s.photos.11">
+<a href="https://lens.google.com" rel="noopener"><b>Google Lens</b><span>Le plus large. Fonctionne aussi depuis l'appli Google.</span></a>
+<a href="https://www.bing.com/visualsearch" rel="noopener"><b>Bing Visual Search</b><span>Résultats souvent différents de Google.</span></a>
+<a href="https://tineye.com" rel="noopener"><b>TinEye</b><span>Retrouve les copies exactes, même recadrées.</span></a>
+<a href="https://yandex.com/images" rel="noopener"><b>Yandex Images</b><span>Souvent efficace sur les visages.</span></a>
+</div>
+<ul class="facts" style="margin-top:14px">
+<li data-i="s.photos.12">Utilise une photo que tu as toi-même publiée, puis une version recadrée sur ton visage.</li>
+<li data-i="s.photos.13">Ces outils ne voient pas tout : groupes privés, messageries et certains sites leur échappent.</li>
+</ul>
+<h2 data-i="s.photos.14">3. Si tu trouves une fuite ou un deepfake</h2>
+<ol class="facts">
+<li data-i="s.photos.15"><b>Garde des preuves avant tout</b> : adresse de la page, date, captures d'écran. Ne contacte pas la personne qui a publié.</li>
+<li data-i="s.photos.16"><b>Signale au site</b>. Sur Reddit, le formulaire de signalement prévoit les images intimes publiées sans consentement : <a href="https://www.reddit.com/report" rel="noopener">reddit.com/report</a>.</li>
+<li data-i="s.photos.17"><b>Demande à Google de retirer les résultats</b> : son centre d'aide propose un formulaire pour les images explicites non consenties, y compris les fausses.</li>
+<li data-i="s.photos.18"><b>Signale aux autorités</b> sur <a href="https://www.internet-signalement.gouv.fr" rel="noopener">internet-signalement.gouv.fr</a> (Pharos), et porte plainte. En France, diffuser un deepfake sexuel sans consentement est un délit depuis la loi du 21 mai 2024.</li>
+<li data-i="s.photos.19"><b>Ne reste pas seule</b> : 3018 (cyberviolences), 3919 (Violences Femmes Info, 24 h/24), ou une demande de rendez-vous dans <a href="#parcours">le parcours</a>.</li>
+</ol>
+<div class="page" style="animation:none;margin-top:28px">
+<div class="kicker" data-i="s.photos.20">Nouveau, en test</div>
+<h3 data-i="s.photos.21">Vérifier une image que tu as trouvée</h3>
+<p data-i="s.photos.22">Compare une image suspecte à ton visage après un selfie en direct, et cherche des signes de trucage. Tout se passe sur ton téléphone : aucune image n'est envoyée.</p>
+<a class="btn main" data-i="s.photos.23" href="#outils">Ouvrir les outils</a>
+</div>
+</main>
+</div>
+<!-- ============ OUTILS ============ -->
+<div class="view" id="v-outils">
+<main>
+<h1 data-i="s.outils.1">Vérifier une image trouvée en ligne</h1>
+<div class="priv" data-i="s.outils.2"><b>Tout reste sur ton appareil.</b> Les images et ton selfie sont analysés dans ce navigateur, rien n'est envoyé ni enregistré. Les résultats sont des indices, pas des preuves.</div>
+<p class="small hide" id="oStatus" role="status"></p>
+<div class="tabs" style="margin-top:20px">
+<button class="on" data-i="s.outils.3" data-o="t1">1. Est-ce mon visage ?</button>
+<button data-i="s.outils.4" data-o="t2">2. L'image est-elle truquée ?</button>
+<button data-i="o.tab3" data-o="t3">3. Vient-elle de mon téléphone ?</button>
+</div>
+<section id="o-t1">
+<div class="page" style="animation:none">
+<div class="kicker" data-i="s.outils.5">Étape 1</div>
+<h3 data-i="s.outils.6">Un selfie en direct</h3>
+<p data-i="s.outils.7">On te demande de tourner la tête dans un ordre au hasard. Cela empêche d'utiliser la photo de quelqu'un d'autre : cet outil ne sert qu'à vérifier tes propres images.</p>
+<button class="main" data-i="s.outils.8" id="camStart">Démarrer la caméra</button>
+<div class="alert hide" id="camErr"></div>
+<div class="hide" id="camBox">
+<div class="cam"><video id="camV" muted="" playsinline=""></video></div>
+<div class="kicker" id="chalStep" style="margin-top:10px"></div>
+<p class="chal" id="chal"></p>
+<p aria-live="polite" class="small" id="chalHint"></p>
+<div class="meter"><i id="chalBar" style="width:0"></i></div>
+<button data-i="s.outils.9" id="camStop" style="margin-top:10px">Arrêter</button>
+</div>
+<p class="hide" id="refOk" style="margin-top:12px"></p>
+</div>
+<div class="page dim" id="step2" style="animation:none;margin-top:16px">
+<div class="kicker" data-i="s.outils.10">Étape 2</div>
+<h3 data-i="s.outils.11">L'image que tu as trouvée</h3>
+<p data-i="s.outils.12">Une capture d'écran suffit. Si plusieurs personnes apparaissent, chaque visage est comparé.</p>
+<label class="f" data-i="s.outils.13" for="sus">Choisir l'image</label><input accept="image/*" id="sus" type="file"/>
+<canvas class="hide" id="matchCv"></canvas>
+<div id="matchOut"></div>
+</div>
+</section>
+<section class="hide" id="o-t3">
+<div class="page" style="animation:none">
+<h3 data-i="o.p.title">Retrouver l'empreinte de ton appareil photo (PRNU)</h3>
+<div data-i="o.p.intro"></div>
+<p class="small" data-i="o.p.soon">Cet outil arrive bientôt.</p>
+</div>
+</section>
+<section class="hide" id="o-t2">
+<div class="page" style="animation:none">
+<h3 data-i="s.outils.14">Chercher des signes de génération ou de retouche</h3>
+<p data-i="s.outils.15">L'outil lit les informations cachées du fichier (logiciel, marquages « image générée par IA »), compare le grain du visage et du fond, et produit une carte de compression.</p>
+<label class="f" data-i="s.outils.16" for="f2">Choisir l'image</label><input accept="image/*" id="f2" type="file"/>
+<p class="small" data-i="s.outils.17">Pour un résultat plus parlant, utilise le fichier d'origine plutôt qu'une capture d'écran quand c'est possible.</p>
+<div id="sigOut"></div>
+</div>
+<div class="page hide" id="bodyChk" style="animation:none;margin-top:16px">
+<h3 data-i="s.outils.18">Compare avec ton propre corps</h3>
+<p data-i="s.outils.19">Aucun outil ne connaît ton corps mieux que toi. Pour chaque point, indique si l'image est différente de toi. Les différences sont ajoutées au rapport.</p>
+<div id="chkList"></div>
+<p class="small" data-i="s.outils.20">Tu n'as pas à prouver qu'une image est fausse pour la signaler : la diffuser sans ton accord est déjà un délit.</p>
+</div>
+<div class="page hide" id="evid" style="animation:none;margin-top:16px">
+<h3 data-i="s.outils.21">Rapport de preuve</h3>
+<p data-i="s.outils.22">À joindre à un signalement ou à une plainte. Garde aussi le fichier original sans le modifier.</p>
+<label class="f" data-i="s.outils.23" for="evUrl">Adresse de la page où tu l'as trouvée</label><input data-ip="s.ph.3" id="evUrl" inputmode="url" placeholder="https://…"/>
+<label class="f" data-i="s.outils.24" for="evDate">Date où tu l'as vue</label><input id="evDate" type="date"/>
+<label class="f" data-i="s.outils.25" for="evNotes">Notes (facultatif)</label><textarea id="evNotes" rows="2"></textarea>
+<label class="f" data-i="s.outils.26" for="evText">Aperçu du rapport</label><textarea class="mono" id="evText" readonly="" rows="12"></textarea>
+<div class="nav"><span class="small" id="evMsg"></span><span style="display:flex;gap:8px;flex-wrap:wrap"><button data-i="s.outils.27" id="evDl">Télécharger</button><button class="main" data-i="s.outils.28" id="evCopy">Copier le rapport</button></span></div>
+</div>
+</section>
+<div class="nav"><span class="small" id="wipeMsg"></span><button data-i="s.outils.29" id="wipe">Tout effacer</button></div>
+</main>
+</div>
+<!-- ============ CONFIDENTIALITÉ ============ -->
+<div class="view" id="v-confidentialite">
+<main>
+<h1 data-i="s.confidentialite.1">Confidentialité</h1>
+<p class="lede" data-i="s.confidentialite.2">Le parcours ne collecte rien. Tes réponses restent dans ton navigateur et disparaissent quand tu fermes l'onglet.</p>
+<ul class="facts">
+<li data-i="s.confidentialite.3"><b>Pas de compte, pas de cookies de suivi, pas de mesure d'audience.</b></li>
+<li data-i="s.confidentialite.4"><b>Le serveur ne garde pas de journaux de connexion</b> (adresses IP).</li>
+<li data-i="s.confidentialite.5"><b>Seule une demande de rendez-vous est transmise</b>, uniquement si tu l'envoies, et uniquement les champs que tu remplis. Elle est supprimée après la prise de contact.</li>
+<li data-i="s.confidentialite.6"><b>Le bouton « Quitter vite »</b> remplace la page par un site neutre. Pense aussi à effacer ton historique si quelqu'un a accès à ton téléphone.</li>
+</ul>
+<p class="small" data-i="s.confidentialite.7">Démo : texte à faire valider juridiquement (RGPD) avant la mise en ligne.</p>
+</main>
+</div>
+<!-- ============ CÔTÉ UTILISATRICE ============ -->
+<div class="view" id="v-parcours"><main>
+<div aria-label="Progression" class="dots" id="dots"></div>
+<section class="page" id="pg"></section>
+</main></div>
+<!-- ============ CÔTÉ MÉDECIN ============ -->
+<div class="view" id="v-medecin"><main class="wide">
+<h1>Espace professionnel</h1>
+<p class="small">Dans la vraie application, cet espace est protégé par un identifiant personnel et une double authentification.</p>
+<p style="color:var(--soft)">Vue de démonstration pour le Dr [NAME], Lorient. Les demandes ci-dessous sont fictives.</p>
+<div class="tabs" role="tablist">
+<button class="on" data-t="inbox">Demandes de rendez-vous</button>
+<button data-t="slots">Mes disponibilités</button>
+<button data-t="review">Relire le contenu</button>
+</div>
+<section id="t-inbox">
+<div class="grid2">
+<div id="list"></div>
+<div class="page" id="detail" style="animation:none"></div>
+</div>
+<div class="priv" style="margin-top:20px"><b>Ce que vous ne voyez jamais :</b> son vrai nom (sauf si elle le donne), son parcours dans l'application, ses réponses à l'auto-évaluation, son adresse IP. Elle ne transmet que ce qu'elle écrit dans sa demande.</div>
+</section>
+<section class="hide" id="t-slots">
+<div class="page" style="animation:none">
+<h2>Créneaux proposés</h2>
+<p>Touchez un créneau pour l'ouvrir ou le fermer. Seuls les créneaux ouverts sont proposés aux utilisatrices, sans votre agenda complet.</p>
+<div class="slots" id="slotGrid"></div>
+<p id="slotCount" style="margin-top:14px;color:var(--soft)"></p>
+<label class="f" for="mode">Format des consultations</label>
+<select id="mode"><option>Cabinet et téléconsultation</option><option>Cabinet uniquement</option><option>Téléconsultation uniquement</option></select>
+</div>
+</section>
+<section class="hide" id="t-review">
+<div class="page" style="animation:none">
+<h2>Vos remarques sur le contenu</h2>
+<p>Pour chaque écran du parcours, notez ce qui est inexact, maladroit ou manquant. Le bouton en bas rassemble tout en un texte à renvoyer à Flaviu.</p>
+<div id="revList"></div>
+<div class="nav"><span id="copyMsg" style="color:var(--soft)"></span><button class="main" id="copyRev">Copier mes remarques</button></div>
+</div>
+</section>
+</main></div>
+<footer class="foot">
+<div class="wrapw fgrid">
+<div data-i="s.foot.1"><b>Besoin d'aide maintenant ?</b><br/>En France : urgence 17 ou SMS au 114 · Violences Femmes Info : 3919 (24 h/24) · Moins de 18 ans : 119 · Fil Santé Jeunes : 0 800 235 236<br/>Ailleurs : services d'urgence de ton pays (112 dans l'Union européenne).</div>
+<div class="flinks" data-i="s.foot.2"><a href="#photos">Vérifier mes photos</a><a href="#apropos">Qui sommes-nous</a><a href="#confidentialite">Confidentialité</a><a href="#plateformes">Plateformes</a><a href="#soignants">Soignants</a></div>
+</div>
+<p class="wrapw small" data-i="s.foot.3">Initiative bénévole, sans publicité ni collecte de données. Version de démonstration.</p>
+</footer>
+<script src="i18n.js"></script>
+<script src="api.js"></script>
+<script>
+{
+const S={step:0,answers:{},coerc:{},self:{},sent:null};
+const t=(k,v)=>window.t?window.t(k,v):k;
+const eur=n=>Math.round(n).toLocaleString(document.documentElement.lang||'fr')+' €';
+const radios=(name,codes,store,extra='')=>codes.map(c=>`<label><input type="radio" name="${name}" value="${c}" ${extra} ${store[name]===c?'checked':''}>${t('p.a.'+c)}</label>`).join('');
+const STEP_NAMES=['Bienvenue','Ce qui reste en ligne',"L'argent réel",'Ta vie après','Ton choix ?','Faire le point',"Parler à quelqu'un"];
+const STEPS=[
+{h:()=>`${t('p.0.body')}
+<div class="q"><p>${t('p.0.q')}</p><div class="opts">${radios('age',['yes','no'],S.answers)}</div></div>
+<div id="minor" class="alert ${S.answers.age==='no'?'':'hide'}">${t('p.0.minor')}</div>`},
+{h:()=>`${t('p.1.body')}
+<div class="q"><p>${t('p.1.q')}</p><div class="opts">${radios('q1',['fine','hard','dunno'],S.answers)}</div></div>`},
+{h:()=>`${t('p.2.intro')}
+<div class="calc"><div>
+<label class="f" for="rv">${t('p.2.label')}</label>
+<input type="range" id="rv" min="100" max="5000" step="50" value="${S.answers.rv||800}">
+<div class="rows" id="rows" style="margin-top:12px"></div></div>
+<div class="page" style="background:var(--bg);animation:none"><div class="kicker">${t('p.2.left')}</div><div class="big" id="net"></div><p style="color:var(--soft);margin-top:10px;font-size:15px">${t('p.2.perMonth')}</p></div>
+</div>
+<div class="note">${t('p.2.note')}</div>`},
+{h:()=>`${t('p.3.body')}
+<div class="q"><p>${t('p.3.q')}</p><div class="opts">${radios('q3',['yes','maybe','no'],S.answers)}</div></div>`},
+{h:()=>`${t('p.4.intro')}
+${['c1','c2','c3','c4','c5'].map(id=>`<div class="q"><p>${t('p.4.'+id)}</p><div class="opts">${radios(id,['yes','no'],S.coerc,'data-c="1"')}</div></div>`).join('')}
+<div id="coAlert" class="alert hide">${t('p.4.alert')}</div>`},
+{h:()=>`${t('p.5.intro')}
+${['s1','s2','s3','s4'].map(id=>`<label class="f" for="${id}">${t('p.5.'+id)}</label><input type="range" id="${id}" data-s="1" min="0" max="10" value="${S.self[id]??5}"><div style="display:flex;justify-content:space-between;color:var(--soft);font-size:14px"><span>${t('p.5.'+id+'a')}</span><span>${t('p.5.'+id+'b')}</span></div>`).join('')}
+<div class="res" id="selfRes"></div>`},
+{h:()=>S.sent?t('p.6.sent',{code:S.sent}):`${t('p.6.intro')}
+<form id="reqF">
+<label class="f" for="rp">${t('p.6.pseudo')}</label><input id="rp" required placeholder="${t('p.6.pseudoPh')}" maxlength="30">
+<label class="f" for="rc">${t('p.6.how')}</label>
+<select id="rc"><option value="app">${t('p.6.howApp')}</option><option value="sms">SMS</option><option value="email">E-mail</option></select>
+<input id="rcv" class="hide" style="margin-top:8px" placeholder="${t('p.6.contactPh')}">
+<label class="f" for="rw">${t('p.6.when')}</label>
+<select id="rw"><option value="day">${t('p.6.whenDay')}</option><option value="eve">${t('p.6.whenEve')}</option><option value="any">${t('p.6.whenAny')}</option></select>
+<label class="f" for="rm">${t('p.6.msg')}</label><textarea id="rm" rows="3" maxlength="600"></textarea>
+<div class="nav"><span style="color:var(--soft);font-size:14px">${t('p.6.only')}</span><button class="main" type="submit">${t('p.6.submit')}</button></div>
+</form>
+<div class="note">${t('p.6.other')}</div>`}
+];
+
+/* ---- user side ---- */
+const pg=document.getElementById('pg'),dots=document.getElementById('dots');
+function renderF(){
+  const st=STEPS[S.step];
+  dots.innerHTML=STEPS.map((x,i)=>`<button aria-label="${t('p.name.'+i)}" class="${i===S.step?'on':i<S.step?'done':''}" data-step="${i}"></button>`).join('');
+  pg.innerHTML=`<div class="kicker">${S.step?t('p.stepOf',{a:S.step,b:STEPS.length-1}):t('p.space')}</div>${st.h()}
+  <div class="nav"><div>${S.step?'<button id="prev">'+t('p.back')+'</button>':''}</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="exit" id="exit">${t('p.exit')}</button>${S.step<STEPS.length-1?'<button class="main" id="next">'+t('p.next')+'</button>':''}</div></div>`;
+  if(S.step===2)calc();
+  if(S.step===4)coerc();
+  if(S.step===5)selfRes();
+}
+document.addEventListener('langchange',()=>{if(window.__booted)renderF()});
+function calc(){
+  const b=+document.getElementById('rv').value;S.answers.rv=b;
+  const plat=b*.2,cot=(b-plat)*.25,net=b-plat-cot;
+  document.getElementById('rows').innerHTML=[[t('p.2.r1'),eur(b)],[t('p.2.r2'),'− '+eur(plat)],[t('p.2.r3'),'− '+eur(cot)]].map(r=>`<div><span>${r[0]}</span><span>${r[1]}</span></div>`).join('');
+  document.getElementById('net').textContent=eur(net);
+}
+function coerc(){document.getElementById('coAlert').classList.toggle('hide',!Object.values(S.coerc).includes('yes'))}
+function selfRes(){
+  const g=k=>+(S.self[k]??5),out=[];
+  ['s1','s2','s3','s4'].forEach(k=>{if(g(k)<5)out.push(k)});
+  if(!out.length)out.push('ok');
+  document.getElementById('selfRes').innerHTML=out.map(k=>`<div><b>${t('p.5.r.'+k)}</b><span>${t('p.5.r.'+k+'S')}</span></div>`).join('')+`<p style="color:var(--soft);font-size:14px;margin:4px 0 0">${t('p.5.private')}</p>`;
+}
+pg.addEventListener('click',e=>{
+  if(e.target.id==='next'){S.step++;renderF();scrollTo(0,0)}
+  if(e.target.id==='prev'){S.step--;renderF();scrollTo(0,0)}
+  if(e.target.id==='exit'){location.replace('https://www.google.com/search?q=m%C3%A9t%C3%A9o')}
+});
+dots.addEventListener('click',e=>{const i=e.target.dataset.step;if(i!==undefined){S.step=+i;renderF()}});
+pg.addEventListener('change',e=>{
+  const el=e.target;
+  if(el.name==='age'){S.answers.age=el.value;document.getElementById('minor').classList.toggle('hide',el.value!=='no')}
+  else if(el.dataset.c){S.coerc[el.name]=el.value;coerc()}
+  else if(el.type==='radio')S.answers[el.name]=el.value;
+  if(el.id==='rc')document.getElementById('rcv').classList.toggle('hide',el.selectedIndex===0);
+});
+pg.addEventListener('input',e=>{
+  if(e.target.id==='rv')calc();
+  if(e.target.dataset.s){S.self[e.target.id]=+e.target.value;selfRes()}
+});
+const CANAL={app:"Message dans l'application",sms:'SMS',email:'E-mail'},QUAND={day:'En semaine, en journée',eve:'En semaine, en fin de journée',any:'Peu importe'};
+pg.addEventListener('submit',e=>{
+  e.preventDefault();
+  const code='AVC-'+Math.random().toString(36).slice(2,6).toUpperCase();
+  REQ.unshift({id:code,pseudo:document.getElementById('rp').value.trim()||'Anonyme',canal:CANAL[document.getElementById('rc').value],quand:QUAND[document.getElementById('rw').value],msg:document.getElementById('rm').value.trim()||'(pas de message)',recu:"À l'instant",neu:true,etat:'Nouvelle',lang:document.documentElement.lang});
+  S.sent=code;sel=code;renderF();renderInbox();
+});
+
+/* ---- doctor side ---- */
+const REQ=[
+{id:'AVC-7K2P',pseudo:'Léa',canal:"Message dans l'application",quand:'En semaine, en fin de journée',msg:"J'ai déjà commencé il y a deux mois et je n'arrive plus à dormir à cause des messages. Je voudrais en parler.",recu:'Hier, 21 h 40',neu:true,etat:'Nouvelle'},
+{id:'AVC-3MXD',pseudo:'M.',canal:'SMS',quand:'Peu importe',msg:"Mon copain insiste pour que j'ouvre un compte. Je ne sais pas quoi faire.",recu:'Mardi, 14 h 05',neu:false,etat:'Rendez-vous fixé'},
+{id:'AVC-9QTA',pseudo:'Sarah',canal:'E-mail',quand:'En semaine, en journée',msg:'(pas de message)',recu:'Lundi, 10 h 12',neu:false,etat:'Répondue'}];
+let sel=REQ[0].id;
+const ANS=["Bonjour, merci pour votre message. Je vous propose un rendez-vous jeudi à 17 h 30, au cabinet ou en téléconsultation. Répondez simplement avec le format qui vous convient.","Bonjour, j'ai bien reçu votre demande. Pouvez-vous me dire quels jours vous arrangent la semaine prochaine ?"];
+function renderInbox(){
+  document.getElementById('list').innerHTML=REQ.map(r=>`<button class="req ${r.id===sel?'on':''}" data-r="${r.id}"><span class="tag ${r.neu?'new':''}">${r.etat}</span><span class="tag">${r.id}</span><div style="margin-top:8px"><b>${esc(r.pseudo)}</b> · <span style="color:var(--soft);font-size:14px">${r.recu}</span></div></button>`).join('');
+  const r=REQ.find(x=>x.id===sel);
+  document.getElementById('detail').innerHTML=`<div class="kicker">Demande ${r.id}</div><h3>${esc(r.pseudo)}</h3>
+  <div class="rows"><div><span>Réponse souhaitée par</span><span>${r.canal}</span></div><div><span>Disponibilités</span><span style="white-space:normal;text-align:right">${r.quand}</span></div><div><span>Reçue</span><span>${r.recu}</span></div></div>
+  <p style="margin-top:14px"><b>Son message</b><br>${esc(r.msg)}</p>
+  <label class="f" for="rep">Votre réponse</label><textarea id="rep" rows="4"></textarea>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">${ANS.map((a,i)=>`<button data-a="${i}" style="font-size:14px">Modèle ${i+1}</button>`).join('')}</div>
+  <div class="nav"><span id="repMsg" class="ok"></span><button class="main" id="send">Envoyer (démo)</button></div>`;
+}
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('list').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(b){sel=b.dataset.r;renderInbox()}});
+document.getElementById('detail').addEventListener('click',e=>{
+  if(e.target.dataset.a!==undefined)document.getElementById('rep').value=ANS[e.target.dataset.a];
+  if(e.target.id==='send'){const r=REQ.find(x=>x.id===sel);if(!document.getElementById('rep').value.trim())return;r.etat='Répondue';r.neu=false;renderInbox();document.getElementById('repMsg').textContent='Réponse enregistrée (démo, rien n\'est envoyé).'}
+});
+
+const days=['Lun','Mar','Mer','Jeu','Ven'],hours=['9 h','11 h','14 h','16 h','17 h 30'];
+const open=new Set(['Jeu-17 h 30','Mar-14 h','Ven-11 h']);
+function renderSlots(){
+  document.getElementById('slotGrid').innerHTML=days.map(d=>`<div class="h">${d}</div>`).join('')+hours.map(h=>days.map(d=>`<button class="${open.has(d+'-'+h)?'on':''}" data-s="${d}-${h}">${h}</button>`).join('')).join('');
+  document.getElementById('slotCount').textContent=open.size+' créneau'+(open.size>1?'x':'')+' ouvert'+(open.size>1?'s':'')+' cette semaine.';
+}
+document.getElementById('slotGrid').addEventListener('click',e=>{const k=e.target.dataset.s;if(!k)return;open.has(k)?open.delete(k):open.add(k);renderSlots()});
+
+document.getElementById('joinF').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('jn').value;const o=document.getElementById('joinOk');o.classList.remove('hide');o.innerHTML=t('s.joinOk',{n:esc(n)})});
+
+const REV={};
+document.getElementById('revList').innerHTML=STEP_NAMES.map((s,i)=>`<label class="f" for="rv${i}">${i?('Étape '+i+' · '):''}${s}</label><textarea id="rv${i}" data-v="${i}" rows="2" placeholder="Votre remarque"></textarea>`).join('')+`<label class="f" for="rvG">Remarques générales (côté médecin, fonctionnement, sécurité)</label><textarea id="rvG" data-v="g" rows="3"></textarea>`;
+document.getElementById('revList').addEventListener('input',e=>{REV[e.target.dataset.v]=e.target.value});
+document.getElementById('copyRev').addEventListener('click',async()=>{
+  const txt=['Remarques sur la démo « I’m Still Mine »',...STEP_NAMES.map((s,i)=>REV[i]?`- ${s} : ${REV[i]}`:''),REV.g?`- Général : ${REV.g}`:''].filter(Boolean).join('\n');
+  const m=document.getElementById('copyMsg');
+  try{await navigator.clipboard.writeText(txt);m.textContent='Copié. Collez-le dans un e-mail ou un SMS.'}catch(_){m.textContent='Copie impossible ici : sélectionnez le texte à la main.'}
+});
+
+document.querySelector('#v-medecin .tabs').addEventListener('click',e=>{const t=e.target.dataset.t;if(!t)return;
+  document.querySelectorAll('#v-medecin .tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  ['inbox','slots','review'].forEach(x=>document.getElementById('t-'+x).classList.toggle('hide',x!==t))});
+
+/* ---- routing ---- */
+const VIEWS=['accueil','parcours','photos','outils','apropos','plateformes','soignants','medecin','confidentialite'];
+function route(){let v=location.hash.slice(1);if(!VIEWS.includes(v))v='accueil';
+  VIEWS.forEach(x=>document.getElementById('v-'+x).classList.toggle('on',x===v));
+  document.querySelectorAll('nav.site a').forEach(a=>{a.classList.toggle('on',a.dataset.n===v);if(a.dataset.n===v){const n=a.parentNode;n.scrollLeft=a.offsetLeft-n.clientWidth/2+a.offsetWidth/2}});
+  if(v==='medecin')renderInbox();
+  if(v==='outils'){if(window.initOutils)window.initOutils();else{const sc=document.createElement('script');sc.src='outils.js';sc.onload=()=>window.initOutils();document.body.appendChild(sc)}}
+  scrollTo(0,0);}
+document.getElementById('copySnip').addEventListener('click',async()=>{const m=document.getElementById('snipMsg');
+  try{await navigator.clipboard.writeText(document.querySelector('#snip code').textContent);m.textContent=t('s.copied')}catch(_){m.textContent=t('s.copyFail')}});
+addEventListener('hashchange',route);
+renderSlots();
+(window.i18nReady||Promise.resolve()).then(()=>{window.__booted=true;renderF();route()});
+}
+</script>
+</body>
+</html>
