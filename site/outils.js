@@ -248,8 +248,9 @@ function wipe(){stopCam();T.run++;['ref','refFrom','match','img2','file2','signa
   ['refFile','sus','f2','evUrl','evDate','evNotes'].forEach(i=>{const e=$(i);if(e)e.value=''});
   ['refOk','matchCv','evid','bodyChk','camErr'].forEach(i=>$(i).classList.add('hide'));$('matchOut').innerHTML='';$('sigOut').innerHTML='';$('evText').value='';
   $('camStart').classList.remove('hide');$('step2').classList.add('dim');$('wipeMsg').textContent=t('o.wiped')}
+function pending(){const f=window.__homeFile;if(!f)return;window.__homeFile=null;showTab('t2');T.match=null;analyse(f).catch(err=>$('sigOut').textContent=err.message)}
 window.initOutils=function(){
-  if(window.__outilsInit){boot().catch(()=>{});return}window.__outilsInit=true;
+  if(window.__outilsInit){boot().catch(()=>{});pending();return}window.__outilsInit=true;
   document.querySelectorAll('#v-outils .tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.o)));
   $('camStart').addEventListener('click',()=>startCam().catch(e=>setStatus(e.message)));
   $('camStop').addEventListener('click',()=>{stopCam();$('camStart').classList.remove('hide')});
@@ -263,5 +264,6 @@ window.initOutils=function(){
   addEventListener('pagehide',stopCam);
   document.addEventListener('langchange',()=>{renderChecklist();if(T.file2&&T.signals)buildReport()});
   boot().catch(()=>{});
+  pending();
 };
 })();

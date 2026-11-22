@@ -6,7 +6,8 @@ I’m Still Mine is a free, non-profit project for anyone who is thinking about 
 
 - **Before they start:** an anonymous, non-judgemental walkthrough. It covers what stays online, real earnings, life afterwards, and a private check for pressure or coercion. It points to free support.
 - **When they find an image:** they compare it with their own live selfie (on their device), ask our server whether it shows signs of manipulation, and get an evidence report.
-- **Free psychological and psychiatric support** from volunteer professionals.
+- **Free psychological and psychiatric support** from volunteer professionals: an anonymous request goes by email to a verified volunteer in the person's city, and we keep no copy.
+- **Donations go to associations, never to us.** The site links to their own donation pages, in random order.
 
 This repository is public so that anyone can read exactly what the website does with their data. **You are free to build your own site from it, even with advertising**: the more places this message reaches, the better. We only ask that you keep the commitments below, and that you don't call your site I’m Still Mine.
 
@@ -26,7 +27,7 @@ These commitments are why the project exists. A copy of this code that breaks an
 |---|---|
 | `site/` | The website in 20 languages: the walkthrough, "check my photos", face comparison with a live selfie (in the browser), and the client for our detection API (`site/api.js`) |
 | `coming-soon/` | The one-page "coming soon" site, in 20 languages |
-| `docs/` | Nginx configuration, the public API contract (`API.md`), research reports with verified sources |
+| `docs/` | Reference Nginx configuration and the public API contract (`API.md`) |
 
 ### Why the fake detector is not here
 The code that detects fake or manipulated images is **deliberately private**. If it were public, anyone making deepfakes could study it and learn exactly how to get past it. It runs only on our server, behind strict limits (see `docs/API.md`), and answers with a simple verdict, never with detailed scores. Platforms that want to run checks themselves can ask us for access.

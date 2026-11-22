@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="noindex, nofollow" name="robots"/>
-<title data-i="s.title">I’m Still Mine — démo</title>
+<title data-i="s.title">I’m Still Mine</title>
 <link rel="icon" href="brand/logo-mark.svg" type="image/svg+xml"/>
 <meta content="#d7262e" name="theme-color"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -98,6 +98,13 @@ a.btn.main{background:var(--teal);color:var(--bg);border-color:var(--teal)}
 @media(prefers-reduced-motion:reduce){.glass .mend{stroke-dashoffset:0;animation:none}.glass .stitches{opacity:1;animation:none}}
 .wrapw{max-width:1040px;margin:0 auto}
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.checkband .page{margin:0}.sr{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.filebtn{cursor:pointer;display:inline-block;margin:6px 0 10px;background:#d7262e;color:#fff;border-color:#d7262e}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:8px 0 14px}.kpis b{display:block;font-size:28px;color:var(--red,#d7262e);font-variant-numeric:tabular-nums}.kpis span{font-size:13px;color:var(--soft)}
+.chart{width:100%;height:auto;display:block;margin-bottom:6px}
+.assos{display:grid;gap:12px;margin:16px 0}.asso{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid #f2d3d6;border-radius:14px;padding:14px 16px}.asso p{margin:4px 0 0;font-size:15px;color:var(--soft)}
+nav.site a.give{color:#d7262e;font-weight:600}
 .band{padding:clamp(28px,4vw,64px) max(5vw,16px)}.band.alt{background:var(--paper)}
 .steps{counter-reset:s;list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .steps li{background:var(--bg);border-radius:14px;padding:16px;border:1px solid var(--line)}
@@ -136,7 +143,7 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 .foot{border-top:1px solid var(--line);padding:28px max(5vw,16px);font-size:15px}
 .fgrid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px}
 .flinks{display:flex;flex-direction:column;gap:6px}
-@media(max-width:800px){.heroin,.fgrid{grid-template-columns:minmax(0,1fr)}.glass{max-width:340px}.three,.steps{grid-template-columns:minmax(0,1fr)}nav.site{overflow-x:auto;flex-wrap:nowrap;width:100%}nav.site a{flex:none}}
+@media(max-width:800px){.heroin,.fgrid,.two{grid-template-columns:minmax(0,1fr)}.asso{flex-direction:column;align-items:flex-start}.glass{max-width:340px}.three,.steps{grid-template-columns:minmax(0,1fr)}nav.site{overflow-x:auto;flex-wrap:nowrap;width:100%}nav.site a{flex:none}}
 @media(max-width:700px){.calc,.grid2{grid-template-columns:minmax(0,1fr)}.seg a{padding:10px 12px}}
 @media(prefers-reduced-motion:no-preference){.page{animation:in .35s ease}@keyframes in{from{opacity:0;transform:translateY(6px)}}}
 
@@ -163,10 +170,9 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <a data-i="s.nav.6" data-n="outils" href="#outils">Outils</a>
 <a data-i="s.nav.7" data-n="plateformes" href="#plateformes">Plateformes</a>
 <a data-i="s.nav.8" data-n="soignants" href="#soignants">Soignants</a>
-<a class="pro" data-i="s.nav.9" data-n="medecin" href="#medecin">Espace pro</a>
+<a class="give" data-i="s.nav.10" data-n="dons" href="#dons">Donner aux associations, pas à nous</a>
 </nav>
 </header>
-<div class="demo" data-i="s.demo.1">Démo de présentation : données fictives, rien n'est envoyé ni enregistré. Tout reste dans cet onglet.</div>
 <!-- ============ ACCUEIL ============ -->
 <div class="view" id="v-accueil">
 <section class="hero">
@@ -188,6 +194,23 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <g class="stitches" stroke="#d7262e" stroke-width="2" stroke-linecap="round"><path d="M235 150 L249 154"/><path d="M227 190 L241 194"/><path d="M219 238 L233 242"/></g>
 <circle cx="250" cy="120" r="4.5" fill="#d7262e"/>
 </svg>
+</div>
+</section>
+<section class="band checkband">
+<div class="wrapw two">
+<div class="page hcheck">
+<h2 data-i="h.check.title">Vérifie si tu es victime d'un deepfake</h2>
+<p data-i="h.check.text">Choisis l'image que tu as trouvée. Elle est vérifiée par notre serveur puis effacée ; ton selfie, lui, ne quitte jamais ton téléphone.</p>
+<label class="btn main filebtn" for="homeFile" data-i="h.check.btn">Choisir l'image</label><input accept="image/*" class="sr" id="homeFile" type="file"/>
+<p class="small" data-i="h.check.more">Tu pourras ensuite la comparer à ton visage et préparer un rapport.</p>
+</div>
+<div class="page hstats" aria-live="polite">
+<h2 data-i="h.stats.title">Nos chiffres, en vrai</h2>
+<div class="kpis"><div><b id="kChecks">–</b><span data-i="h.stats.checks">Images vérifiées</span></div><div><b id="kLikely">–</b><span data-i="h.stats.likely">Avec des signes clairs de trucage</span></div><div><b id="kReports">–</b><span data-i="h.stats.reports">Signalements envoyés aux plateformes</span></div></div>
+<svg id="statsChart" class="chart" viewBox="0 0 300 90" role="img" aria-label=""></svg>
+<p class="small"><span data-i="h.stats.days">30 derniers jours</span> · <span data-i="h.stats.note">De simples compteurs, sans aucune donnée personnelle.</span></p>
+<p class="small hide" id="statsNone" data-i="h.stats.none">Pas encore de chiffres : le site vient d'ouvrir.</p>
+</div>
 </div>
 </section>
 <section class="band">
@@ -212,6 +235,16 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 </div>
 </section>
 </div>
+<!-- ============ DONS ============ -->
+<div class="view" id="v-dons"><main class="wide">
+<div class="page">
+<h1 data-i="d.title">Donne aux associations, pas à nous</h1>
+<p data-i="d.intro">I'm Still Mine ne reçoit aucun don et n'en recevra jamais. Si tu veux aider, donne directement à ces associations, qui accompagnent les victimes chaque jour. Les liens mènent à leurs propres pages de don.</p>
+<p class="small" data-i="d.order">L'ordre change à chaque visite, pour ne favoriser personne.</p>
+<div id="assoList" class="assos"></div>
+<p class="small" data-i="d.note">Nous n'avons aucun lien financier avec ces associations et nous ne touchons rien sur ces dons.</p>
+</div>
+</main></div>
 <!-- ============ QUI SOMMES-NOUS ============ -->
 <div class="view" id="v-apropos">
 <main>
@@ -226,10 +259,8 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 </ul>
 <h2 data-i="s.apropos.8">Comité de soignants</h2>
 <div class="people">
-<div data-i="s.apropos.9"><b>Dr [NAME]</b><span>Psychiatre, Lorient</span></div>
 <div class="ghost" data-i="s.apropos.10"><b>Votre nom ici</b><span><a href="#soignants">Rejoindre le comité</a></span></div>
 </div>
-<p class="small" data-i="s.apropos.11">Démo : la composition du comité est à confirmer avec les intéressés avant toute mise en ligne.</p>
 <h2 data-i="s.apropos.12">Transparence</h2>
 <p data-i="s.apropos.13">Les membres fondateurs publieront ici une déclaration de leurs liens d'intérêts, y compris toute activité professionnelle en lien avec les plateformes de contenu en ligne.</p>
 <h2 data-i="s.apropos.14">Contact</h2>
@@ -273,9 +304,10 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <form id="joinF">
 <label class="f" data-i="s.soignants.6" for="jn">Nom et prénom</label><input autocomplete="name" id="jn" required=""/>
 <label class="f" data-i="s.soignants.7" for="jp">Profession</label>
-<select id="jp"><option data-i="s.soignants.8">Psychiatre</option><option data-i="s.soignants.9">Psychologue</option><option data-i="s.soignants.10">Médecin généraliste</option><option data-i="s.soignants.11">Sage-femme</option><option data-i="s.soignants.12">Autre</option></select>
+<select id="jp"><option value="psychiatre" data-i="s.soignants.8">Psychiatre</option><option value="psychologue" data-i="s.soignants.9">Psychologue</option><option value="generaliste" data-i="s.soignants.10">Médecin généraliste</option><option value="sage-femme" data-i="s.soignants.11">Sage-femme</option><option value="autre" data-i="s.soignants.12">Autre</option></select>
+<label class="f" data-i="s.soignants.18" for="je">Adresse e-mail professionnelle</label><input autocomplete="email" id="je" required="" type="email"/>
 <label class="f" data-i="s.soignants.13" for="jr">Numéro RPPS</label><input data-ip="s.ph.1" id="jr" inputmode="numeric" placeholder="11 chiffres"/>
-<label class="f" data-i="s.soignants.14" for="jv">Ville d'exercice</label><input data-ip="s.ph.2" id="jv" placeholder="Lorient"/>
+<label class="f" data-i="s.soignants.14" for="jv">Ville d'exercice</label><input data-ip="s.ph.2" id="jv" placeholder="Lorient" required=""/>
 <label class="f" data-i="s.soignants.15" for="jh">Heures par mois que vous pouvez offrir</label><input id="jh" max="40" min="1" type="number" value="4"/>
 <label class="f" data-i="s.soignants.16" for="jm">Un mot sur votre pratique (facultatif)</label><textarea id="jm" rows="3"></textarea>
 <div class="nav"><span></span><button class="main" data-i="s.soignants.17" type="submit">Envoyer ma candidature</button></div>
@@ -405,7 +437,6 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <li data-i="s.confidentialite.5"><b>Seule une demande de rendez-vous est transmise</b>, uniquement si tu l'envoies, et uniquement les champs que tu remplis. Elle est supprimée après la prise de contact.</li>
 <li data-i="s.confidentialite.6"><b>Le bouton « Quitter vite »</b> remplace la page par un site neutre. Pense aussi à effacer ton historique si quelqu'un a accès à ton téléphone.</li>
 </ul>
-<p class="small" data-i="s.confidentialite.7">Démo : texte à faire valider juridiquement (RGPD) avant la mise en ligne.</p>
 </main>
 </div>
 <!-- ============ CÔTÉ UTILISATRICE ============ -->
@@ -454,7 +485,7 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <div data-i="s.foot.1"><b>Besoin d'aide maintenant ?</b><br/>En France : urgence 17 ou SMS au 114 · Violences Femmes Info : 3919 (24 h/24) · Moins de 18 ans : 119 · Fil Santé Jeunes : 0 800 235 236<br/>Ailleurs : services d'urgence de ton pays (112 dans l'Union européenne).</div>
 <div class="flinks" data-i="s.foot.2"><a href="#photos">Vérifier mes photos</a><a href="#apropos">Qui sommes-nous</a><a href="#confidentialite">Confidentialité</a><a href="#plateformes">Plateformes</a><a href="#soignants">Soignants</a></div>
 </div>
-<p class="wrapw small" data-i="s.foot.3">Initiative bénévole, sans publicité ni collecte de données. Version de démonstration.</p>
+<p class="wrapw small" data-i="s.foot.3">Initiative bénévole, sans publicité ni pistage.</p>
 </footer>
 <script src="i18n.js"></script>
 <script src="api.js"></script>
@@ -491,8 +522,9 @@ ${['s1','s2','s3','s4'].map(id=>`<label class="f" for="${id}">${t('p.5.'+id)}</l
 <form id="reqF">
 <label class="f" for="rp">${t('p.6.pseudo')}</label><input id="rp" required placeholder="${t('p.6.pseudoPh')}" maxlength="30">
 <label class="f" for="rc">${t('p.6.how')}</label>
-<select id="rc"><option value="app">${t('p.6.howApp')}</option><option value="sms">SMS</option><option value="email">E-mail</option></select>
-<input id="rcv" class="hide" style="margin-top:8px" placeholder="${t('p.6.contactPh')}">
+<select id="rc"><option value="email">E-mail</option><option value="sms">SMS</option></select>
+<input id="rcv" required style="margin-top:8px" placeholder="${t('p.6.contactPh')}" maxlength="120">
+<label class="f" for="rv2">${t('p.6.city')}</label><input id="rv2" maxlength="60" placeholder="${t('p.6.cityPh')}">
 <label class="f" for="rw">${t('p.6.when')}</label>
 <select id="rw"><option value="day">${t('p.6.whenDay')}</option><option value="eve">${t('p.6.whenEve')}</option><option value="any">${t('p.6.whenAny')}</option></select>
 <label class="f" for="rm">${t('p.6.msg')}</label><textarea id="rm" rows="3" maxlength="600"></textarea>
@@ -513,7 +545,7 @@ function renderF(){
   if(S.step===4)coerc();
   if(S.step===5)selfRes();
 }
-document.addEventListener('langchange',()=>{if(window.__booted)renderF()});
+document.addEventListener('langchange',()=>{if(window.__booted){renderF();if(location.hash==='#dons')renderAssos()}});
 function calc(){
   const b=+document.getElementById('rv').value;S.answers.rv=b;
   const plat=b*.2,cot=(b-plat)*.25,net=b-plat-cot;
@@ -538,18 +570,20 @@ pg.addEventListener('change',e=>{
   if(el.name==='age'){S.answers.age=el.value;document.getElementById('minor').classList.toggle('hide',el.value!=='no')}
   else if(el.dataset.c){S.coerc[el.name]=el.value;coerc()}
   else if(el.type==='radio')S.answers[el.name]=el.value;
-  if(el.id==='rc')document.getElementById('rcv').classList.toggle('hide',el.selectedIndex===0);
 });
 pg.addEventListener('input',e=>{
   if(e.target.id==='rv')calc();
   if(e.target.dataset.s){S.self[e.target.id]=+e.target.value;selfRes()}
 });
-const CANAL={app:"Message dans l'application",sms:'SMS',email:'E-mail'},QUAND={day:'En semaine, en journée',eve:'En semaine, en fin de journée',any:'Peu importe'};
-pg.addEventListener('submit',e=>{
+pg.addEventListener('submit',async e=>{
   e.preventDefault();
-  const code='AVC-'+Math.random().toString(36).slice(2,6).toUpperCase();
-  REQ.unshift({id:code,pseudo:document.getElementById('rp').value.trim()||'Anonyme',canal:CANAL[document.getElementById('rc').value],quand:QUAND[document.getElementById('rw').value],msg:document.getElementById('rm').value.trim()||'(pas de message)',recu:"À l'instant",neu:true,etat:'Nouvelle',lang:document.documentElement.lang});
-  S.sent=code;sel=code;renderF();renderInbox();
+  const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;
+  const v=id=>document.getElementById(id).value.trim();
+  try{
+    const r=await fetch('/api/v1/appointments',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pseudo:v('rp')||'—',contact_type:v('rc'),contact:v('rcv'),when:v('rw'),city:v('rv2'),message:v('rm'),lang:document.documentElement.lang})});
+    if(!r.ok)throw new Error(r.status);
+    S.sent=(await r.json()).code;renderF();
+  }catch(err){btn.disabled=false;let m=document.getElementById('aptErr');if(!m){m=document.createElement('p');m.id='aptErr';m.className='alert';e.target.appendChild(m)}m.textContent=String(err.message)==='429'?t('p.6.limit'):t('p.6.err')}
 });
 
 /* ---- doctor side ---- */
@@ -584,7 +618,35 @@ function renderSlots(){
 }
 document.getElementById('slotGrid').addEventListener('click',e=>{const k=e.target.dataset.s;if(!k)return;open.has(k)?open.delete(k):open.add(k);renderSlots()});
 
-document.getElementById('joinF').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('jn').value;const o=document.getElementById('joinOk');o.classList.remove('hide');o.innerHTML=t('s.joinOk',{n:esc(n)})});
+document.getElementById('joinF').addEventListener('submit',async e=>{e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim(),o=document.getElementById('joinOk'),b=e.target.querySelector('button[type=submit]');b.disabled=true;
+  try{const r=await fetch('/api/v1/doctors',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:v('jn'),profession:v('jp'),rpps:v('jr'),email:v('je'),city:v('jv'),hours:+v('jh')||1,note:v('jm')})});
+    if(!r.ok)throw new Error(r.status);o.innerHTML=t('s.join.sent',{n:esc(v('jn'))});e.target.reset()}
+  catch(err){b.disabled=false;o.innerHTML=t(String(err.message)==='400'?'s.join.bad':'s.join.err')}
+  o.classList.remove('hide')});
+
+/* ---- donate: verified associations, own donation pages, random order ---- */
+const ASSOS=[
+ {n:'Fondation des Femmes',c:'FR',u:'https://www.helloasso.com/associations/fondation-des-femmes',k:'d.a.fdf'},
+ {n:'Association e-Enfance / 3018',c:'FR',u:'https://e-enfance.org/en/work-with-us/make-a-donation/',k:'d.a.ee'},
+ {n:'Mouvement du Nid',c:'FR',u:'https://www.helloasso.com/associations/mouvement-du-nid-france',k:'d.a.nid'},
+ {n:'Revenge Porn Helpline (SWGfL)',c:'UK',u:'https://revengepornhelpline.org.uk/donate/',k:'d.a.rph'},
+ {n:'HateAid',c:'DE',u:'https://hateaid.org/en/donate/',k:'d.a.ha'},
+ {n:'Cyber Civil Rights Initiative',c:'US',u:'https://cybercivilrights.org/donate',k:'d.a.ccri'}];
+function renderAssos(){const a=ASSOS.slice();for(let i=a.length-1;i>0;i--){const j=crypto.getRandomValues(new Uint32Array(1))[0]%(i+1);[a[i],a[j]]=[a[j],a[i]]}
+  document.getElementById('assoList').innerHTML=a.map(x=>`<div class="asso"><div><b>${x.n}</b> <span class="tag">${x.c}</span><p>${t(x.k)}</p></div><a class="btn main" href="${x.u}" target="_blank" rel="noopener noreferrer">${t('d.btn')}</a></div>`).join('')}
+
+/* ---- homepage: real numbers from the server ---- */
+async function loadStats(){
+  try{const r=await fetch('/api/v1/stats');if(!r.ok)throw 0;const s=await r.json();
+    const f=n=>Number(n).toLocaleString(document.documentElement.lang);
+    document.getElementById('kChecks').textContent=f(s.total_checks);document.getElementById('kLikely').textContent=f(s.total_likely);document.getElementById('kReports').textContent=f(s.reports_sent);
+    const max=Math.max(1,...s.days.map(d=>d.checks)),w=300/s.days.length;
+    document.getElementById('statsChart').innerHTML=s.days.map((d,i)=>{const h=Math.round(80*d.checks/max),hl=Math.round(80*d.likely/max);
+      return `<g><title>${d.day} : ${d.checks}</title><rect x="${(i*w+1).toFixed(1)}" y="${88-h}" width="${(w-2).toFixed(1)}" height="${Math.max(h,1)}" rx="1.5" fill="${h?'#f1c4c7':'#f3e3e4'}"/>${hl?`<rect x="${(i*w+1).toFixed(1)}" y="${88-hl}" width="${(w-2).toFixed(1)}" height="${hl}" rx="1.5" fill="#d7262e"/>`:''}</g>`}).join('');
+    document.getElementById('statsNone').classList.toggle('hide',s.total_checks>0);
+  }catch(_){document.getElementById('statsNone').classList.remove('hide')}}
+document.getElementById('homeFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;window.__homeFile=f;e.target.value='';location.hash='#outils'});
 
 const REV={};
 document.getElementById('revList').innerHTML=STEP_NAMES.map((s,i)=>`<label class="f" for="rv${i}">${i?('Étape '+i+' · '):''}${s}</label><textarea id="rv${i}" data-v="${i}" rows="2" placeholder="Votre remarque"></textarea>`).join('')+`<label class="f" for="rvG">Remarques générales (côté médecin, fonctionnement, sécurité)</label><textarea id="rvG" data-v="g" rows="3"></textarea>`;
@@ -600,11 +662,13 @@ document.querySelector('#v-medecin .tabs').addEventListener('click',e=>{const t=
   ['inbox','slots','review'].forEach(x=>document.getElementById('t-'+x).classList.toggle('hide',x!==t))});
 
 /* ---- routing ---- */
-const VIEWS=['accueil','parcours','photos','outils','apropos','plateformes','soignants','medecin','confidentialite'];
-function route(){let v=location.hash.slice(1);if(!VIEWS.includes(v))v='accueil';
+const VIEWS=['accueil','parcours','photos','outils','apropos','plateformes','soignants','medecin','confidentialite','dons'];
+function route(){let v=location.hash.slice(1).split('?')[0];if(!VIEWS.includes(v))v='accueil';
   VIEWS.forEach(x=>document.getElementById('v-'+x).classList.toggle('on',x===v));
   document.querySelectorAll('nav.site a').forEach(a=>{a.classList.toggle('on',a.dataset.n===v);if(a.dataset.n===v){const n=a.parentNode;n.scrollLeft=a.offsetLeft-n.clientWidth/2+a.offsetWidth/2}});
   if(v==='medecin')renderInbox();
+  if(v==='accueil')loadStats();
+  if(v==='dons')renderAssos();
   if(v==='outils'){if(window.initOutils)window.initOutils();else{const sc=document.createElement('script');sc.src='outils.js';sc.onload=()=>window.initOutils();document.body.appendChild(sc)}}
   scrollTo(0,0);}
 document.getElementById('copySnip').addEventListener('click',async()=>{const m=document.getElementById('snipMsg');
