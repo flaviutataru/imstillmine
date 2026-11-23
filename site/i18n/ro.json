@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Prea multe cereri de link de pe această conexiune azi. Încearcă din nou mâine.",
  "p.6.bad": "Verifică câmpurile: datele tale de contact par incomplete.",
  "s.join.limit": "Prea multe trimiteri de pe această conexiune azi. Vă rugăm să încercați din nou mâine sau să scrieți la contact@imstillmine.com.",
- "h.stats.apts": "Cereri de ajutor transmise specialiștilor în sănătate"
+ "h.stats.apts": "Cereri de ajutor transmise specialiștilor în sănătate",
+ "s.menu": "Meniu"
 }

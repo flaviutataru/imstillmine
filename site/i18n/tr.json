@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Bugün bu internet bağlantısından çok fazla link isteği geldi. Yarın tekrar dene.",
  "p.6.bad": "Alanları kontrol et: iletişim bilgin eksik görünüyor.",
  "s.join.limit": "Bugün bu bağlantıdan çok fazla gönderim yapıldı. Lütfen yarın tekrar deneyin veya contact@imstillmine.com adresine yazın.",
- "h.stats.apts": "Sağlık profesyonellerine iletilen yardım talepleri"
+ "h.stats.apts": "Sağlık profesyonellerine iletilen yardım talepleri",
+ "s.menu": "Menü"
 }

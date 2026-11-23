@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Demasiadas solicitudes de enlace desde esta conexión hoy. Vuelve a intentarlo mañana.",
  "p.6.bad": "Revisa los campos: tu medio de contacto parece incompleto.",
  "s.join.limit": "Demasiados envíos desde esta conexión hoy. Vuelva a intentarlo mañana o escriba a contact@imstillmine.com.",
- "h.stats.apts": "Solicitudes de ayuda transmitidas a profesionales de la salud"
+ "h.stats.apts": "Solicitudes de ayuda transmitidas a profesionales de la salud",
+ "s.menu": "Menú"
 }

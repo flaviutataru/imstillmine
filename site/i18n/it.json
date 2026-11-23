@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Troppe richieste di link da questa connessione oggi. Riprova domani.",
  "p.6.bad": "Controlla i campi: il tuo recapito sembra incompleto.",
  "s.join.limit": "Troppi invii da questa connessione oggi. Riprovi domani o scriva a contact@imstillmine.com.",
- "h.stats.apts": "Richieste di aiuto trasmesse a professionisti sanitari"
+ "h.stats.apts": "Richieste di aiuto trasmesse a professionisti sanitari",
+ "s.menu": "Menu"
 }

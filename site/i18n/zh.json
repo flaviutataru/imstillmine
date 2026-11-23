@@ -385,5 +385,6 @@
  "o.api.mailLimit": "今天从这个网络连接发出的链接请求太多了。明天再试吧。",
  "p.6.bad": "请检查各栏：你的联系方式似乎不完整。",
  "s.join.limit": "今天从此网络连接提交的次数过多。请您明天再试，或写信至 contact@imstillmine.com。",
- "h.stats.apts": "已转给医护人员的求助请求"
+ "h.stats.apts": "已转给医护人员的求助请求",
+ "s.menu": "菜单"
 }

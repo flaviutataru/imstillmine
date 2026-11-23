@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Hôm nay có quá nhiều yêu cầu gửi liên kết từ kết nối này. Hãy thử lại vào ngày mai.",
  "p.6.bad": "Hãy kiểm tra các ô: thông tin liên hệ của bạn có vẻ chưa đầy đủ.",
  "s.join.limit": "Hôm nay có quá nhiều lượt gửi từ kết nối này. Vui lòng thử lại vào ngày mai hoặc viết thư đến contact@imstillmine.com.",
- "h.stats.apts": "Yêu cầu hỗ trợ đã chuyển đến nhân viên y tế"
+ "h.stats.apts": "Yêu cầu hỗ trợ đã chuyển đến nhân viên y tế",
+ "s.menu": "Menu"
 }

@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Terlalu banyak permintaan tautan dari koneksi ini hari ini. Coba lagi besok.",
  "p.6.bad": "Periksa kolomnya: kontakmu sepertinya belum lengkap.",
  "s.join.limit": "Terlalu banyak kiriman dari koneksi ini hari ini. Silakan coba lagi besok atau tulis ke contact@imstillmine.com.",
- "h.stats.apts": "Permintaan bantuan yang diteruskan ke tenaga kesehatan"
+ "h.stats.apts": "Permintaan bantuan yang diteruskan ke tenaga kesehatan",
+ "s.menu": "Menu"
 }

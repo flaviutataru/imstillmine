@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Too many link requests from this connection today. Try again tomorrow.",
  "p.6.bad": "Please check the fields: your contact details look incomplete.",
  "s.join.limit": "Too many submissions from this connection today. Please try again tomorrow or write to contact@imstillmine.com.",
- "h.stats.apts": "Requests for help passed on to clinicians"
+ "h.stats.apts": "Requests for help passed on to clinicians",
+ "s.menu": "Menu"
 }

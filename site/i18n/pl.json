@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Dziś z tego połączenia było za dużo próśb o link. Spróbuj ponownie jutro.",
  "p.6.bad": "Sprawdź pola: twoje dane kontaktowe wyglądają na niepełne.",
  "s.join.limit": "Dziś z tego połączenia wysłano za dużo zgłoszeń. Prosimy spróbować ponownie jutro lub napisać na adres contact@imstillmine.com.",
- "h.stats.apts": "Prośby o pomoc przekazane specjalistom"
+ "h.stats.apts": "Prośby o pomoc przekazane specjalistom",
+ "s.menu": "Menu"
 }

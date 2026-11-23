@@ -150,6 +150,121 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 :root,:root[data-theme=dark],:root[data-theme=light]{color-scheme:light;--bg:#ffffff;--paper:#fff6f6;--ink:#2b0a0d;--soft:#7d3a40;--line:#f2d3d6;--acc:#d7262e;--accbg:#ffecec;--teal:#b3121c;--ok:#8a1a20}
 .vcard.mid{border-color:#ee9ba0}.lv.moyen{background:#fff1e6;color:#9a2a12}
 .hero{background:#fff6f6}
+
+/* ===== v3 — "the red thread" =====
+   White paper, ink, one red. The only bold element: the cracked glass across the hero, sewn by a
+   red thread that draws itself once. Everything else is quiet: hairlines instead of tinted boxes. */
+:root,:root[data-theme=dark],:root[data-theme=light]{color-scheme:light;
+--bg:#ffffff;--paper:#faf7f7;--ink:#2b0a0d;--soft:#5e4a4d;--line:#e9e1e2;--crack:#ddd3d4;
+--acc:#c8102e;--accdeep:#9e0b22;--accbg:#fbeef0;--teal:#c8102e;--ok:#1f6b4f}
+body{font-size:17px;line-height:1.65}
+a{color:var(--accdeep);text-underline-offset:3px}
+.lede{color:var(--soft)}
+.small{color:var(--soft)}
+.page{background:var(--bg);border:1px solid var(--line);box-shadow:none;border-radius:16px}
+@media(prefers-reduced-motion:no-preference){.page{animation:none}}
+button,.btn{border-radius:10px;border-color:var(--line)}
+button.main,a.btn.main,.filebtn{background:var(--acc);border-color:var(--acc);color:#fff}
+button.main:hover,a.btn.main:hover,.filebtn:hover{background:var(--accdeep);border-color:var(--accdeep)}
+.btn:not(.main):hover,button:not(.main):not(.exit):hover{border-color:var(--ink)}
+input[type=file]{padding:8px}
+input[type=file]::file-selector-button{font:inherit;font-weight:500;border:1px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:8px;padding:8px 14px;margin-right:12px;cursor:pointer}
+
+/* header: logo, language, quick exit always visible; menu folds on small screens */
+.top{gap:10px 16px;padding:10px max(4vw,14px)}
+.brand .logo{height:46px}
+.tools-right{display:flex;gap:8px;align-items:center;margin-left:auto}
+.langsel select{min-height:40px;padding:6px 8px;font-size:14px;border-color:var(--line)}
+.qexit{background:var(--ink);color:#fff;border:0;border-radius:999px;padding:8px 16px;min-height:40px;font-weight:600}
+.qexit:hover{background:#000}
+.menubtn{display:none;border-radius:999px;min-height:40px;padding:8px 14px}
+nav.site{width:100%;gap:0 4px;border-top:1px solid var(--line);padding-top:6px}
+nav.site a{color:var(--soft);padding:8px 10px;border-radius:8px}
+nav.site a.on{background:none;color:var(--ink);box-shadow:inset 0 -2px 0 var(--acc);border-radius:0}
+nav.site a.give{color:var(--accdeep)}
+@media(max-width:860px){
+  .menubtn{display:inline-flex;align-items:center}
+  nav.site{display:none;flex-direction:column;overflow:visible;flex-wrap:nowrap}
+  nav.site.open{display:flex}
+  nav.site a{min-height:48px;border-bottom:1px solid var(--line);border-radius:0}
+  nav.site a.on{box-shadow:inset 3px 0 0 var(--acc);padding-left:14px}
+  .brand .logo{height:40px}
+}
+
+/* hero: the cracked glass, sewn */
+.hero{position:relative;overflow:hidden;background:var(--bg);padding:clamp(48px,9vw,120px) max(5vw,16px) clamp(40px,7vw,96px);border-bottom:1px solid var(--line)}
+.hero .heroin{position:relative;z-index:1;display:block;max-width:1040px}
+.hero .heroin>div{max-width:36rem}
+.hero .glass{display:none}
+.shatter{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.shatter .c{fill:none;stroke:var(--crack);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.shatter .shard{fill:#f6f1f1}
+.shatter .thread{fill:none;stroke:var(--acc);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.shatter .knot{fill:var(--acc)}
+h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
+.tagline{color:var(--accdeep);font-size:19px}
+@media(prefers-reduced-motion:no-preference){
+  .shatter .thread{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:sew 2.6s .5s cubic-bezier(.6,.05,.3,1) forwards}
+  .shatter .knot{opacity:0;animation:knot .4s 3s forwards}
+  @keyframes sew{to{stroke-dashoffset:0}}@keyframes knot{to{opacity:1}}
+}
+@media(max-width:860px){.shatter{opacity:.55}.hero .heroin>div{max-width:none}}
+
+/* check + numbers */
+.checkband{padding-top:clamp(28px,5vw,64px)}
+.checkband .two{gap:clamp(16px,3vw,32px);align-items:start}
+.hstats .chart{margin:4px 0 8px}
+.hstats.empty .chart{display:none}
+.kpis{border-top:1px solid var(--line);padding-top:12px}
+.kpis b{color:var(--ink);font-family:Literata,Georgia,serif;font-size:34px;font-weight:600}
+.kpis span{font-size:14px}
+
+/* reassurance row: plain text, no boxes */
+.band:not(.alt) .three h3{font-size:20px}
+
+/* the walkthrough: a real sequence, joined by the thread */
+.band.alt{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:block;position:relative;max-width:640px;margin:8px 0 28px;padding-left:44px}
+.steps::before{content:"";position:absolute;left:15px;top:18px;bottom:18px;width:2px;background:var(--acc);border-radius:2px}
+.steps li{position:relative;background:none;border:0;border-radius:0;padding:0 0 22px}
+.steps li::before{position:absolute;left:-44px;top:0;width:32px;height:32px;border-radius:50%;background:var(--bg);border:2px solid var(--acc);
+  font-family:Literata,Georgia,serif;font-size:16px;font-weight:600;color:var(--acc);display:grid;place-items:center;line-height:1}
+.steps b{font-size:18px;margin:2px 0}
+.steps span{font-size:16px}
+
+/* donate: quiet list, links instead of six red buttons */
+.assos{gap:0;border-top:1px solid var(--line)}
+.asso{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:18px 2px}
+.asso .btn.main{background:var(--bg);color:var(--accdeep);border:1px solid var(--accdeep);white-space:nowrap}
+.asso .btn.main:hover{background:var(--accdeep);color:#fff}
+.asso .tag{background:none;border:1px solid var(--line);color:var(--soft)}
+
+/* soft panels inside pages */
+.alert{background:var(--accbg)}
+.priv{border-style:solid;background:var(--paper)}
+.tools a{background:var(--bg)}
+.res div{background:var(--bg)}
+.people div{background:var(--paper)}
+
+/* footer: help first, easy to read */
+.foot{background:var(--paper);padding:36px max(5vw,16px) 28px}
+.foot [data-i="s.foot.1"]{border-inline-start:3px solid var(--acc);padding-inline-start:16px;font-size:16px;line-height:1.7}
+.flinks a{color:var(--ink)}
+
+/* v3.1 — phone header on one line; the glass sits above the text, never under it */
+.qexit,.menubtn{white-space:nowrap}
+@media(max-width:860px){
+  .top{flex-wrap:nowrap;padding:8px 12px;gap:8px}
+  .brand .logo{height:36px}
+  .tools-right{gap:6px}
+  .langsel select{max-width:92px;min-height:38px;font-size:13px;padding:4px 6px}
+  .qexit{padding:6px 12px;min-height:38px;font-size:14px}
+  .menubtn{padding:6px 12px;min-height:38px;font-size:14px}
+  .top{flex-wrap:wrap}
+  .top>nav.site{order:3}
+  .hero{padding-top:200px}
+  .shatter{height:200px;opacity:1}
+}
 </style>
 </head>
 <body>
@@ -160,8 +275,8 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
   <path d="M176.5 88 q -7 -2 -8 4 q 1 6 8 3 q 4 -3 0 -7" fill="none" stroke="#d7262e" stroke-width="2.6" stroke-linecap="round"/>
   <text x="62" y="118" font-family="Literata, Georgia, serif" font-size="46" font-weight="700" fill="#d7262e" transform="rotate(-4 62 118)">Mine</text>
 </svg></a>
-<label class="langsel"><span class="sr" data-i="s.langLabel">Langue</span><select id="langSel" aria-label="Langue / Language"></select></label>
-<nav aria-label="Navigation principale" class="site">
+<div class="tools-right"><label class="langsel"><span class="sr" data-i="s.langLabel">Langue</span><select id="langSel" aria-label="Langue / Language"></select></label><button class="qexit" id="qexit" type="button" data-i="p.exit">Quitter vite</button><button class="menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="sitenav" data-i="s.menu">Menu</button></div>
+<nav aria-label="Navigation principale" class="site" id="sitenav">
 <a data-i="s.nav.2" data-n="accueil" href="#accueil">Accueil</a>
 <a data-i="s.nav.3" data-n="parcours" href="#parcours">Le parcours</a>
 <a data-i="s.nav.4" data-n="apropos" href="#apropos">Qui sommes-nous</a>
@@ -175,6 +290,20 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <!-- ============ ACCUEIL ============ -->
 <div class="view" id="v-accueil">
 <section class="hero">
+<svg aria-hidden="true" class="shatter" viewBox="0 0 1200 620" preserveAspectRatio="xMaxYMid slice">
+<g class="shards" opacity=".7"><path class="shard" d="M905 250 L1010 170 L1060 300 Z"/><path class="shard" d="M905 250 L840 380 L960 410 Z"/></g>
+<g class="c">
+<path d="M905 250 L1200 120"/><path d="M905 250 L1200 300"/><path d="M905 250 L1200 520"/><path d="M905 250 L1080 620"/>
+<path d="M905 250 L820 620"/><path d="M905 250 L560 620"/><path d="M905 250 L640 0"/><path d="M905 250 L930 0"/><path d="M905 250 L1150 0"/>
+<path d="M905 250 L420 330"/>
+<path d="M905 250 M860 205 L955 196 L1010 262 L968 330 L880 340 L836 282 Z"/>
+<path d="M790 140 L900 110 L1070 150 L1140 300 L1080 450 L930 500 L760 450 L700 300 Z" stroke-dasharray="2 9"/>
+<path d="M1010 170 L1060 300 M840 380 L960 410 M760 75 L700 300 M1100 470 L1200 600"/>
+</g>
+<path class="c main" d="M905 250 L800 640"/>
+<path class="thread" style="--len:569" d="M905 250 Q888.7 278.0 877.5 286.6 Q885.8 321.2 899.3 336.5 Q874.8 362.3 855.4 368.7 Q863.7 403.3 877.2 418.6 Q852.7 444.4 833.3 450.8 Q841.6 485.4 855.1 500.7 Q830.6 526.5 811.2 532.9 Q819.5 567.6 833.0 582.8 Q808.5 608.6 789.1 615.1 Q792.0 637.2 800.0 640.0"/>
+<circle class="knot" cx="905" cy="250" r="6"/>
+</svg>
 <div class="heroin">
 <div>
 <p class="tagline" data-i="s.tagline">Ton corps. Tes images. Ton choix.</p>
@@ -643,8 +772,12 @@ async function loadStats(){
     const max=Math.max(1,...s.days.map(d=>d.checks)),w=300/s.days.length;
     document.getElementById('statsChart').innerHTML=s.days.map((d,i)=>{const h=Math.round(80*d.checks/max),hl=Math.round(80*d.likely/max);
       return `<g><title>${d.day} : ${d.checks}</title><rect x="${(i*w+1).toFixed(1)}" y="${88-h}" width="${(w-2).toFixed(1)}" height="${Math.max(h,1)}" rx="1.5" fill="${h?'#f1c4c7':'#f3e3e4'}"/>${hl?`<rect x="${(i*w+1).toFixed(1)}" y="${88-hl}" width="${(w-2).toFixed(1)}" height="${hl}" rx="1.5" fill="#d7262e"/>`:''}</g>`}).join('');
-    document.getElementById('statsNone').classList.toggle('hide',s.total_checks>0);
-  }catch(_){document.getElementById('statsNone').classList.remove('hide')}}
+    document.getElementById('statsNone').classList.toggle('hide',s.total_checks>0);document.querySelector('.hstats').classList.toggle('empty',s.total_checks===0);
+  }catch(_){document.getElementById('statsNone').classList.remove('hide');document.querySelector('.hstats').classList.add('empty')}}
+document.getElementById('qexit').addEventListener('click',()=>{try{sessionStorage.clear()}catch(_){}location.replace('https://www.google.com/search?q=m%C3%A9t%C3%A9o')});
+(()=>{const b=document.getElementById('menubtn'),n=document.getElementById('sitenav');
+  b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+  n.addEventListener('click',e=>{if(e.target.closest('a')){n.classList.remove('open');b.setAttribute('aria-expanded','false')}});})();
 document.getElementById('homeFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;window.__homeFile=f;e.target.value='';location.hash='#outils'});
 
 const REV={};

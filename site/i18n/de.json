@@ -385,5 +385,6 @@
  "o.api.mailLimit": "Heute wurden von dieser Verbindung zu viele Links angefordert. Versuch es morgen noch einmal.",
  "p.6.bad": "Prüf die Felder: Deine Kontaktangabe scheint unvollständig zu sein.",
  "s.join.limit": "Heute gab es zu viele Einsendungen von dieser Verbindung. Bitte versuchen Sie es morgen noch einmal oder schreiben Sie an contact@imstillmine.com.",
- "h.stats.apts": "An Fachpersonen weitergeleitete Hilfeanfragen"
+ "h.stats.apts": "An Fachpersonen weitergeleitete Hilfeanfragen",
+ "s.menu": "Menü"
 }
