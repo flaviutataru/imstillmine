@@ -8,8 +8,7 @@
 <title data-i="s.title">I’m Still Mine</title>
 <link rel="icon" href="brand/logo-mark.svg" type="image/svg+xml"/>
 <meta content="#d7262e" name="theme-color"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="fonts/fonts.css" rel="stylesheet"/>
 <style>
 /* VOICE: tender, calm, never judging; a quiet notebook, not a campaign
    IDEA: a pocket notebook she opens alone, page by page
@@ -206,7 +205,7 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 </div>
 <div class="page hstats" aria-live="polite">
 <h2 data-i="h.stats.title">Nos chiffres, en vrai</h2>
-<div class="kpis"><div><b id="kChecks">–</b><span data-i="h.stats.checks">Images vérifiées</span></div><div><b id="kLikely">–</b><span data-i="h.stats.likely">Avec des signes clairs de trucage</span></div><div><b id="kReports">–</b><span data-i="h.stats.reports">Signalements envoyés aux plateformes</span></div></div>
+<div class="kpis"><div><b id="kChecks">–</b><span data-i="h.stats.checks">Images vérifiées</span></div><div><b id="kLikely">–</b><span data-i="h.stats.likely">Avec des signes clairs de trucage</span></div><div><b id="kApts">–</b><span data-i="h.stats.apts">Demandes d'aide transmises à des soignants</span></div></div>
 <svg id="statsChart" class="chart" viewBox="0 0 300 90" role="img" aria-label=""></svg>
 <p class="small"><span data-i="h.stats.days">30 derniers jours</span> · <span data-i="h.stats.note">De simples compteurs, sans aucune donnée personnelle.</span></p>
 <p class="small hide" id="statsNone" data-i="h.stats.none">Pas encore de chiffres : le site vient d'ouvrir.</p>
@@ -302,12 +301,12 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 </ul>
 <div class="page" style="animation:none">
 <form id="joinF">
-<label class="f" data-i="s.soignants.6" for="jn">Nom et prénom</label><input autocomplete="name" id="jn" required=""/>
+<label class="f" data-i="s.soignants.6" for="jn">Nom et prénom</label><input autocomplete="name" id="jn" minlength="2" maxlength="120" required=""/>
 <label class="f" data-i="s.soignants.7" for="jp">Profession</label>
 <select id="jp"><option value="psychiatre" data-i="s.soignants.8">Psychiatre</option><option value="psychologue" data-i="s.soignants.9">Psychologue</option><option value="generaliste" data-i="s.soignants.10">Médecin généraliste</option><option value="sage-femme" data-i="s.soignants.11">Sage-femme</option><option value="autre" data-i="s.soignants.12">Autre</option></select>
-<label class="f" data-i="s.soignants.18" for="je">Adresse e-mail professionnelle</label><input autocomplete="email" id="je" required="" type="email"/>
-<label class="f" data-i="s.soignants.13" for="jr">Numéro RPPS</label><input data-ip="s.ph.1" id="jr" inputmode="numeric" placeholder="11 chiffres"/>
-<label class="f" data-i="s.soignants.14" for="jv">Ville d'exercice</label><input data-ip="s.ph.2" id="jv" placeholder="Lorient" required=""/>
+<label class="f" data-i="s.soignants.18" for="je">Adresse e-mail professionnelle</label><input autocomplete="email" id="je" maxlength="254" required="" type="email"/>
+<label class="f" data-i="s.soignants.13" for="jr">Numéro RPPS</label><input data-ip="s.ph.1" id="jr" maxlength="20" inputmode="numeric" placeholder="11 chiffres"/>
+<label class="f" data-i="s.soignants.14" for="jv">Ville d'exercice</label><input data-ip="s.ph.2" id="jv" maxlength="80" placeholder="Lorient" required=""/>
 <label class="f" data-i="s.soignants.15" for="jh">Heures par mois que vous pouvez offrir</label><input id="jh" max="40" min="1" type="number" value="4"/>
 <label class="f" data-i="s.soignants.16" for="jm">Un mot sur votre pratique (facultatif)</label><textarea id="jm" rows="3"></textarea>
 <div class="nav"><span></span><button class="main" data-i="s.soignants.17" type="submit">Envoyer ma candidature</button></div>
@@ -350,7 +349,7 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <div class="page" style="animation:none;margin-top:28px">
 <div class="kicker" data-i="s.photos.20">Nouveau, en test</div>
 <h3 data-i="s.photos.21">Vérifier une image que tu as trouvée</h3>
-<p data-i="s.photos.22">Compare une image suspecte à ton visage après un selfie en direct, et cherche des signes de trucage. Tout se passe sur ton téléphone : aucune image n'est envoyée.</p>
+<p data-i="s.photos.22">Compare une image suspecte à ton visage après un selfie en direct, et cherche des signes de trucage. Ton selfie ne quitte jamais ton téléphone ; seule l'image suspecte est vérifiée par notre serveur, puis effacée.</p>
 <a class="btn main" data-i="s.photos.23" href="#outils">Ouvrir les outils</a>
 </div>
 </main>
@@ -359,7 +358,7 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <div class="view" id="v-outils">
 <main>
 <h1 data-i="s.outils.1">Vérifier une image trouvée en ligne</h1>
-<div class="priv" data-i="s.outils.2"><b>Tout reste sur ton appareil.</b> Les images et ton selfie sont analysés dans ce navigateur, rien n'est envoyé ni enregistré. Les résultats sont des indices, pas des preuves.</div>
+<div class="priv" data-i="s.outils.2">Ton selfie et la comparaison de visage restent sur ton appareil. Seule l'image suspecte est envoyée à notre serveur, en morceaux, pour chercher un trucage : elle n'est jamais enregistrée et elle est libérée de la mémoire dès la réponse. Les résultats sont des indices, pas des preuves.</div>
 <p class="small hide" id="oStatus" role="status"></p>
 <div class="tabs" style="margin-top:20px">
 <button class="on" data-i="s.outils.3" data-o="t1">1. Est-ce mon visage ?</button>
@@ -402,7 +401,7 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <section class="hide" id="o-t2">
 <div class="page" style="animation:none">
 <h3 data-i="s.outils.14">Chercher des signes de génération ou de retouche</h3>
-<p data-i="s.outils.15">L'outil lit les informations cachées du fichier (logiciel, marquages « image générée par IA »), compare le grain du visage et du fond, et produit une carte de compression.</p>
+<p data-i="s.outils.15">L'image est envoyée à notre serveur en morceaux mélangés. Il lit les informations cachées du fichier : les marquages « image générée par IA », les réglages laissés par les générateurs d'images et les applications de retouche du visage. Il répond par un verdict simple, puis efface tout. Il n'analyse pas encore les pixels : une image sans marquage peut quand même être un deepfake.</p>
 <label class="f" data-i="s.outils.16" for="f2">Choisir l'image</label><input accept="image/*" id="f2" type="file"/>
 <p class="small" data-i="s.outils.17">Pour un résultat plus parlant, utilise le fichier d'origine plutôt qu'une capture d'écran quand c'est possible.</p>
 <div id="sigOut"></div>
@@ -433,8 +432,8 @@ pre{background:var(--paper);border-radius:12px;padding:14px;font-size:14px;overf
 <p class="lede" data-i="s.confidentialite.2">Le parcours ne collecte rien. Tes réponses restent dans ton navigateur et disparaissent quand tu fermes l'onglet.</p>
 <ul class="facts">
 <li data-i="s.confidentialite.3"><b>Pas de compte, pas de cookies de suivi, pas de mesure d'audience.</b></li>
-<li data-i="s.confidentialite.4"><b>Le serveur ne garde pas de journaux de connexion</b> (adresses IP).</li>
-<li data-i="s.confidentialite.5"><b>Seule une demande de rendez-vous est transmise</b>, uniquement si tu l'envoies, et uniquement les champs que tu remplis. Elle est supprimée après la prise de contact.</li>
+<li data-i="s.confidentialite.4"><b>Pas de journaux de connexion.</b> Pour éviter les abus, le serveur compte les vérifications par adresse IP pendant une journée. L'adresse est remplacée par une empreinte calculée avec une clé gardée seulement en mémoire et changée chaque jour : c'est une pseudonymisation, pas un anonymat parfait. Le compteur est effacé le lendemain.</li>
+<li data-i="s.confidentialite.5"><b>Ce qui peut être envoyé, et seulement si tu le décides :</b> l'image suspecte à vérifier (jamais enregistrée, libérée dès le verdict) ; ton adresse e-mail si tu demandes un lien pour continuer (effacée dès l'envoi du lien) ; une demande de rendez-vous (transmise par e-mail à un soignant bénévole ou à la coordination, sans copie sur notre serveur).</li>
 <li data-i="s.confidentialite.6"><b>Le bouton « Quitter vite »</b> remplace la page par un site neutre. Pense aussi à effacer ton historique si quelqu'un a accès à ton téléphone.</li>
 </ul>
 </main>
@@ -583,7 +582,7 @@ pg.addEventListener('submit',async e=>{
     const r=await fetch('/api/v1/appointments',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pseudo:v('rp')||'—',contact_type:v('rc'),contact:v('rcv'),when:v('rw'),city:v('rv2'),message:v('rm'),lang:document.documentElement.lang})});
     if(!r.ok)throw new Error(r.status);
     S.sent=(await r.json()).code;renderF();
-  }catch(err){btn.disabled=false;let m=document.getElementById('aptErr');if(!m){m=document.createElement('p');m.id='aptErr';m.className='alert';e.target.appendChild(m)}m.textContent=String(err.message)==='429'?t('p.6.limit'):t('p.6.err')}
+  }catch(err){btn.disabled=false;let m=document.getElementById('aptErr');if(!m){m=document.createElement('p');m.id='aptErr';m.className='alert';e.target.appendChild(m)}const st=String(err.message);m.textContent=t(st==='429'?'p.6.limit':(st==='400'||st==='422')?'p.6.bad':'p.6.err')}
 });
 
 /* ---- doctor side ---- */
@@ -622,7 +621,7 @@ document.getElementById('joinF').addEventListener('submit',async e=>{e.preventDe
   const v=id=>document.getElementById(id).value.trim(),o=document.getElementById('joinOk'),b=e.target.querySelector('button[type=submit]');b.disabled=true;
   try{const r=await fetch('/api/v1/doctors',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:v('jn'),profession:v('jp'),rpps:v('jr'),email:v('je'),city:v('jv'),hours:+v('jh')||1,note:v('jm')})});
     if(!r.ok)throw new Error(r.status);o.innerHTML=t('s.join.sent',{n:esc(v('jn'))});e.target.reset()}
-  catch(err){b.disabled=false;o.innerHTML=t(String(err.message)==='400'?'s.join.bad':'s.join.err')}
+  catch(err){b.disabled=false;const st=String(err.message);o.innerHTML=t((st==='400'||st==='422')?'s.join.bad':st==='429'?'s.join.limit':'s.join.err')}
   o.classList.remove('hide')});
 
 /* ---- donate: verified associations, own donation pages, random order ---- */
@@ -640,7 +639,7 @@ function renderAssos(){const a=ASSOS.slice();for(let i=a.length-1;i>0;i--){const
 async function loadStats(){
   try{const r=await fetch('/api/v1/stats');if(!r.ok)throw 0;const s=await r.json();
     const f=n=>Number(n).toLocaleString(document.documentElement.lang);
-    document.getElementById('kChecks').textContent=f(s.total_checks);document.getElementById('kLikely').textContent=f(s.total_likely);document.getElementById('kReports').textContent=f(s.reports_sent);
+    document.getElementById('kChecks').textContent=f(s.total_checks);document.getElementById('kLikely').textContent=f(s.total_likely);document.getElementById('kApts').textContent=f(s.appointments);
     const max=Math.max(1,...s.days.map(d=>d.checks)),w=300/s.days.length;
     document.getElementById('statsChart').innerHTML=s.days.map((d,i)=>{const h=Math.round(80*d.checks/max),hl=Math.round(80*d.likely/max);
       return `<g><title>${d.day} : ${d.checks}</title><rect x="${(i*w+1).toFixed(1)}" y="${88-h}" width="${(w-2).toFixed(1)}" height="${Math.max(h,1)}" rx="1.5" fill="${h?'#f1c4c7':'#f3e3e4'}"/>${hl?`<rect x="${(i*w+1).toFixed(1)}" y="${88-hl}" width="${(w-2).toFixed(1)}" height="${hl}" rx="1.5" fill="#d7262e"/>`:''}</g>`}).join('');

@@ -6,7 +6,7 @@ I’m Still Mine is a free, non-profit project for anyone who is thinking about 
 
 - **Before they start:** an anonymous, non-judgemental walkthrough. It covers what stays online, real earnings, life afterwards, and a private check for pressure or coercion. It points to free support.
 - **When they find an image:** they compare it with their own live selfie (on their device), ask our server whether it shows signs of manipulation, and get an evidence report.
-- **Free psychological and psychiatric support** from volunteer professionals: an anonymous request goes by email to a verified volunteer in the person's city, and we keep no copy.
+- **Free psychological and psychiatric support** from volunteer professionals: a request goes by email to one verified volunteer in the person's city (or to our coordinator if there is none yet), and our server keeps no copy.
 - **Donations go to associations, never to us.** The site links to their own donation pages, in random order.
 
 This repository is public so that anyone can read exactly what the website does with their data. **You are free to build your own site from it, even with advertising**: the more places this message reaches, the better. We only ask that you keep the commitments below, and that you don't call your site I’m Still Mine.
@@ -15,9 +15,9 @@ This repository is public so that anyone can read exactly what the website does 
 These commitments are why the project exists. A copy of this code that breaks any of them is **not** I’m Still Mine.
 
 1. We never build a face database of people who did not sign up themselves.
-2. We never identify anyone in images we analyse. The scan masks people and looks only at the scenery.
+2. We never try to identify anyone in the images we check. The server reads how the file was made, never who is in it.
 3. Your selfie and face template never leave your device. Face comparison runs in your browser.
-4. We never store images. Only the suspect image is sent to our server, in shuffled pieces, and it is deleted as soon as we answer.
+4. We never store images. Only the suspect image is sent to our server, in shuffled pieces; it is never written to disk and is released from memory as soon as we answer.
 5. Nothing is reported automatically. A human reviews every report, and only the woman herself (or someone she authorises) can request a legal removal.
 6. No advertising, no tracking, no analytics, and no donations to us. The site links to independent associations instead.
 7. We never use platform data beyond what the platform has explicitly authorised in writing.
@@ -34,7 +34,7 @@ The code that detects fake or manipulated images is **deliberately private**. If
 
 ## Status (November 2026)
 This is a **first version**.
-- The detector's thresholds have only been checked on small test sets; they must be calibrated on consented data, including accuracy across skin tones.
+- The detector only reads provenance markers in the file (AI-generator settings and labels, face-editing apps). It does not analyse pixels yet, so an image without markers can still be a deepfake; most images shared online have lost these markers. A pixel-level check will only be added once it is calibrated on real photos without false alarms.
 - The PRNU (camera fingerprint) tool is not available yet.
 - The InsightFace/ArcFace engine supported by `site/moteurs.js` is **not included**, because its weights are licensed for non-commercial research only. The site uses face-api (MIT).
 

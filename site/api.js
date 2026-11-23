@@ -8,8 +8,8 @@
    3. Only the browser knows the map (the right order). It sends the map last; the server
       rebuilds the image in memory, answers with a coarse verdict, and forgets everything.
 
-   Only the suspect image is sent — never your selfie, never your face template, and
-   nothing is stored. The verdict is deliberately coarse ("likely", "possible", "no sign")
+   Only the suspect image is sent — never your selfie, never your face template. It is
+   never written to disk and is released from memory right after the verdict. The verdict is deliberately coarse ("likely", "possible", "no sign")
    so the service cannot be used to fine-tune fakes. */
 (() => {
 const API = (window.IMSM_API_BASE || '') + '/api/v1';
@@ -34,11 +34,15 @@ function pass(){
   } catch (_) { return null; }
 }
 
+pass();                                               /* store a ?pass= link as soon as the page opens */
+window.addEventListener('hashchange', pass);
+
 class LimitError extends Error {
   constructor(info, retry){ super(info.error || 'limit'); this.info = info; this.retry = retry; }
 }
 
 async function check(file){
+  if (file.size > 15 * 1024 * 1024) throw new Error('too_big');      /* before POST /city: no check is used up */
   const p = pass();
   const r = await fetch(API + '/city', { method: 'POST', headers: p ? { 'X-IMSM-Pass': p } : {} });
   if (r.status === 429 || r.status === 403) {
@@ -58,12 +62,12 @@ async function check(file){
   }
   const v = await fetch(`${API}/city/${city.city}/plan`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ streets: map }) });
   if (!v.ok) throw new Error('api ' + v.status);
-  return (await v.json()).verdict;                     /* likely | possible | possible_low | no_sign | insufficient */
+  return (await v.json()).verdict;                     /* likely | possible | no_sign | insufficient | unsupported | too_large */
 }
 
 async function unlock(email, lang){
   const r = await fetch(API + '/unlock', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, lang }) });
-  if (!r.ok) throw new Error('api ' + r.status);
+  if (!r.ok) throw new Error(String(r.status));
   return r.json();
 }
 

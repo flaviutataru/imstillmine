@@ -1,15 +1,15 @@
-/* Outils de vérification — tout s'exécute dans le navigateur, aucune image n'est envoyée.
-   Outil 1 : est-ce mon visage ? (selfie en direct + défi de mouvement, comparaison 1:1)
-   Outil 2 : détecteur combiné (marqueurs de fichier, grain, texture/âge de peau visage-corps,
-             teinte et lumière, carte de compression) + liste de contrôle corporelle + rapport de preuve.
-   DEMO_UPLOAD_SELFIE : en démo seulement, autorise un selfie importé quand la caméra est indisponible.
-   À METTRE À false SUR LE SITE PUBLIC. */
+/* Outils de vérification.
+   Outil 1 : est-ce mon visage ? (selfie en direct + défi de mouvement, comparaison 1:1).
+             Tout se passe dans le navigateur : le selfie et les empreintes du visage ne sont jamais envoyés.
+   Outil 2 : l'image suspecte (et elle seule) est envoyée à notre serveur, en morceaux (api.js) ;
+             il répond par un verdict simple et l'efface. Puis liste de contrôle corporelle + rapport de preuve.
+   DEMO_UPLOAD_SELFIE : uniquement pour une démo sans caméra ; doit rester à false sur le site public. */
 (() => {
 const DEMO_UPLOAD_SELFIE = false;
 const MODELS = 'models';
 const t = (k, v) => window.t ? window.t(k, v) : k;
 const $ = id => document.getElementById(id);
-const T = { ref: null, refs: [], arcRefs: [], refFrom: null, match: null, img2: null, file2: null, signals: null, hash: null, prnu: null, run: 0 };
+const T = { ref: null, refs: [], arcRefs: [], refFrom: null, match: null, img2: null, file2: null, signals: null, hash: null, prnu: null, run1: 0, run2: 0 };
 let ready = null, stream = null, loopOn = false;
 
 /* ---------- chargement paresseux ---------- */
@@ -138,17 +138,16 @@ function confidence(faceW,faVc,arcVc){
 async function checkSuspect(e){
   const file=e.target.files[0];if(!file)return;
   if(!T.ref){$('matchOut').innerHTML='<p>'+t('o.needSelfie')+'</p>';return}
-  const run=++T.run;
+  const run=++T.run1;
   const f=await boot();
   $('matchOut').innerHTML='<p class="small">'+t('o.working')+'</p>';
   const img=await fileToImg(file);
   const res=await f.detectAllFaces(img,new f.SsdMobilenetv1Options({minConfidence:.4})).withFaceLandmarks().withFaceDescriptors();
-  if(run!==T.run)return; /* une image plus récente a été choisie entre-temps */
-  T.img2=img;T.file2=file;
+  if(run!==T.run1)return; /* une image plus récente a été choisie entre-temps */
   const c=$('matchCv'),W=Math.min(img.naturalWidth,900),k=W/img.naturalWidth;
   c.width=W;c.height=Math.round(img.naturalHeight*k);const x=c.getContext('2d');x.drawImage(img,0,0,c.width,c.height);
   c.classList.remove('hide');
-  if(!res.length){T.match=null;$('matchOut').innerHTML=`<div class="vcard lo"><b>${t('o.noFaceImg')}</b><span>${t('o.noFaceImgS')}</span></div>`;return}
+  if(!res.length){T.match={file,none:true};$('matchOut').innerHTML=`<div class="vcard lo"><b>${t('o.noFaceImg')}</b><span>${t('o.noFaceImgS')}</span></div>`;return}
   const rows=[];
   for(const r of res){
     const d=Math.min(...T.refs.map(x=>dist(r.descriptor,x)));
@@ -156,7 +155,7 @@ async function checkSuspect(e){
     if(window.ARCFACE_ON&&T.arcRefs.length){try{const e=await Moteurs.arcEmbed(img,r.landmarks);c=Math.max(...T.arcRefs.map(x=>Moteurs.cos(e,x)))}catch(err){console.warn(err)}}
     rows.push({r,d,c});
   }
-  if(run!==T.run)return;
+  if(run!==T.run1)return;
   const useArc=rows.every(o=>o.c!==null);
   rows.sort((a,b)=>useArc?b.c-a.c:a.d-b.d);
   const pctOf=o=>useArc?Math.round(Math.max(0,Math.min(1,o.c))*100):simPct(o.d);
@@ -164,7 +163,7 @@ async function checkSuspect(e){
     x.fillStyle=i===0?'#d9503c':'#9ab';x.font='bold 15px DM Sans, sans-serif';x.fillText(pctOf(o)+' %',b.x*k+4,Math.max(16,b.y*k-6))});
   const best=rows[0],faV=verdict(best.d),arcV=useArc?arcVerdict(best.c):null,v=arcV||faV;
   const conf=confidence(best.r.detection.box.width,faV.cls,arcV&&arcV.cls);
-  T.match={d:best.d,c:useArc?best.c:null,n:res.length,pct:pctOf(best),label:v.t,refFrom:T.refFrom,conf:conf.lvl,nRef:T.refFrom==='live'?0:T.refs.length};
+  T.match={file,d:best.d,c:useArc?best.c:null,n:res.length,pct:pctOf(best),label:v.t,refFrom:T.refFrom,conf:conf.lvl,nRef:T.refFrom==='live'?0:T.refs.length};
   $('matchOut').innerHTML=`<div class="vcard ${v.cls}"><div class="big">${pctOf(best)} %</div><b>${v.t}</b><span>${v.s}</span>
    <div class="meter"><i style="width:${pctOf(best)}%"></i></div>
    <p class="conf ${conf.lvl}"><b>${t('o.conf.label')} : ${t('o.conf.'+conf.lvl)}</b> · ${conf.why}</p>
@@ -180,20 +179,26 @@ async function checkSuspect(e){
    Le détecteur n'est pas dans ce code : seule l'image suspecte est envoyée, par morceaux
    (voir api.js), jamais ton selfie. Le serveur répond par un verdict simple et oublie tout. */
 const V={likely:['lo2','o.g.hi','o.g.hiS','fort'],possible:['mid','o.g.mid','o.g.midS','moyen'],
- possible_low:['mid','o.g.one','o.g.oneS','faible'],no_sign:['neutral','o.g.lo','o.g.loS','info'],
- insufficient:['neutral','o.api.insuf','o.api.insufS','info']};
+ no_sign:['neutral','o.g.lo','o.g.loS','info'],insufficient:['neutral','o.api.insuf','o.api.insufS','info'],
+ unsupported:['neutral','o.api.unsup','o.api.unsupS','info'],too_large:['neutral','o.api.big','o.api.bigS','info']};
+const MAX_BYTES=15*1024*1024;
 async function analyse(file){
-  await boot();
-  const run=++T.run,same=T.img2&&T.file2===file;
-  const out=$('sigOut');out.innerHTML='<p class="small">'+t('o.working')+'</p>';
+  const run=++T.run2;
+  const out=$('sigOut'),inp=$('f2');
+  if(file.size>MAX_BYTES){out.innerHTML=`<div class="vcard neutral"><b>${t('o.api.big')}</b><span>${t('o.api.bigS')}</span></div>`;return}
+  out.innerHTML='<p class="small">'+t('o.working')+'</p>';
+  if(inp)inp.disabled=true;
+  try{await analyseRun(file,run,out)}finally{if(run===T.run2&&inp)inp.disabled=false}
+}
+async function analyseRun(file,run,out){
   const buf=await file.arrayBuffer();const hash=await sha256(buf);
-  const img=same?T.img2:await fileToImg(file);
-  if(run!==T.run)return;
-  T.file2=file;T.img2=img;T.hash=hash;
+  let img=null;try{img=await fileToImg(file)}catch(_){}             /* HEIC may not preview: not a problem */
+  if(run!==T.run2)return;
+  T.file2=file;T.img2=img;T.hash=hash;T.signals=null;
   let verdict;
   try{verdict=await window.ImStillMineAPI.check(file)}
   catch(e){
-    if(run!==T.run)return;
+    if(run!==T.run2)return;
     if(e instanceof window.ImStillMineAPI.LimitError){
       if(e.info.error==='wait'){out.innerHTML=`<div class="vcard neutral"><b>${t('o.api.wait',{s:e.retry||30})}</b></div>`;return}
       if(e.info.error==='ipv6'){out.innerHTML=`<div class="vcard neutral"><b>${t('o.api.ipv6')}</b></div>`;return}
@@ -203,12 +208,12 @@ async function analyse(file){
        <p class="small" id="unlockMsg">${t('o.api.mailNote')}</p></form>`;
       $('unlockF').addEventListener('submit',async ev=>{ev.preventDefault();const m=$('unlockMsg');
         try{await window.ImStillMineAPI.unlock($('unlockMail').value,document.documentElement.lang);m.textContent=t('o.api.queued');$('unlockMail').value=''}
-        catch(_){m.textContent=t('o.api.err')}});
+        catch(err){const st=String(err.message||'').replace('api ','');m.textContent=t(st==='400'||st==='422'?'o.api.badMail':st==='429'?'o.api.mailLimit':'o.api.err')}});
       return;
     }
-    out.innerHTML=`<div class="vcard neutral"><b>${t('o.api.err')}</b></div>`;return;
+    out.innerHTML=`<div class="vcard neutral"><b>${t(e.message==='too_big'?'o.api.big':'o.api.err')}</b></div>`;return;
   }
-  if(run!==T.run)return;
+  if(run!==T.run2)return;
   const g=V[verdict]||V.insufficient;
   T.signals=[{l:g[3],k:'file',t:t(g[1])}];
   out.innerHTML=`<div class="vcard ${g[0]}"><b>${t(g[1])}</b><span>${t(g[2])}</span></div><p class="small">${t('o.api.how')}</p>`;
@@ -226,13 +231,14 @@ function renderChecklist(){
 /* ---------- rapport de preuve ---------- */
 function buildReport(){
   if(!T.file2)return;
+  const M=T.match&&T.match.file===T.file2&&!T.match.none?T.match:null;
   const diffs=CHK.filter(k=>chk[k]==='diff').map(k=>'- '+strip(t('o.chk.'+k)));
   const lines=[t('o.r.title'),t('o.r.date',{d:new Date().toLocaleString(document.documentElement.lang)}),'',
   t('o.r.img'),t('o.r.name',{v:T.file2.name}),t('o.r.size',{v:T.file2.size}),t('o.r.type',{v:T.file2.type||'?'}),
   t('o.r.dims',{v:T.img2?T.img2.naturalWidth+' x '+T.img2.naturalHeight:'?'}),'SHA-256 : '+T.hash,
   t('o.r.url',{v:$('evUrl').value||'—'}),t('o.r.seen',{v:$('evDate').value||'—'}),'',
   t('o.r.cmp'),
-  T.match?t('o.r.cmpRes2',{p:T.match.pct,l:T.match.label,c:T.match.c!==null?T.match.c.toFixed(3):'—',d:T.match.d.toFixed(3),n:T.match.n,conf:t('o.conf.'+T.match.conf),r:T.match.refFrom==='live'?t('o.r.live'):t('o.r.uploadN',{n:T.match.nRef})}):t('o.r.none'),'',
+  M?t('o.r.cmpRes2',{p:M.pct,l:M.label,c:M.c!==null?M.c.toFixed(3):'—',d:M.d.toFixed(3),n:M.n,conf:t('o.conf.'+M.conf),r:M.refFrom==='live'?t('o.r.live'):t('o.r.uploadN',{n:M.nRef})}):t('o.r.none'),'',
   t('o.r.sig'),...(T.signals||[]).map(s=>`[${strip(t('o.lv.'+s.l))}] ${strip(s.t)}`),'',
   t('o.r.body'),...(diffs.length?diffs:[t('o.r.none')]),'',
   t('o.r.notes',{v:$('evNotes').value||'—'}),'',t('o.r.limits'),t('o.r.where')];
@@ -242,7 +248,7 @@ async function copyReport(){const m=$('evMsg');try{await navigator.clipboard.wri
 function dlReport(){const b=new Blob([$('evText').value],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');const u=URL.createObjectURL(b);a.href=u;a.download='rapport-'+(T.hash||'').slice(0,8)+'.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);$('evMsg').textContent=t('o.dlNote')}
 
 function showTab(x){document.querySelectorAll('#v-outils .tabs button').forEach(b=>b.classList.toggle('on',b.dataset.o===x));['t1','t2','t3'].forEach(k=>$('o-'+k).classList.toggle('hide',x!==k))}
-function wipe(){stopCam();T.run++;['ref','refFrom','match','img2','file2','signals','hash'].forEach(k=>T[k]=null);Object.keys(chk).forEach(k=>delete chk[k]);
+function wipe(){stopCam();T.run1++;T.run2++;['ref','refFrom','match','img2','file2','signals','hash'].forEach(k=>T[k]=null);Object.keys(chk).forEach(k=>delete chk[k]);
   urls.splice(0).forEach(u=>URL.revokeObjectURL(u));
   T.refs=[];T.arcRefs=[];T.prnu=null;
   ['refFile','sus','f2','evUrl','evDate','evNotes'].forEach(i=>{const e=$(i);if(e)e.value=''});
