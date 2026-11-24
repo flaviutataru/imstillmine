@@ -265,6 +265,59 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
   .hero{padding-top:200px}
   .shatter{height:200px;opacity:1}
 }
+
+/* v3.2 — figures: verified numbers only, moved along a thread by its knot */
+.figs{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:18px 22px 14px;margin-top:32px;max-width:36rem}
+.fighead{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.fighead span{font-size:13px;color:var(--soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+.figs h2{font:600 15px/1.3 "DM Sans",system-ui,sans-serif;color:var(--soft);margin:0}
+.figstack{display:grid}
+.fig{grid-area:1/1;visibility:hidden;min-width:0}
+.fig.on{visibility:visible}
+.figq{font-size:16px;font-weight:600;color:var(--ink);margin:0 0 4px}
+.figbig{font-family:Literata,Georgia,serif;font-weight:600;color:var(--acc);font-size:clamp(40px,4.4vw,52px);line-height:1.08;letter-spacing:-.01em;margin:0 0 12px}
+.figbig small{display:block;font:500 15px/1.2 "DM Sans",system-ui,sans-serif;color:var(--soft);letter-spacing:0;margin-bottom:2px}
+.coach{color:var(--accdeep);min-height:1.5em}
+.figbig.t{font-size:clamp(27px,3vw,32px);line-height:1.15;color:var(--ink)}
+.figdots{display:block;width:100%;height:auto;margin:0 0 12px}
+.figdots circle{fill:var(--crack)}
+.figdots circle.on{fill:var(--acc)}
+.figdots.unk circle{fill:none;stroke:#cdbfc1;stroke-width:1.2;stroke-dasharray:2.6 2.6}
+[dir=rtl] .figdots{transform:scaleX(-1)}
+.figtxt{font-size:15.5px;line-height:1.55;color:var(--ink);margin:0 0 8px}
+.figsrc{font-size:13px;line-height:1.45;color:var(--soft);margin:0}
+.figsrc a{color:var(--soft)}
+.figctl{display:flex;align-items:center;gap:6px;margin:2px -10px 8px}
+.fignav{flex:none;width:44px;height:44px;padding:0;border:0;background:none;border-radius:50%;display:grid;place-items:center;color:var(--ink)}
+.fignav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fignav:disabled{color:var(--crack);cursor:default}
+@media(hover:hover){.fignav:not(:disabled):hover{background:var(--paper)}}
+[dir=rtl] .fignav svg{transform:scaleX(-1)}
+.figrange{position:relative;flex:1;min-width:0;height:44px}
+.figticks{position:absolute;inset:0 13px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+.figticks i{width:2px;height:11px;border-radius:2px;background:var(--acc);transform:rotate(24deg)}
+.figrange input{position:absolute;inset:0;width:100%;height:44px;margin:0;padding:0;border:0;background:none;-webkit-appearance:none;appearance:none;cursor:pointer;min-height:0}
+.figrange input::-webkit-slider-runnable-track{height:3px;border-radius:3px;background:var(--acc)}
+.figrange input::-moz-range-track{height:3px;border-radius:3px;background:var(--acc)}
+.figrange input::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;margin-top:-11.5px;border-radius:50%;background:var(--acc);border:5px solid var(--bg);box-shadow:0 0 0 2px var(--acc)}
+.figrange input::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--acc);border:5px solid var(--bg);box-shadow:0 0 0 2px var(--acc)}
+.figrange input:focus{outline:none}
+.figrange input:focus-visible{outline:2px solid var(--ink);outline-offset:-4px;border-radius:22px}
+.figmeta{font-size:13px;margin:12px 0 0;padding-top:10px;border-top:1px solid var(--line)}
+#chiffres{scroll-margin-top:150px}
+.srcs{list-style:none;padding:0;margin:0 0 8px;border-top:1px solid var(--line)}
+.srcs li{padding:14px 0;border-bottom:1px solid var(--line)}
+.srcs li a{display:inline-block;margin-top:4px;font-size:15px;overflow-wrap:anywhere}
+@media(min-width:1000px){
+  .hero{padding-top:clamp(48px,5.5vw,76px);padding-bottom:clamp(44px,5vw,68px)}
+  .hero .heroin{display:grid;grid-template-columns:minmax(0,36rem) minmax(320px,400px);justify-content:space-between;align-items:center;gap:40px}
+  .figs{margin-top:0}
+  .shatter .thread,.shatter .knot{display:none}   /* the panel covers the break: its own thread carries the red */
+}
+@media(max-width:999px){
+  .hero{padding-top:200px}
+  .shatter{height:200px;opacity:1}                 /* the glass stays above the text, never behind it */
+}
 </style>
 </head>
 <body>
@@ -311,6 +364,17 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
 <p class="lede" data-i="s.accueil.2">Un parcours gratuit, anonyme et sans jugement pour regarder en face ce que beaucoup découvrent trop tard : ce qui reste en ligne, l'argent réel, la vie d'après, et si c'est vraiment ton choix.</p>
 <div class="ctas" data-i="s.accueil.3"><a class="btn main" href="#parcours">Commencer le parcours</a><a class="btn" href="#photos">Vérifier mes photos</a></div>
 </div>
+<section class="figs" id="figs" aria-labelledby="figsT">
+<div class="fighead"><h2 id="figsT" data-i="f.title">Et après ? Ce que disent les chiffres</h2><span id="figPos">1 / 7</span></div>
+<div class="figctl">
+<button class="fignav" id="figPrev" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"/></svg></button>
+<div class="figrange"><div class="figticks" id="figTicks" aria-hidden="true"></div><input id="figRange" type="range" min="1" max="7" step="1" value="1" aria-labelledby="figsT"/></div>
+<button class="fignav" id="figNext" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></button>
+</div>
+<div class="figstack" id="figStack"></div>
+<p class="figmeta"><a href="#apropos?chiffres" data-i="f.method">Sources et limites de ces chiffres</a></p>
+<p class="sr" id="figLive" aria-live="polite"></p>
+</section>
 <svg aria-hidden="true" class="glass" viewBox="0 0 400 300">
 <rect x="10" y="10" width="380" height="280" rx="18" fill="#fff" stroke="#f2d3d6" stroke-width="2"/>
 <g fill="none" stroke="#2b0a0d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".35">
@@ -331,6 +395,7 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
 <p data-i="h.check.text">Choisis l'image que tu as trouvée. Elle est vérifiée par notre serveur puis effacée ; ton selfie, lui, ne quitte jamais ton téléphone.</p>
 <label class="btn main filebtn" for="homeFile" data-i="h.check.btn">Choisir l'image</label><input accept="image/*" class="sr" id="homeFile" type="file"/>
 <p class="small" data-i="h.check.more">Tu pourras ensuite la comparer à ton visage et préparer un rapport.</p>
+<p class="small" data-i="o.minor">.</p>
 </div>
 <div class="page hstats" aria-live="polite">
 <h2 data-i="h.stats.title">Nos chiffres, en vrai</h2>
@@ -391,8 +456,17 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
 </div>
 <h2 data-i="s.apropos.12">Transparence</h2>
 <p data-i="s.apropos.13">Les membres fondateurs publieront ici une déclaration de leurs liens d'intérêts, y compris toute activité professionnelle en lien avec les plateformes de contenu en ligne.</p>
+<h2 id="chiffres" data-i="m.title">Nos chiffres : sources et limites</h2>
+<p data-i="m.intro">.</p>
+<ul class="srcs">
+<li><span data-i="m.1">.</span></li>
+<li><span data-i="m.2">.</span><br/><a href="https://www.beyond-the-gaze.com/wp-content/uploads/2018/01/BtGbriefingsummaryoverview.pdf" target="_blank" rel="noopener noreferrer" lang="en">Sanders, Scoular, Pitcher, Campbell, Cunningham — Beyond the Gaze: Summary Briefing on Internet Sex Work (2017)</a></li>
+<li><span data-i="m.3">.</span><br/><a href="https://find-and-update.company-information.service.gov.uk/company/10354575/filing-history" target="_blank" rel="noopener noreferrer" lang="en">Fenix International Limited (no. 10354575) — UK Companies House, annual accounts to 30 November 2025</a></li>
+<li><span data-i="m.4">.</span><br/><a href="https://doi.org/10.1071/SH15240" target="_blank" rel="noopener noreferrer" lang="en">Garcia, Gesselman, Siliman, Perry, Coe, Fisher — Sexting among singles in the USA. Sexual Health 13(5), 2016</a></li>
+<li><span data-i="m.5">.</span><br/><a href="https://swgfl.org.uk/assets/documents/revenge-porn-helpline-2025.pdf" target="_blank" rel="noopener noreferrer" lang="en">Revenge Porn Helpline — 2025 report (SWGfL)</a></li>
+</ul>
 <h2 data-i="s.apropos.14">Contact</h2>
-<p data-i="s.apropos.15">contact@NOM-DE-DOMAINE.org <span class="small">(adresse provisoire)</span></p>
+<p data-i="s.apropos.15">contact@imstillmine.com <span class="small">(adresse provisoire)</span></p>
 </main>
 </div>
 <!-- ============ PLATEFORMES ============ -->
@@ -402,7 +476,7 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
 <p class="lede" data-i="s.plateformes.2">Vous pouvez proposer ce parcours à vos futures créatrices et futurs créateurs, au moment de leur inscription. C'est gratuit, et aucune donnée n'est échangée.</p>
 <h2 data-i="s.plateformes.3">Ce que nous vous demandons</h2>
 <p data-i="s.plateformes.4">Un simple lien sur votre page d'inscription créateur, votre centre d'aide ou votre page sécurité. Par exemple :</p>
-<pre id="snip"><code>&lt;a href="https://NOM-DE-DOMAINE.org" rel="noopener"&gt;
+<pre id="snip"><code>&lt;a href="https://imstillmine.com" rel="noopener"&gt;
   Avant de vous lancer : 10 minutes pour y réfléchir
 &lt;/a&gt;</code></pre>
 <div class="nav" style="margin-top:8px"><span class="small" id="snipMsg"></span><button data-i="s.plateformes.5" id="copySnip">Copier le code</button></div>
@@ -506,6 +580,7 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
 <div class="kicker" id="chalStep" style="margin-top:10px"></div>
 <p class="chal" id="chal"></p>
 <p aria-live="polite" class="small" id="chalHint"></p>
+<p aria-live="polite" class="small coach" id="coachHint"></p>
 <div class="meter"><i id="chalBar" style="width:0"></i></div>
 <button data-i="s.outils.9" id="camStop" style="margin-top:10px">Arrêter</button>
 </div>
@@ -532,6 +607,7 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
 <h3 data-i="s.outils.14">Chercher des signes de génération ou de retouche</h3>
 <p data-i="s.outils.15">L'image est envoyée à notre serveur en morceaux mélangés. Il lit les informations cachées du fichier : les marquages « image générée par IA », les réglages laissés par les générateurs d'images et les applications de retouche du visage. Il répond par un verdict simple, puis efface tout. Il n'analyse pas encore les pixels : une image sans marquage peut quand même être un deepfake.</p>
 <label class="f" data-i="s.outils.16" for="f2">Choisir l'image</label><input accept="image/*" id="f2" type="file"/>
+<p class="small" data-i="o.minor">.</p>
 <p class="small" data-i="s.outils.17">Pour un résultat plus parlant, utilise le fichier d'origine plutôt qu'une capture d'écran quand c'est possible.</p>
 <div id="sigOut"></div>
 </div>
@@ -802,9 +878,47 @@ function route(){let v=location.hash.slice(1).split('?')[0];if(!VIEWS.includes(v
   if(v==='accueil')loadStats();
   if(v==='dons')renderAssos();
   if(v==='outils'){if(window.initOutils)window.initOutils();else{const sc=document.createElement('script');sc.src='outils.js';sc.onload=()=>window.initOutils();document.body.appendChild(sc)}}
-  scrollTo(0,0);}
+  scrollTo(0,0);
+  if(v==='apropos'&&location.hash.includes('?chiffres')){const el=document.getElementById('chiffres');if(el)el.scrollIntoView()}}
 document.getElementById('copySnip').addEventListener('click',async()=>{const m=document.getElementById('snipMsg');
   try{await navigator.clipboard.writeText(document.querySelector('#snip code').textContent);m.textContent=t('s.copied')}catch(_){m.textContent=t('s.copyFail')}});
+
+/* figures panel: each number has its source and limits in #apropos ("chiffres"). Nothing here is estimated by us
+   except the monthly average, which is a division of two published numbers. */
+const FIGS=[
+ {k:'regret',t:1,unk:1,of:100,n:0,u:'#apropos?chiffres'},
+ {k:'work',of:100,n:82,u:'https://www.beyond-the-gaze.com/wp-content/uploads/2018/01/BtGbriefingsummaryoverview.pdf'},
+ {k:'harass',of:100,n:81,u:'https://www.beyond-the-gaze.com/wp-content/uploads/2018/01/BtGbriefingsummaryoverview.pdf'},
+ {k:'active',about:1,of:100,n:50,u:'https://find-and-update.company-information.service.gov.uk/company/10354575/filing-history'},
+ {k:'million',about:1,of:1000,n:1,at:487,u:'https://find-and-update.company-information.service.gov.uk/company/10354575/filing-history'},
+ {k:'share',of:100,n:23,u:'https://doi.org/10.1071/SH15240'},
+ {k:'removal',of:100,n:90,u:'https://swgfl.org.uk/assets/documents/revenge-porn-helpline-2025.pdf'}];
+const FIG={i:0};
+function figDots(f){const big=f.of===1000,cols=big?50:20,rows=f.of/cols,px=320/cols,r=big?2.2:5.4;let o='';
+  for(let i=0;i<f.of;i++){const on=f.at!==undefined?i===f.at:i<f.n;
+    o+=`<circle cx="${((i%cols)*px+px/2).toFixed(1)}" cy="${(((i/cols)|0)*px+px/2).toFixed(1)}" r="${r}"${on?' class="on"':''}/>`}
+  return `<svg class="figdots${f.unk?' unk':''}" viewBox="0 0 320 ${(rows*px).toFixed(0)}" aria-hidden="true">${o}</svg>`}
+function figsRender(){const st=document.getElementById('figStack');if(!st||!window.t)return;
+  st.innerHTML=FIGS.map(f=>`<article class="fig"><p class="figq">${t('f.'+f.k+'.q')}</p><p class="figbig${f.t?' t':''}">${f.about?'<small>'+t('f.about')+'</small>':''}${t('f.'+f.k+'.big')}</p>${figDots(f)}<p class="figtxt">${t('f.'+f.k+'.txt')}</p><p class="figsrc">${t('f.src')} <a href="${f.u}"${f.u[0]==='#'?'':' target="_blank" rel="noopener noreferrer"'}>${t('f.'+f.k+'.src')}</a></p></article>`).join('');
+  document.getElementById('figTicks').innerHTML=FIGS.map(()=>'<i></i>').join('');
+  document.getElementById('figRange').max=FIGS.length;
+  document.getElementById('figPrev').setAttribute('aria-label',t('f.prev'));document.getElementById('figNext').setAttribute('aria-label',t('f.next'));
+  figsShow(FIG.i,true)}
+function figsShow(i,quiet){i=Math.max(0,Math.min(FIGS.length-1,i));FIG.i=i;const f=FIGS[i],txt=k=>t('f.'+f.k+'.'+k).replace(/<[^>]+>/g,'');
+  document.querySelectorAll('#figStack .fig').forEach((el,j)=>{el.classList.toggle('on',j===i);el.setAttribute('aria-hidden',j===i?'false':'true')});
+  const r=document.getElementById('figRange');r.value=i+1;r.setAttribute('aria-valuetext',t('f.pos',{a:i+1,b:FIGS.length})+'. '+txt('q'));
+  document.getElementById('figPos').textContent=(i+1)+' / '+FIGS.length;
+  document.getElementById('figPrev').disabled=i===0;document.getElementById('figNext').disabled=i===FIGS.length-1;
+  if(!quiet)document.getElementById('figLive').textContent=txt('q')+' '+(f.about?t('f.about')+' ':'')+txt('big')+' '+txt('txt')}
+(()=>{const r=document.getElementById('figRange'),st=document.getElementById('figStack');if(!r)return;
+  r.addEventListener('input',()=>figsShow(r.value-1));
+  document.getElementById('figPrev').addEventListener('click',()=>figsShow(FIG.i-1));
+  document.getElementById('figNext').addEventListener('click',()=>figsShow(FIG.i+1));
+  let x0=null,y0=0;
+  st.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+  st.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;
+    if(Math.abs(dx)>48&&Math.abs(dx)>Math.abs(dy)*1.5){const rtl=document.documentElement.dir==='rtl';figsShow(FIG.i+((dx<0)!==rtl?1:-1))}},{passive:true});
+  document.addEventListener('langchange',figsRender);figsRender()})();
 addEventListener('hashchange',route);
 renderSlots();
 (window.i18nReady||Promise.resolve()).then(()=>{window.__booted=true;renderF();route()});

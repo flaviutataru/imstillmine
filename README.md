@@ -25,21 +25,23 @@ These commitments are why the project exists. A copy of this code that breaks an
 ## Repository layout
 | Folder | What it is |
 |---|---|
-| `site/` | The website in 20 languages: the walkthrough, "check my photos", face comparison with a live selfie (in the browser), and the client for our detection API (`site/api.js`) |
+| `site/` | The website in 20 languages: the walkthrough, the homepage figures with their sources, "check my photos", face comparison with a live selfie (in the browser, with tips on light and distance), and the client for our detection API (`site/api.js`) |
 | `coming-soon/` | The one-page "coming soon" site, in 20 languages |
 | `docs/` | Reference Nginx configuration and the public API contract (`API.md`) |
 
 ### Why the fake detector is not here
-The code that detects fake or manipulated images is **deliberately private**. If it were public, anyone making deepfakes could study it and learn exactly how to get past it. It runs only on our server, behind strict limits (see `docs/API.md`), and answers with a simple verdict, never with detailed scores. Platforms that want to run checks themselves can ask us for access.
+The code that detects fake or manipulated images is **deliberately private**. If it were public, anyone making deepfakes could study it and learn exactly how to get past it. It runs only on our server, behind strict limits (see `docs/API.md`), and answers with a simple verdict, never with detailed scores. Platforms that want to run checks themselves can ask us for access. What is public here only helps a visitor take a usable selfie and find a face in an image; nothing in this repository says how a fake is told from a real photo.
 
 ## Status (November 2026)
 This is a **first version**.
 - The detector only reads provenance markers in the file (AI-generator settings and labels, face-editing apps). It does not analyse pixels yet, so an image without markers can still be a deepfake; most images shared online have lost these markers. A pixel-level check will only be added once it is calibrated on real photos without false alarms.
 - The PRNU (camera fingerprint) tool is not available yet.
+- The selfie tips (light, distance, sharpness) use thresholds from ordinary photographic practice. They have not been calibrated on a range of real phones yet: they are advice, never a verdict.
+- The figures on the homepage are listed with their sources and limits in the site's "Who we are" page. Nobody has measured how many people regret selling adult content online, and the site says so.
 - The InsightFace/ArcFace engine supported by `site/moteurs.js` is **not included**, because its weights are licensed for non-commercial research only. The site uses face-api (MIT).
 
 ## Licence
 Apache License 2.0 for our code (see `LICENSE`). Third-party components keep their own licences (see `NOTICE`).
 
 ## Security and safety
-Please report vulnerabilities privately (see `SECURITY.md`). If you come across child sexual abuse material, do not download or share it. Report it immediately to the authorities: in France, internet-signalement.gouv.fr (Pharos), or Point de Contact.
+Please report vulnerabilities privately (see `SECURITY.md`). The site is for adults: people under 18, or whose image was taken before they were 18, are told not to send any image and are pointed to Take It Down (NCMEC) and, in France, 3018. If you come across child sexual abuse material, do not download or share it. Report it immediately to the authorities: in France, internet-signalement.gouv.fr (Pharos), or Point de Contact.
