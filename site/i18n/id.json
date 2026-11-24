@@ -440,5 +440,8 @@
  "o.liveWeak": "Selfie-nya gelap atau buram: perbandingannya akan kurang dapat diandalkan. Kamu bisa mengulanginya dengan cahaya yang lebih terang.",
  "o.conf.weak": "wajah sulit ditemukan di gambar ini (kecil, tertutup, atau menyamping).",
  "o.conf.refWeak": "selfie-mu gelap atau buram.",
- "o.minor": "Khusus untuk orang dewasa. Jika usiamu di bawah 18 tahun, atau jika gambar itu diambil sebelum kamu berusia 18 tahun, jangan kirim ke sini: gunakan <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, tempat gambar itu tidak pernah keluar dari ponselmu. Di Prancis, kamu juga bisa menelepon 3018."
+ "o.minor": "Khusus untuk orang dewasa. Jika usiamu di bawah 18 tahun, atau jika gambar itu diambil sebelum kamu berusia 18 tahun, jangan kirim ke sini: gunakan <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, tempat gambar itu tidak pernah keluar dari ponselmu. Di Prancis, kamu juga bisa menelepon 3018.",
+ "h.help.title": "Apakah ada yang memaksamu?",
+ "h.help.text": "Kalau ada yang mendorongmu melakukan ini, menahan uang, kata sandi, atau dokumenmu, atau menulis pesan atas namamu, itu bukan salahmu dan kamu berhak mendapat bantuan. Tidak ada yang akan menghakimimu. Tombol «Keluar cepat» menutup situs ini dengan satu sentuhan.",
+ "h.help.list": "<li>Bahaya mendesak: 112 (di seluruh Eropa).</li><li>Di Prancis, jika tidak bisa bicara: SMS ke 114.</li><li>Di Amerika Serikat: 1-888-373-7888 (saluran nasional anti-perdagangan orang) atau SMS ke 233733.</li><li>Kamu juga bisa menulis ke tenaga kesehatan relawan tanpa menyebut nama: <a href=\"#soignants\">Tenaga kesehatan</a></li>"
 }

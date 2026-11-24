@@ -440,5 +440,8 @@
  "o.liveWeak": "Selfie-ul a fost întunecat sau neclar: comparația va fi mai puțin fiabilă. Îl poți reface cu mai multă lumină.",
  "o.conf.weak": "fața a fost greu de găsit în această imagine (mică, acoperită sau din profil).",
  "o.conf.refWeak": "selfie-ul tău a fost întunecat sau neclar.",
- "o.minor": "Rezervat persoanelor adulte. Dacă ai sub 18 ani sau dacă imaginea a fost făcută înainte să împlinești 18 ani, nu o trimite aici: folosește <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, unde imaginea nu îți părăsește telefonul. În Franța poți suna și la 3018."
+ "o.minor": "Rezervat persoanelor adulte. Dacă ai sub 18 ani sau dacă imaginea a fost făcută înainte să împlinești 18 ani, nu o trimite aici: folosește <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, unde imaginea nu îți părăsește telefonul. În Franța poți suna și la 3018.",
+ "h.help.title": "Te obligă cineva?",
+ "h.help.text": "Dacă cineva te împinge să faci asta, îți ține banii, parolele sau actele, ori scrie mesajele în locul tău, nu e vina ta și ai dreptul la ajutor. Nimeni nu te va judeca. Butonul „Ieși repede” închide site-ul dintr-o atingere.",
+ "h.help.list": "<li>Pericol imediat: 112 (oriunde în Europa).</li><li>În Franța, dacă nu poți vorbi: SMS la 114.</li><li>În Statele Unite: 1-888-373-7888 (linia națională împotriva traficului de persoane) sau SMS la 233733.</li><li>Poți scrie și unui medic voluntar, fără să-ți dai numele: <a href=\"#soignants\">Specialiști</a></li>"
 }

@@ -440,5 +440,8 @@
  "o.liveWeak": "Das Selfie war dunkel oder unscharf: Der Vergleich wird weniger zuverlässig sein. Du kannst es mit mehr Licht wiederholen.",
  "o.conf.weak": "das Gesicht war in diesem Bild schwer zu finden (klein, verdeckt oder im Profil).",
  "o.conf.refWeak": "dein Selfie war dunkel oder unscharf.",
- "o.minor": "Nur für Erwachsene. Wenn du unter 18 bist oder wenn das Bild vor deinem 18. Geburtstag aufgenommen wurde, schick es nicht hierher: Nutze <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, dort verlässt das Bild dein Handy nicht. In Frankreich kannst du auch die 3018 anrufen."
+ "o.minor": "Nur für Erwachsene. Wenn du unter 18 bist oder wenn das Bild vor deinem 18. Geburtstag aufgenommen wurde, schick es nicht hierher: Nutze <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, dort verlässt das Bild dein Handy nicht. In Frankreich kannst du auch die 3018 anrufen.",
+ "h.help.title": "Zwingt dich jemand?",
+ "h.help.text": "Wenn dich jemand dazu drängt, dein Geld, deine Passwörter oder Papiere behält oder deine Nachrichten für dich schreibt, ist das nicht deine Schuld, und du hast ein Recht auf Hilfe. Niemand verurteilt dich. Der Knopf „Schnell weg“ schließt diese Seite mit einem Tipp.",
+ "h.help.list": "<li>Akute Gefahr: 112 (überall in Europa).</li><li>In Frankreich, wenn du nicht sprechen kannst: SMS an 114.</li><li>In den USA: 1-888-373-7888 (nationale Hotline gegen Menschenhandel) oder SMS an 233733.</li><li>Du kannst auch anonym einer ehrenamtlichen Fachperson schreiben: <a href=\"#soignants\">Fachkräfte</a></li>"
 }

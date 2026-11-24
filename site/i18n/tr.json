@@ -440,5 +440,8 @@
  "o.liveWeak": "Selfie karanlık ya da bulanıktı: karşılaştırma daha az güvenilir olacak. Daha fazla ışıkla yeniden çekebilirsin.",
  "o.conf.weak": "bu görüntüde yüzü bulmak zor oldu (küçük, kapalı ya da profilden).",
  "o.conf.refWeak": "selfien karanlık ya da bulanıktı.",
- "o.minor": "Yalnızca yetişkinler içindir. 18 yaşından küçüksen ya da görüntü 18 yaşından önce çekildiyse onu buraya gönderme: <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a> hizmetini kullan; orada görüntü telefonundan çıkmaz. Fransa'da 3018 numarasını da arayabilirsin."
+ "o.minor": "Yalnızca yetişkinler içindir. 18 yaşından küçüksen ya da görüntü 18 yaşından önce çekildiyse onu buraya gönderme: <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a> hizmetini kullan; orada görüntü telefonundan çıkmaz. Fransa'da 3018 numarasını da arayabilirsin.",
+ "h.help.title": "Biri seni zorluyor mu?",
+ "h.help.text": "Biri seni buna itiyorsa, paranı, şifrelerini ya da belgelerini elinde tutuyorsa veya mesajlarını senin yerine yazıyorsa, bu senin suçun değil ve yardım alma hakkın var. Kimse seni yargılamayacak. «Hemen çık» düğmesi siteyi tek dokunuşla kapatır.",
+ "h.help.list": "<li>Acil tehlike: 112 (Avrupa'nın her yerinde).</li><li>Fransa'da konuşamıyorsan: 114'e SMS.</li><li>ABD'de: 1-888-373-7888 (insan ticaretine karşı ulusal hat) veya 233733'e SMS.</li><li>Adını vermeden gönüllü bir uzmana da yazabilirsin: <a href=\"#soignants\">Sağlık profesyonelleri</a></li>"
 }

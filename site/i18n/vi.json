@@ -440,5 +440,8 @@
  "o.liveWeak": "Ảnh selfie bị tối hoặc mờ: việc so sánh sẽ kém tin cậy hơn. Bạn có thể chụp lại với nhiều ánh sáng hơn.",
  "o.conf.weak": "khó tìm thấy khuôn mặt trong hình ảnh này (nhỏ, bị che hoặc nghiêng).",
  "o.conf.refWeak": "ảnh selfie của bạn bị tối hoặc mờ.",
- "o.minor": "Chỉ dành cho người đã đủ 18 tuổi. Nếu bạn chưa đủ 18 tuổi, hoặc nếu hình ảnh được chụp khi bạn chưa đủ 18 tuổi, đừng gửi nó vào đây: hãy dùng <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, nơi hình ảnh không bao giờ rời khỏi điện thoại của bạn. Tại Pháp, bạn cũng có thể gọi số 3018."
+ "o.minor": "Chỉ dành cho người đã đủ 18 tuổi. Nếu bạn chưa đủ 18 tuổi, hoặc nếu hình ảnh được chụp khi bạn chưa đủ 18 tuổi, đừng gửi nó vào đây: hãy dùng <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, nơi hình ảnh không bao giờ rời khỏi điện thoại của bạn. Tại Pháp, bạn cũng có thể gọi số 3018.",
+ "h.help.title": "Có ai đang ép buộc bạn không?",
+ "h.help.text": "Nếu ai đó thúc ép bạn làm việc này, giữ tiền, mật khẩu hay giấy tờ của bạn, hoặc viết tin nhắn thay bạn, đó không phải lỗi của bạn và bạn có quyền được giúp đỡ. Không ai phán xét bạn. Nút «Thoát nhanh» đóng trang này chỉ với một chạm.",
+ "h.help.list": "<li>Nguy hiểm tức thời: 112 (khắp châu Âu).</li><li>Ở Pháp, nếu không thể nói: nhắn SMS tới 114.</li><li>Ở Hoa Kỳ: 1-888-373-7888 (đường dây quốc gia chống buôn người) hoặc nhắn SMS tới 233733.</li><li>Bạn cũng có thể viết cho một chuyên gia y tế tình nguyện mà không cần nêu tên: <a href=\"#soignants\">Nhân viên y tế</a></li>"
 }

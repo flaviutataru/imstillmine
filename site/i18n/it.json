@@ -440,5 +440,8 @@
  "o.liveWeak": "Il selfie era scuro o sfocato: il confronto sarà meno affidabile. Puoi rifarlo con più luce.",
  "o.conf.weak": "il viso è stato difficile da individuare in questa immagine (piccolo, nascosto o di profilo).",
  "o.conf.refWeak": "il tuo selfie era scuro o sfocato.",
- "o.minor": "Riservato alle persone adulte. Se hai meno di 18 anni, o se l'immagine è stata scattata prima dei tuoi 18 anni, non inviarla qui: usa <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, dove l'immagine non lascia il tuo telefono. In Francia puoi anche chiamare il 3018."
+ "o.minor": "Riservato alle persone adulte. Se hai meno di 18 anni, o se l'immagine è stata scattata prima dei tuoi 18 anni, non inviarla qui: usa <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, dove l'immagine non lascia il tuo telefono. In Francia puoi anche chiamare il 3018.",
+ "h.help.title": "Qualcuno ti sta costringendo?",
+ "h.help.text": "Se qualcuno ti spinge a farlo, tiene i tuoi soldi, le tue password o i tuoi documenti, o scrive i messaggi al posto tuo, non è colpa tua e hai diritto a un aiuto. Nessuno ti giudicherà. Il pulsante «Esci subito» chiude il sito con un tocco.",
+ "h.help.list": "<li>Pericolo immediato: 112 (in tutta Europa).</li><li>In Francia, se non puoi parlare: SMS al 114.</li><li>Negli Stati Uniti: 1-888-373-7888 (linea nazionale contro la tratta) o SMS al 233733.</li><li>Puoi anche scrivere a un professionista sanitario volontario senza dare il tuo nome: <a href=\"#soignants\">Professionisti sanitari</a></li>"
 }

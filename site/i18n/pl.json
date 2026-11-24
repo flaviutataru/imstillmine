@@ -440,5 +440,8 @@
  "o.liveWeak": "Selfie było ciemne lub nieostre: porównanie będzie mniej pewne. Możesz zrobić je jeszcze raz przy mocniejszym świetle.",
  "o.conf.weak": "twarz trudno było znaleźć na tym obrazie (mała, zasłonięta lub z profilu).",
  "o.conf.refWeak": "twoje selfie było ciemne lub nieostre.",
- "o.minor": "Tylko dla dorosłych. Jeśli masz mniej niż 18 lat albo jeśli zdjęcie zrobiono przed twoimi 18. urodzinami, nie wysyłaj go tutaj: skorzystaj z serwisu <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, gdzie zdjęcie nie opuszcza twojego telefonu. We Francji możesz też zadzwonić pod numer 3018."
+ "o.minor": "Tylko dla dorosłych. Jeśli masz mniej niż 18 lat albo jeśli zdjęcie zrobiono przed twoimi 18. urodzinami, nie wysyłaj go tutaj: skorzystaj z serwisu <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, gdzie zdjęcie nie opuszcza twojego telefonu. We Francji możesz też zadzwonić pod numer 3018.",
+ "h.help.title": "Czy ktoś cię zmusza?",
+ "h.help.text": "Jeśli ktoś cię do tego popycha, zatrzymuje twoje pieniądze, hasła lub dokumenty albo pisze wiadomości za ciebie, to nie twoja wina i masz prawo do pomocy. Nikt cię nie oceni. Przycisk „Szybkie wyjście” zamyka tę stronę jednym dotknięciem.",
+ "h.help.list": "<li>Bezpośrednie zagrożenie: 112 (w całej Europie).</li><li>We Francji, jeśli nie możesz mówić: SMS pod numer 114.</li><li>W USA: 1-888-373-7888 (krajowa linia przeciw handlowi ludźmi) lub SMS pod 233733.</li><li>Możesz też anonimowo napisać do wolontariusza – specjalisty: <a href=\"#soignants\">Specjaliści</a></li>"
 }

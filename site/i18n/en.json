@@ -440,5 +440,8 @@
  "o.liveWeak": "The selfie was dark or blurry: the comparison will be less reliable. You can redo it with more light.",
  "o.conf.weak": "the face was hard to find in this image (small, hidden or in profile).",
  "o.conf.refWeak": "your selfie was dark or blurry.",
- "o.minor": "For adults only. If you are under 18, or if the image was taken before you turned 18, do not send it here: use <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, where the image never leaves your phone. In France you can also call 3018."
+ "o.minor": "For adults only. If you are under 18, or if the image was taken before you turned 18, do not send it here: use <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, where the image never leaves your phone. In France you can also call 3018.",
+ "h.help.title": "Is someone forcing you?",
+ "h.help.text": "If someone pushes you to do this, keeps your money, passwords or papers, or writes your messages for you, it is not your fault and you have a right to help. Nobody will judge you. The “Quick exit” button closes this site in one tap.",
+ "h.help.list": "<li>Immediate danger: 112 (anywhere in Europe).</li><li>In France, if you cannot speak: text 114.</li><li>In the United States: 1-888-373-7888 (national anti-trafficking hotline), or text 233733.</li><li>You can also write to a volunteer clinician without giving your name: <a href=\"#soignants\">Clinicians</a></li>"
 }
