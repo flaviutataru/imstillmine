@@ -443,5 +443,15 @@
  "o.minor": "Yalnızca yetişkinler içindir. 18 yaşından küçüksen ya da görüntü 18 yaşından önce çekildiyse onu buraya gönderme: <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a> hizmetini kullan; orada görüntü telefonundan çıkmaz. Fransa'da 3018 numarasını da arayabilirsin.",
  "h.help.title": "Biri seni zorluyor mu?",
  "h.help.text": "Biri seni buna itiyorsa, paranı, şifrelerini ya da belgelerini elinde tutuyorsa veya mesajlarını senin yerine yazıyorsa, bu senin suçun değil ve yardım alma hakkın var. Kimse seni yargılamayacak. «Hemen çık» düğmesi siteyi tek dokunuşla kapatır.",
- "h.help.list": "<li>Acil tehlike: 112 (Avrupa'nın her yerinde).</li><li>Fransa'da konuşamıyorsan: 114'e SMS.</li><li>ABD'de: 1-888-373-7888 (insan ticaretine karşı ulusal hat) veya 233733'e SMS.</li><li>Adını vermeden gönüllü bir uzmana da yazabilirsin: <a href=\"#soignants\">Sağlık profesyonelleri</a></li>"
+ "h.help.list": "<li>Acil tehlike: 112 (Avrupa'nın her yerinde).</li><li>Fransa'da konuşamıyorsan: 114'e SMS.</li><li>ABD'de: 1-888-373-7888 (insan ticaretine karşı ulusal hat) veya 233733'e SMS.</li><li>Adını vermeden gönüllü bir uzmana da yazabilirsin: <a href=\"#soignants\">Sağlık profesyonelleri</a></li>",
+ "r.title": "Sahte radarı: neye bakar",
+ "r.intro": "Bir görsel gönderdiğinde sunucumuz, dosyanın kendisi hakkında söylediklerini okur. Üç tür iz arar:",
+ "r.l1": "yapay zekâ görsel üreticilerinin bıraktığı ayarlar;",
+ "r.l2": "bazı araçların eklediği “yapay zekâ ile oluşturuldu” etiketi;",
+ "r.l3": "yüze rötuş yapan uygulamaların bıraktığı iz.",
+ "r.limit": "Henüz piksellere bakmıyor. Bu izleri taşımayan bir görsel yine de sahte olabilir: birçok sosyal ağ bu izleri siler. Sonuç kelimelerle verilir (açık işaretler, birkaç işaret, net bir şey yok), asla kanıt olarak değil. Görsel saklanmaz.",
+ "r.btn": "Bir görseli kontrol et",
+ "r.a1": "YZ ayarları",
+ "r.a2": "YZ etiketi",
+ "r.a3": "yüz rötuşu"
 }

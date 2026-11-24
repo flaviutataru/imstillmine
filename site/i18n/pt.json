@@ -443,5 +443,15 @@
  "o.minor": "Apenas para pessoas adultas. Se você tem menos de 18 anos, ou se a imagem foi feita antes dos seus 18 anos, não a envie aqui: use o <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, onde a imagem não sai do seu telefone. Na França, você também pode ligar para o 3018.",
  "h.help.title": "Alguém está a obrigar-te?",
  "h.help.text": "Se alguém te pressiona a fazer isto, fica com o teu dinheiro, as tuas palavras-passe ou os teus documentos, ou escreve as tuas mensagens por ti, a culpa não é tua e tens direito a ajuda. Ninguém te vai julgar. O botão «Sair rápido» fecha este site com um toque.",
- "h.help.list": "<li>Perigo imediato: 112 (em toda a Europa).</li><li>Em França, se não puderes falar: SMS para o 114.</li><li>Nos Estados Unidos: 1-888-373-7888 (linha nacional contra o tráfico) ou SMS para 233733.</li><li>Também podes escrever a um profissional de saúde voluntário sem dar o teu nome: <a href=\"#soignants\">Profissionais de saúde</a></li>"
+ "h.help.list": "<li>Perigo imediato: 112 (em toda a Europa).</li><li>Em França, se não puderes falar: SMS para o 114.</li><li>Nos Estados Unidos: 1-888-373-7888 (linha nacional contra o tráfico) ou SMS para 233733.</li><li>Também podes escrever a um profissional de saúde voluntário sem dar o teu nome: <a href=\"#soignants\">Profissionais de saúde</a></li>",
+ "r.title": "O radar de falsos: o que ele observa",
+ "r.intro": "Quando você envia uma imagem, nosso servidor lê o que o arquivo diz sobre si mesmo. Ele procura três tipos de rastros:",
+ "r.l1": "as configurações que os geradores de imagens com IA deixam;",
+ "r.l2": "a marcação “criado por IA” que algumas ferramentas adicionam;",
+ "r.l3": "o rastro dos aplicativos que retocam o rosto.",
+ "r.limit": "Ele ainda não olha os pixels. Uma imagem sem esses rastros pode mesmo assim ser falsa: muitas redes sociais os apagam. O resultado é dado em palavras (sinais claros, alguns sinais, nada nítido), nunca como prova. A imagem não é guardada.",
+ "r.btn": "Verificar uma imagem",
+ "r.a1": "ajustes de IA",
+ "r.a2": "marcação IA",
+ "r.a3": "retoque do rosto"
 }

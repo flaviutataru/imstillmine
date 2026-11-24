@@ -443,5 +443,15 @@
  "o.minor": "Réservé aux adultes. Si tu as moins de 18 ans, ou si l'image a été prise avant tes 18 ans, ne l'envoie pas ici : utilise <a href=\"https://takeitdown.ncmec.org/fr/\" rel=\"noopener\">Take It Down</a>, où l'image ne quitte pas ton téléphone. En France, tu peux aussi appeler le 3018.",
  "h.help.title": "Quelqu'un te force ?",
  "h.help.text": "Si quelqu'un te pousse à le faire, garde ton argent, tes codes ou tes papiers, ou écrit tes messages à ta place, ce n'est pas de ta faute et tu as droit à de l'aide. Personne ne te jugera. Le bouton « Quitter vite » ferme ce site en un geste.",
- "h.help.list": "<li>Danger immédiat : 112 (partout en Europe).</li><li>En France, si tu ne peux pas parler : SMS au 114.</li><li>Aux États-Unis : 1-888-373-7888 (ligne nationale contre la traite), ou SMS au 233733.</li><li>Tu peux aussi écrire à un ou une soignante bénévole, sans donner ton nom : <a href=\"#soignants\">Soignants</a></li>"
+ "h.help.list": "<li>Danger immédiat : 112 (partout en Europe).</li><li>En France, si tu ne peux pas parler : SMS au 114.</li><li>Aux États-Unis : 1-888-373-7888 (ligne nationale contre la traite), ou SMS au 233733.</li><li>Tu peux aussi écrire à un ou une soignante bénévole, sans donner ton nom : <a href=\"#soignants\">Soignants</a></li>",
+ "r.title": "Le radar à faux : ce qu'il regarde",
+ "r.intro": "Quand tu envoies une image, notre serveur lit ce que le fichier dit de lui-même. Il cherche trois sortes de traces :",
+ "r.l1": "les réglages que laissent les générateurs d'images par IA ;",
+ "r.l2": "le marquage « créé par une IA » que certains outils ajoutent ;",
+ "r.l3": "la trace des applications qui retouchent le visage.",
+ "r.limit": "Il ne regarde pas encore les pixels. Une image sans ces traces peut quand même être un faux : beaucoup de réseaux sociaux les effacent. Le résultat est donné avec des mots (signes clairs, quelques signes, rien de net), jamais comme une preuve. L'image n'est pas gardée.",
+ "r.btn": "Vérifier une image",
+ "r.a1": "réglages IA",
+ "r.a2": "marquage IA",
+ "r.a3": "retouche visage"
 }

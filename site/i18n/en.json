@@ -443,5 +443,15 @@
  "o.minor": "For adults only. If you are under 18, or if the image was taken before you turned 18, do not send it here: use <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, where the image never leaves your phone. In France you can also call 3018.",
  "h.help.title": "Is someone forcing you?",
  "h.help.text": "If someone pushes you to do this, keeps your money, passwords or papers, or writes your messages for you, it is not your fault and you have a right to help. Nobody will judge you. The “Quick exit” button closes this site in one tap.",
- "h.help.list": "<li>Immediate danger: 112 (anywhere in Europe).</li><li>In France, if you cannot speak: text 114.</li><li>In the United States: 1-888-373-7888 (national anti-trafficking hotline), or text 233733.</li><li>You can also write to a volunteer clinician without giving your name: <a href=\"#soignants\">Clinicians</a></li>"
+ "h.help.list": "<li>Immediate danger: 112 (anywhere in Europe).</li><li>In France, if you cannot speak: text 114.</li><li>In the United States: 1-888-373-7888 (national anti-trafficking hotline), or text 233733.</li><li>You can also write to a volunteer clinician without giving your name: <a href=\"#soignants\">Clinicians</a></li>",
+ "r.title": "The fake radar: what it looks at",
+ "r.intro": "When you send an image, our server reads what the file says about itself. It looks for three kinds of traces:",
+ "r.l1": "the settings that AI image generators leave behind;",
+ "r.l2": "the “made by AI” label that some tools add;",
+ "r.l3": "the trace left by apps that retouch faces.",
+ "r.limit": "It does not look at the pixels yet. An image without these traces can still be a fake: many social networks erase them. The result is given in words (clear signs, a few signs, nothing clear), never as proof. The image is not kept.",
+ "r.btn": "Check an image",
+ "r.a1": "AI settings",
+ "r.a2": "AI label",
+ "r.a3": "face retouch"
 }

@@ -321,6 +321,21 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
 .helpband .help{border-left:3px solid var(--acc)}
 .helplist{padding-left:1.1em;margin:8px 0 0}
 .helplist li{margin:6px 0}
+.radarband .two{align-items:center}
+.rlist{padding-left:1.1em;margin:8px 0 12px}.rlist li{margin:6px 0}
+.rsvg{width:100%;max-width:420px;display:block;margin:auto}
+.rfile{fill:var(--bg);stroke:var(--line);stroke-width:1.5}.rfold{fill:none;stroke:var(--line);stroke-width:1.5}
+.rpic{fill:var(--paper);stroke:var(--line)}.rpicc{fill:var(--crack)}
+.rl{fill:var(--line)}.rscan{fill:var(--acc);opacity:.55}
+.rtag path{stroke:var(--acc);stroke-width:1.5;fill:none}.rtag text{font:600 12px "DM Sans",system-ui,sans-serif;fill:var(--accdeep)}
+.rtag{opacity:0}
+.rdemo.on .rscan{animation:rscan 3.2s ease-in-out 1 forwards}
+.rdemo.on #rl1{animation:rhit .4s ease 1s forwards}.rdemo.on #rt1{animation:rshow .4s ease 1s forwards}
+.rdemo.on #rl2{animation:rhit .4s ease 1.8s forwards}.rdemo.on #rt2{animation:rshow .4s ease 1.8s forwards}
+.rdemo.on #rl3{animation:rhit .4s ease 2.6s forwards}.rdemo.on #rt3{animation:rshow .4s ease 2.6s forwards}
+@keyframes rscan{from{transform:translateY(0)}to{transform:translateY(212px)}}
+@keyframes rhit{to{fill:var(--acc)}}@keyframes rshow{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.rscan{display:none}#rl1,#rl2,#rl3{fill:var(--acc)}.rtag{opacity:1}.rdemo.on *{animation:none!important}}
 </style>
 </head>
 <body>
@@ -416,6 +431,32 @@ h1.xl{font-size:clamp(34px,5.4vw,60px);letter-spacing:-.015em;line-height:1.04}
 <div><h3 data-i="s.accueil.8">Avec des soignants</h3><p data-i="s.accueil.9">Si tu veux en parler, un psychiatre te reçoit gratuitement et en toute confidentialité.</p></div>
 </div>
 </section>
+<section class="band radarband" id="radar" aria-labelledby="radarT"><div class="wrapw two">
+<div class="page rtext">
+<h2 id="radarT" data-i="r.title">Le radar à faux : ce qu'il regarde</h2>
+<p data-i="r.intro">.</p>
+<ul class="rlist"><li data-i="r.l1">.</li><li data-i="r.l2">.</li><li data-i="r.l3">.</li></ul>
+<p class="small" data-i="r.limit">.</p>
+<a class="btn" href="#outils" data-i="r.btn">Vérifier une image</a>
+</div>
+<div class="page rdemo" aria-hidden="true">
+<svg viewBox="0 0 320 250" class="rsvg">
+<rect x="20" y="14" width="190" height="222" rx="10" class="rfile"/>
+<path d="M170 14v30h40" class="rfold"/>
+<rect x="38" y="34" width="110" height="74" rx="6" class="rpic"/>
+<circle cx="70" cy="62" r="11" class="rpicc"/><path d="M42 104l30-26 22 18 18-14 32 22z" class="rpicc"/>
+<rect x="38" y="124" width="150" height="9" rx="4" class="rl" id="rl1"/>
+<rect x="38" y="142" width="128" height="9" rx="4" class="rl"/>
+<rect x="38" y="160" width="140" height="9" rx="4" class="rl" id="rl2"/>
+<rect x="38" y="178" width="110" height="9" rx="4" class="rl"/>
+<rect x="38" y="196" width="146" height="9" rx="4" class="rl" id="rl3"/>
+<rect x="22" y="16" width="186" height="4" class="rscan"/>
+<g class="rtag" id="rt1"><path d="M190 128h22"/><text x="216" y="132" data-i="r.a1">réglages IA</text></g>
+<g class="rtag" id="rt2"><path d="M180 164h32"/><text x="216" y="168" data-i="r.a2">marquage IA</text></g>
+<g class="rtag" id="rt3"><path d="M186 200h26"/><text x="216" y="204" data-i="r.a3">retouche visage</text></g>
+</svg>
+</div>
+</div></section>
 <section class="band helpband" id="aide" aria-labelledby="helpT"><div class="wrapw"><div class="page help">
 <h2 id="helpT" data-i="h.help.title">Quelqu'un te force ?</h2>
 <p data-i="h.help.text">.</p>
@@ -927,6 +968,9 @@ function figsShow(i,quiet){i=Math.max(0,Math.min(FIGS.length-1,i));FIG.i=i;const
   st.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;
     if(Math.abs(dx)>48&&Math.abs(dx)>Math.abs(dy)*1.5){const rtl=document.documentElement.dir==='rtl';figsShow(FIG.i+((dx<0)!==rtl?1:-1))}},{passive:true});
   document.addEventListener('langchange',figsRender);figsRender()})();
+(()=>{const d=document.querySelector('.rdemo');if(!d)return;
+ if(!('IntersectionObserver' in window)){d.classList.add('on');return}
+ const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){d.classList.add('on');io.disconnect()}},{threshold:.4});io.observe(d)})();
 addEventListener('hashchange',route);
 renderSlots();
 (window.i18nReady||Promise.resolve()).then(()=>{window.__booted=true;renderF();route()});

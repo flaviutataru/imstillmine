@@ -443,5 +443,15 @@
  "o.minor": "Chỉ dành cho người đã đủ 18 tuổi. Nếu bạn chưa đủ 18 tuổi, hoặc nếu hình ảnh được chụp khi bạn chưa đủ 18 tuổi, đừng gửi nó vào đây: hãy dùng <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, nơi hình ảnh không bao giờ rời khỏi điện thoại của bạn. Tại Pháp, bạn cũng có thể gọi số 3018.",
  "h.help.title": "Có ai đang ép buộc bạn không?",
  "h.help.text": "Nếu ai đó thúc ép bạn làm việc này, giữ tiền, mật khẩu hay giấy tờ của bạn, hoặc viết tin nhắn thay bạn, đó không phải lỗi của bạn và bạn có quyền được giúp đỡ. Không ai phán xét bạn. Nút «Thoát nhanh» đóng trang này chỉ với một chạm.",
- "h.help.list": "<li>Nguy hiểm tức thời: 112 (khắp châu Âu).</li><li>Ở Pháp, nếu không thể nói: nhắn SMS tới 114.</li><li>Ở Hoa Kỳ: 1-888-373-7888 (đường dây quốc gia chống buôn người) hoặc nhắn SMS tới 233733.</li><li>Bạn cũng có thể viết cho một chuyên gia y tế tình nguyện mà không cần nêu tên: <a href=\"#soignants\">Nhân viên y tế</a></li>"
+ "h.help.list": "<li>Nguy hiểm tức thời: 112 (khắp châu Âu).</li><li>Ở Pháp, nếu không thể nói: nhắn SMS tới 114.</li><li>Ở Hoa Kỳ: 1-888-373-7888 (đường dây quốc gia chống buôn người) hoặc nhắn SMS tới 233733.</li><li>Bạn cũng có thể viết cho một chuyên gia y tế tình nguyện mà không cần nêu tên: <a href=\"#soignants\">Nhân viên y tế</a></li>",
+ "r.title": "Radar ảnh giả: nó xem những gì",
+ "r.intro": "Khi bạn gửi một hình ảnh, máy chủ của chúng tôi đọc những gì tệp tự ghi về chính nó. Nó tìm ba loại dấu vết:",
+ "r.l1": "các thiết lập mà công cụ tạo ảnh bằng AI để lại;",
+ "r.l2": "nhãn “do AI tạo” mà một số công cụ thêm vào;",
+ "r.l3": "dấu vết của các ứng dụng chỉnh sửa khuôn mặt.",
+ "r.limit": "Nó chưa xem xét các điểm ảnh. Một hình ảnh không có những dấu vết này vẫn có thể là ảnh giả: nhiều mạng xã hội xóa chúng đi. Kết quả được đưa ra bằng lời (dấu hiệu rõ, vài dấu hiệu, không có gì rõ ràng), không bao giờ là bằng chứng. Hình ảnh không được lưu lại.",
+ "r.btn": "Kiểm tra hình ảnh",
+ "r.a1": "thiết lập AI",
+ "r.a2": "nhãn AI",
+ "r.a3": "chỉnh mặt"
 }

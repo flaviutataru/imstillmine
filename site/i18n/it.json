@@ -443,5 +443,15 @@
  "o.minor": "Riservato alle persone adulte. Se hai meno di 18 anni, o se l'immagine è stata scattata prima dei tuoi 18 anni, non inviarla qui: usa <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, dove l'immagine non lascia il tuo telefono. In Francia puoi anche chiamare il 3018.",
  "h.help.title": "Qualcuno ti sta costringendo?",
  "h.help.text": "Se qualcuno ti spinge a farlo, tiene i tuoi soldi, le tue password o i tuoi documenti, o scrive i messaggi al posto tuo, non è colpa tua e hai diritto a un aiuto. Nessuno ti giudicherà. Il pulsante «Esci subito» chiude il sito con un tocco.",
- "h.help.list": "<li>Pericolo immediato: 112 (in tutta Europa).</li><li>In Francia, se non puoi parlare: SMS al 114.</li><li>Negli Stati Uniti: 1-888-373-7888 (linea nazionale contro la tratta) o SMS al 233733.</li><li>Puoi anche scrivere a un professionista sanitario volontario senza dare il tuo nome: <a href=\"#soignants\">Professionisti sanitari</a></li>"
+ "h.help.list": "<li>Pericolo immediato: 112 (in tutta Europa).</li><li>In Francia, se non puoi parlare: SMS al 114.</li><li>Negli Stati Uniti: 1-888-373-7888 (linea nazionale contro la tratta) o SMS al 233733.</li><li>Puoi anche scrivere a un professionista sanitario volontario senza dare il tuo nome: <a href=\"#soignants\">Professionisti sanitari</a></li>",
+ "r.title": "Il radar dei falsi: cosa guarda",
+ "r.intro": "Quando invii un’immagine, il nostro server legge quello che il file dice di sé. Cerca tre tipi di tracce:",
+ "r.l1": "le impostazioni lasciate dai generatori di immagini con IA;",
+ "r.l2": "il contrassegno «creato con IA» che alcuni strumenti aggiungono;",
+ "r.l3": "la traccia delle app che ritoccano il viso.",
+ "r.limit": "Non guarda ancora i pixel. Un’immagine senza queste tracce può comunque essere falsa: molti social network le cancellano. Il risultato viene dato a parole (segnali chiari, qualche segnale, niente di netto), mai come prova. L’immagine non viene conservata.",
+ "r.btn": "Verifica un’immagine",
+ "r.a1": "impostazioni IA",
+ "r.a2": "contrassegno IA",
+ "r.a3": "ritocco viso"
 }

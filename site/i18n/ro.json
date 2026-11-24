@@ -443,5 +443,15 @@
  "o.minor": "Rezervat persoanelor adulte. Dacă ai sub 18 ani sau dacă imaginea a fost făcută înainte să împlinești 18 ani, nu o trimite aici: folosește <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, unde imaginea nu îți părăsește telefonul. În Franța poți suna și la 3018.",
  "h.help.title": "Te obligă cineva?",
  "h.help.text": "Dacă cineva te împinge să faci asta, îți ține banii, parolele sau actele, ori scrie mesajele în locul tău, nu e vina ta și ai dreptul la ajutor. Nimeni nu te va judeca. Butonul „Ieși repede” închide site-ul dintr-o atingere.",
- "h.help.list": "<li>Pericol imediat: 112 (oriunde în Europa).</li><li>În Franța, dacă nu poți vorbi: SMS la 114.</li><li>În Statele Unite: 1-888-373-7888 (linia națională împotriva traficului de persoane) sau SMS la 233733.</li><li>Poți scrie și unui medic voluntar, fără să-ți dai numele: <a href=\"#soignants\">Specialiști</a></li>"
+ "h.help.list": "<li>Pericol imediat: 112 (oriunde în Europa).</li><li>În Franța, dacă nu poți vorbi: SMS la 114.</li><li>În Statele Unite: 1-888-373-7888 (linia națională împotriva traficului de persoane) sau SMS la 233733.</li><li>Poți scrie și unui medic voluntar, fără să-ți dai numele: <a href=\"#soignants\">Specialiști</a></li>",
+ "r.title": "Radarul de falsuri: ce verifică",
+ "r.intro": "Când trimiți o imagine, serverul nostru citește ce spune fișierul despre el însuși. Caută trei feluri de urme:",
+ "r.l1": "setările pe care le lasă generatoarele de imagini cu IA;",
+ "r.l2": "marcajul „creat de IA” pe care îl adaugă unele instrumente;",
+ "r.l3": "urma aplicațiilor care retușează fața.",
+ "r.limit": "Încă nu se uită la pixeli. O imagine fără aceste urme poate fi totuși un fals: multe rețele sociale le șterg. Rezultatul e dat în cuvinte (semne clare, câteva semne, nimic clar), niciodată ca dovadă. Imaginea nu este păstrată.",
+ "r.btn": "Verifică o imagine",
+ "r.a1": "setări IA",
+ "r.a2": "marcaj IA",
+ "r.a3": "retuș față"
 }

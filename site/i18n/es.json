@@ -443,5 +443,15 @@
  "o.minor": "Solo para personas adultas. Si tienes menos de 18 años, o si la imagen se tomó antes de que cumplieras 18, no la envíes aquí: usa <a href=\"https://takeitdown.ncmec.org/\" rel=\"noopener\">Take It Down</a>, donde la imagen no sale de tu teléfono. En Francia, también puedes llamar al 3018.",
  "h.help.title": "¿Alguien te está obligando?",
  "h.help.text": "Si alguien te presiona para hacerlo, se queda con tu dinero, tus contraseñas o tus papeles, o escribe tus mensajes por ti, no es tu culpa y tienes derecho a ayuda. Nadie te va a juzgar. El botón «Salir rápido» cierra este sitio con un toque.",
- "h.help.list": "<li>Peligro inmediato: 112 (en toda Europa).</li><li>En Francia, si no puedes hablar: SMS al 114.</li><li>En Estados Unidos: 1-888-373-7888 (línea nacional contra la trata) o SMS al 233733.</li><li>También puedes escribir a un profesional sanitario voluntario sin dar tu nombre: <a href=\"#soignants\">Profesionales de la salud</a></li>"
+ "h.help.list": "<li>Peligro inmediato: 112 (en toda Europa).</li><li>En Francia, si no puedes hablar: SMS al 114.</li><li>En Estados Unidos: 1-888-373-7888 (línea nacional contra la trata) o SMS al 233733.</li><li>También puedes escribir a un profesional sanitario voluntario sin dar tu nombre: <a href=\"#soignants\">Profesionales de la salud</a></li>",
+ "r.title": "El radar de falsos: qué mira",
+ "r.intro": "Cuando envías una imagen, nuestro servidor lee lo que el archivo dice de sí mismo. Busca tres tipos de huellas:",
+ "r.l1": "los ajustes que dejan los generadores de imágenes con IA;",
+ "r.l2": "la marca «creado con IA» que añaden algunas herramientas;",
+ "r.l3": "la huella de las aplicaciones que retocan la cara.",
+ "r.limit": "Todavía no mira los píxeles. Una imagen sin estas huellas puede ser falsa igualmente: muchas redes sociales las borran. El resultado se da con palabras (señales claras, algunas señales, nada claro), nunca como una prueba. La imagen no se guarda.",
+ "r.btn": "Revisar una imagen",
+ "r.a1": "ajustes IA",
+ "r.a2": "marca IA",
+ "r.a3": "retoque de cara"
 }
