@@ -453,5 +453,12 @@
  "r.btn": "Check an image",
  "r.a1": "AI settings",
  "r.a2": "AI label",
- "r.a3": "face retouch"
+ "r.a3": "face retouch",
+ "o.hm.title": "Where to look in the image (beta)",
+ "o.hm.ela": "Re-saved areas",
+ "o.hm.noise": "Different grain",
+ "o.hm.seams": "Edges of a possible collage",
+ "o.hm.mine": "What comes from your photo",
+ "o.hm.note": "Turn the layers on one at a time. These are places to look, not proof: a real photo can light up too, especially after it has been through a social network. These maps don't change the verdict.",
+ "o.hm.mineNo": "The green layer appears if you first compared this image with your face (tool 1); this layer is computed on your device."
 }

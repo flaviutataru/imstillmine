@@ -453,5 +453,12 @@
  "r.btn": "Verifică o imagine",
  "r.a1": "setări IA",
  "r.a2": "marcaj IA",
- "r.a3": "retuș față"
+ "r.a3": "retuș față",
+ "o.hm.title": "Unde să te uiți în imagine (beta)",
+ "o.hm.ela": "Zone salvate din nou",
+ "o.hm.noise": "Granulație diferită",
+ "o.hm.seams": "Marginile unui posibil colaj",
+ "o.hm.mine": "Ce vine din poza ta",
+ "o.hm.note": "Aprinde straturile unul câte unul. Sunt locuri unde să te uiți, nu dovezi: și o poză reală se poate aprinde, mai ales după ce a trecut printr-o rețea socială. Aceste hărți nu schimbă verdictul.",
+ "o.hm.mineNo": "Stratul verde apare dacă ai comparat mai întâi această imagine cu fața ta (instrumentul 1); acest strat este calculat pe dispozitivul tău."
 }

@@ -222,7 +222,7 @@ async function checkSuspect(e){
     x.fillStyle=i===0?'#d9503c':'#9ab';x.font='bold 15px DM Sans, sans-serif';x.fillText(pctOf(o)+' %',b.x*k+4,Math.max(16,b.y*k-6))});
   const best=rows[0],faV=verdict(best.d),arcV=useArc?arcVerdict(best.c):null,v=arcV||faV;
   const conf=confidence(best.r.detection.box.width,faV.cls,arcV&&arcV.cls,weak);
-  T.match={file,d:best.d,c:useArc?best.c:null,n:res.length,pct:pctOf(best),label:v.t,refFrom:T.refFrom,conf:conf.lvl,nRef:T.refFrom==='live'?0:T.refs.length};
+  T.match={file,pts:best.r.landmarks.positions.map(q=>({x:q.x,y:q.y})),iw:img.naturalWidth,ih:img.naturalHeight,d:best.d,c:useArc?best.c:null,n:res.length,pct:pctOf(best),label:v.t,refFrom:T.refFrom,conf:conf.lvl,nRef:T.refFrom==='live'?0:T.refs.length};
   $('matchOut').innerHTML=`<div class="vcard ${v.cls}"><div class="big">${pctOf(best)} %</div><b>${v.t}</b><span>${v.s}</span>
    <div class="meter"><i style="width:${pctOf(best)}%"></i></div>
    <p class="conf ${conf.lvl}"><b>${t('o.conf.label')} : ${t('o.conf.'+conf.lvl)}</b> · ${conf.why}</p>
@@ -276,8 +276,29 @@ async function analyseRun(file,run,out){
   const g=V[verdict]||V.insufficient;
   T.signals=[{l:g[3],k:'file',t:t(g[1])}];
   out.innerHTML=`<div class="vcard ${g[0]}"><b>${t(g[1])}</b><span>${t(g[2])}</span></div><p class="small">${t('o.api.how')}</p>`;
+  renderMaps(out,img,window.ImStillMineAPI.lastMaps,file);
   renderChecklist();
   $('bodyChk').classList.remove('hide');$('evid').classList.remove('hide');buildReport();
+}
+
+/* ---------- cartes de chaleur (bêta) : 3 calques calculés par le serveur, le 4e ici, sur ton appareil ---------- */
+function renderMaps(out,img,maps,file){
+  if(!img||!maps)return;
+  const mine=T.match&&T.match.file===file&&T.match.pts;
+  const L=[['ela','#1c7ed6'],['noise','#7048e8'],['seams','#e8590c']];
+  const box=document.createElement('div');box.className='hm';
+  box.innerHTML=`<h3>${t('o.hm.title')}</h3><div class="hmtog">${L.map(([k,c])=>`<label><input type="checkbox" data-k="${k}"><span class="sw" style="background:${c}"></span>${t('o.hm.'+k)}</label>`).join('')}
+   <label${mine?'':' class="dis"'}><input type="checkbox" data-k="mine" ${mine?'checked':'disabled'}><span class="sw" style="background:#2f9e44"></span>${t('o.hm.mine')}</label></div>
+   <div class="hmimg"><canvas></canvas>${L.map(([k])=>`<img alt="" data-k="${k}" class="hide" src="data:image/png;base64,${maps[k]}">`).join('')}<canvas class="mine${mine?'':' hide'}"></canvas></div>
+   <p class="small">${t('o.hm.note')}${mine?'':' '+t('o.hm.mineNo')}</p>`;
+  out.appendChild(box);
+  const cv=box.querySelector('canvas'),W=maps.w,H=maps.h;cv.width=W;cv.height=H;cv.getContext('2d').drawImage(img,0,0,W,H);
+  if(mine){const m=box.querySelector('canvas.mine');m.width=W;m.height=H;const x=m.getContext('2d'),k=W/T.match.iw,P=T.match.pts;
+    const grp=[[36,42],[42,48],[27,36],[48,68]];x.fillStyle='rgba(47,158,68,.45)';
+    for(const[a,b]of grp){let cx=0,cy=0,r=0;for(let i=a;i<b;i++){cx+=P[i].x;cy+=P[i].y}cx/=b-a;cy/=b-a;
+      for(let i=a;i<b;i++)r=Math.max(r,Math.hypot(P[i].x-cx,P[i].y-cy));x.beginPath();x.arc(cx*k,cy*k,(r+6)*k,0,7);x.fill()}}
+  box.querySelectorAll('input').forEach(c=>c.addEventListener('change',()=>{const k=c.dataset.k;
+    const el=k==='mine'?box.querySelector('canvas.mine'):box.querySelector(`img[data-k="${k}"]`);el.classList.toggle('hide',!c.checked)}));
 }
 
 const CHK=['moles','tattoos','scars','ears','hands','hair','skinAge','proportions','chest','neck','jewelry','light','background','room'];

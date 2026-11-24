@@ -453,5 +453,12 @@
  "r.btn": "Ein Bild prüfen",
  "r.a1": "KI-Einstellungen",
  "r.a2": "KI-Kennzeichnung",
- "r.a3": "Gesichtsretusche"
+ "r.a3": "Gesichtsretusche",
+ "o.hm.title": "Wo du im Bild hinschauen kannst (Beta)",
+ "o.hm.ela": "Neu gespeicherte Bereiche",
+ "o.hm.noise": "Anderes Bildrauschen",
+ "o.hm.seams": "Ränder einer möglichen Montage",
+ "o.hm.mine": "Was aus deinem Foto stammt",
+ "o.hm.note": "Schalte die Ebenen nacheinander ein. Das sind Stellen zum Hinschauen, keine Beweise: Auch ein echtes Foto kann aufleuchten, vor allem wenn es über ein soziales Netzwerk gelaufen ist. Diese Karten ändern das Ergebnis nicht.",
+ "o.hm.mineNo": "Die grüne Ebene erscheint, wenn du dieses Bild vorher mit deinem Gesicht verglichen hast (Tool 1); diese Ebene wird auf deinem Gerät berechnet."
 }

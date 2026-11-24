@@ -453,5 +453,12 @@
  "r.btn": "Verifica un’immagine",
  "r.a1": "impostazioni IA",
  "r.a2": "contrassegno IA",
- "r.a3": "ritocco viso"
+ "r.a3": "ritocco viso",
+ "o.hm.title": "Dove guardare nell’immagine (beta)",
+ "o.hm.ela": "Zone salvate di nuovo",
+ "o.hm.noise": "Grana diversa",
+ "o.hm.seams": "Bordi di un possibile montaggio",
+ "o.hm.mine": "Ciò che viene dalla tua foto",
+ "o.hm.note": "Accendi i livelli uno alla volta. Sono punti dove guardare, non prove: anche una foto vera può illuminarsi, soprattutto dopo essere passata da un social network. Queste mappe non cambiano il verdetto.",
+ "o.hm.mineNo": "Il livello verde compare se prima hai confrontato questa immagine con il tuo viso (strumento 1); questo livello viene calcolato sul tuo dispositivo."
 }

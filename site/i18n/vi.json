@@ -453,5 +453,12 @@
  "r.btn": "Kiểm tra hình ảnh",
  "r.a1": "thiết lập AI",
  "r.a2": "nhãn AI",
- "r.a3": "chỉnh mặt"
+ "r.a3": "chỉnh mặt",
+ "o.hm.title": "Nên nhìn vào đâu trong hình (beta)",
+ "o.hm.ela": "Vùng đã được lưu lại lần nữa",
+ "o.hm.noise": "Độ hạt khác thường",
+ "o.hm.seams": "Mép có thể là ảnh ghép",
+ "o.hm.mine": "Phần đến từ ảnh của bạn",
+ "o.hm.note": "Hãy bật từng lớp một. Đây là những chỗ nên nhìn kỹ, không phải bằng chứng: ảnh thật cũng có thể sáng lên, nhất là sau khi đi qua một mạng xã hội. Các bản đồ này không thay đổi kết luận.",
+ "o.hm.mineNo": "Lớp màu xanh lá xuất hiện nếu trước đó bạn đã so sánh hình này với khuôn mặt của bạn (công cụ 1); lớp này được tính toán ngay trên thiết bị của bạn."
 }

@@ -453,5 +453,12 @@
  "r.btn": "Periksa gambar",
  "r.a1": "pengaturan AI",
  "r.a2": "tanda AI",
- "r.a3": "edit wajah"
+ "r.a3": "edit wajah",
+ "o.hm.title": "Bagian gambar yang perlu dilihat (beta)",
+ "o.hm.ela": "Area yang disimpan ulang",
+ "o.hm.noise": "Butiran yang berbeda",
+ "o.hm.seams": "Tepi kemungkinan kolase",
+ "o.hm.mine": "Yang berasal dari fotomu",
+ "o.hm.note": "Nyalakan lapisan satu per satu. Ini tempat yang perlu dilihat, bukan bukti: foto asli juga bisa menyala, terutama setelah melewati media sosial. Peta ini tidak mengubah hasil penilaian.",
+ "o.hm.mineNo": "Lapisan hijau muncul jika kamu sudah lebih dulu membandingkan gambar ini dengan wajahmu (alat 1); lapisan ini dihitung di perangkatmu."
 }

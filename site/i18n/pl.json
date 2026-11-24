@@ -453,5 +453,12 @@
  "r.btn": "Sprawdź obraz",
  "r.a1": "ustawienia AI",
  "r.a2": "oznaczenie AI",
- "r.a3": "retusz twarzy"
+ "r.a3": "retusz twarzy",
+ "o.hm.title": "Gdzie patrzeć na obrazie (beta)",
+ "o.hm.ela": "Obszary zapisane ponownie",
+ "o.hm.noise": "Inne ziarno",
+ "o.hm.seams": "Krawędzie możliwego fotomontażu",
+ "o.hm.mine": "Co pochodzi z twojego zdjęcia",
+ "o.hm.note": "Włączaj warstwy po kolei. To miejsca, na które warto spojrzeć, a nie dowody: prawdziwe zdjęcie też może się podświetlić, zwłaszcza po przejściu przez portal społecznościowy. Te mapy nie zmieniają werdyktu.",
+ "o.hm.mineNo": "Zielona warstwa pojawia się, jeśli najpierw użyjesz narzędzia 1, by porównać to zdjęcie ze swoją twarzą; ta warstwa jest obliczana na twoim urządzeniu."
 }

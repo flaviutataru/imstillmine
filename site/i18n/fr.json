@@ -453,5 +453,12 @@
  "r.btn": "Vérifier une image",
  "r.a1": "réglages IA",
  "r.a2": "marquage IA",
- "r.a3": "retouche visage"
+ "r.a3": "retouche visage",
+ "o.hm.title": "Où regarder dans l'image (bêta)",
+ "o.hm.ela": "Zones réenregistrées",
+ "o.hm.noise": "Grain différent",
+ "o.hm.seams": "Bords d'un collage possible",
+ "o.hm.mine": "Ce qui vient de ta photo",
+ "o.hm.note": "Allume les calques un par un. Ce sont des endroits où regarder, pas des preuves : une vraie photo peut aussi s'allumer, surtout après un passage sur un réseau social. Ces cartes ne changent pas le verdict.",
+ "o.hm.mineNo": "Le calque vert apparaît si tu as d'abord comparé cette image à ton visage (outil 1) ; ce calque est calculé sur ton appareil."
 }

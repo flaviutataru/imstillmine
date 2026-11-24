@@ -453,5 +453,12 @@
  "r.btn": "Revisar una imagen",
  "r.a1": "ajustes IA",
  "r.a2": "marca IA",
- "r.a3": "retoque de cara"
+ "r.a3": "retoque de cara",
+ "o.hm.title": "Dónde mirar en la imagen (beta)",
+ "o.hm.ela": "Zonas guardadas de nuevo",
+ "o.hm.noise": "Grano diferente",
+ "o.hm.seams": "Bordes de un posible montaje",
+ "o.hm.mine": "Lo que viene de tu foto",
+ "o.hm.note": "Activa las capas una por una. Son lugares donde mirar, no pruebas: una foto real también puede iluminarse, sobre todo después de pasar por una red social. Estos mapas no cambian el veredicto.",
+ "o.hm.mineNo": "La capa verde aparece si antes comparaste esta imagen con tu cara (herramienta 1); esta capa se calcula en tu dispositivo."
 }

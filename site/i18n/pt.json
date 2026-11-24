@@ -453,5 +453,12 @@
  "r.btn": "Verificar uma imagem",
  "r.a1": "ajustes de IA",
  "r.a2": "marcação IA",
- "r.a3": "retoque do rosto"
+ "r.a3": "retoque do rosto",
+ "o.hm.title": "Onde olhar na imagem (beta)",
+ "o.hm.ela": "Áreas salvas de novo",
+ "o.hm.noise": "Granulação diferente",
+ "o.hm.seams": "Bordas de uma possível montagem",
+ "o.hm.mine": "O que vem da sua foto",
+ "o.hm.note": "Ative as camadas uma de cada vez. São lugares para olhar, não provas: uma foto real também pode acender, principalmente depois de passar por uma rede social. Estes mapas não mudam o veredito.",
+ "o.hm.mineNo": "A camada verde aparece se você tiver comparado antes esta imagem com o seu rosto (ferramenta 1); esta camada é calculada no seu aparelho."
 }

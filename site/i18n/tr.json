@@ -453,5 +453,12 @@
  "r.btn": "Bir görseli kontrol et",
  "r.a1": "YZ ayarları",
  "r.a2": "YZ etiketi",
- "r.a3": "yüz rötuşu"
+ "r.a3": "yüz rötuşu",
+ "o.hm.title": "Görüntüde nereye bakmalı (beta)",
+ "o.hm.ela": "Yeniden kaydedilmiş alanlar",
+ "o.hm.noise": "Farklı grenlenme",
+ "o.hm.seams": "Olası bir kolajın kenarları",
+ "o.hm.mine": "Senin fotoğrafından gelenler",
+ "o.hm.note": "Katmanları tek tek aç. Bunlar bakılacak yerlerdir, kanıt değil: gerçek bir fotoğraf da, özellikle bir sosyal ağdan geçtikten sonra, parlayabilir. Bu haritalar sonucu değiştirmez.",
+ "o.hm.mineNo": "Yeşil katman, bu görüntüyü önce yüzünle karşılaştırdıysan (araç 1) görünür; bu katman cihazında hesaplanır."
 }

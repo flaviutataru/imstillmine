@@ -60,9 +60,11 @@ async function check(file){
     const u = await fetch(`${API}/city/${city.city}/${s.name}`, { method: 'PUT', body: s.data, headers: { 'Content-Type': 'application/octet-stream' } });
     if (!u.ok) throw new Error('api ' + u.status);
   }
-  const v = await fetch(`${API}/city/${city.city}/plan`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ streets: map }) });
+  const v = await fetch(`${API}/city/${city.city}/plan`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ streets: map, maps: true }) });
   if (!v.ok) throw new Error('api ' + v.status);
-  return (await v.json()).verdict;                     /* likely | possible | no_sign | insufficient | unsupported | too_large */
+  const j = await v.json();
+  window.ImStillMineAPI.lastMaps = j.maps || null;        /* beta heat maps (PNG), computed by the server, never stored */
+  return j.verdict;                     /* likely | possible | no_sign | insufficient | unsupported | too_large */
 }
 
 async function unlock(email, lang){
